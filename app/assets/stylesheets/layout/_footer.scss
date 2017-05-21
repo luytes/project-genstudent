@@ -1,1 +1,22 @@
 // Your footer style
+/* Footer design */
+#footer-white {
+  background-color: #2B363F;
+  padding: 30px 0;
+}
+#footer-white a {
+  font-size: 25px;
+  padding: 0 15px;
+  color: white;
+  transition: 1s ease;
+}
+#footer-white ul {
+  margin-bottom: 0;
+}
+#footer-white p {
+  margin-top: 10;
+  color: white;
+}
+#footer-white a:hover {
+  color: #CC7578;
+}
