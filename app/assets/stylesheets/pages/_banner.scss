@@ -1,14 +1,15 @@
 .banner {
   color: white;
   text-align: center;
+  // width: 100%;
   height: calc(100vh - 60px);
+  width: 100vw;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
-  background-repeat: no-repeat;
-  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 .banner h1 {
   font-size: 72px;
@@ -22,3 +23,6 @@
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
 }
+// .banner-content {
+//   position: absolute;
+// }
