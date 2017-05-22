@@ -17,6 +17,11 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'pundit'
 gem 'devise'
+gem 'faker'
+gem "geocoder"
+
+gem 'carrierwave', '~> 0.11.2'
+gem 'cloudinary'
 
 
 group :development, :test do
