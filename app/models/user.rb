@@ -2,18 +2,18 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  # mount_uploader :profile_picture, PhotoUploader
+  mount_uploader :profile_picture, PhotoUploader
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :projects
-  has_many :requests, through: :projects
+  # has_many :requests, through: :projects
   validates :email, uniqueness: true
 
-  has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
-  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
-  has_many :personal_messages, dependent: :destroy
+  # has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
+  # has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
+  # has_many :personal_messages, dependent: :destroy
   # TODO
   # validates :first_name, presence: true
   # validates :last_name, presence: true

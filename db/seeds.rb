@@ -15,6 +15,7 @@ password = Faker::Internet.password(8)
 SKILLS = ["acting", "directing", "writing", "editing", "sound"]
 GENDER = ["men", "women"]
 NUMBER = (0..99)
+url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
 
 20.times do
   u = User.new(
@@ -27,8 +28,8 @@ NUMBER = (0..99)
     portfolio_url: "www.portfolio.com",
     skills: "#{SKILLS.sample} and #{SKILLS.sample}"
     )
-  u.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
-  u.save!
+  u.remote_profile_picture_url = url
+  u.save
 end
 
 category = Project::CATEGORIES.keys.sample.to_s
@@ -48,7 +49,6 @@ Project.create(
     short_description: "A documentary short-film about a young transgender actress and her theatre group in Guanajuato, Mexico.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/205/161/dc52b24cf918b327820fe59cd9286b66_original.png?w=680&fit=max&v=1491844850&auto=format&lossless=true&s=e9f5719089c4b5dd161ccb69fe2958e0",
     owner: User.all.sample,
-    total_budget: "$20,000"
   )
 
 Project.create(
@@ -62,7 +62,6 @@ Project.create(
     short_description: "A feature film in which artists from the Gulf Coast use dance, spoken word, and visual art to tell stories of environmental justice.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/118/731/1e64c31529f786fee57fb6b78125b995_original.jpg?w=680&fit=max&v=1491248233&auto=format&q=92&s=38783ac2eadede486bb5f2348ed7674b",
     owner: User.all.sample,
-    total_budget: "$50,000"
   )
 
 Project.create(
@@ -76,7 +75,6 @@ Project.create(
     short_description: "Six monthly satirical urban fantasy novelettes about a fixer of supernatural problems.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/063/697/187f0c894fa55e864f0bdfea333c5706_original.png?w=680&fit=max&v=1490870733&auto=format&lossless=true&s=241882d4b02654f5c98012859b9a8b00",
     owner: User.all.sample,
-    total_budget: "$1,000"
   )
 
 Project.create(
@@ -90,7 +88,6 @@ Project.create(
     short_description: "Molissa performed at the first Florence Dance Festival in 1989 and is this summer coming back for its 28th edition, both are showing artistic longevity and grace.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/481/464/84ac7de1832e19a38cb480e70672cd7f_original.jpg?w=680&fit=max&v=1493666758&auto=format&q=92&s=5aa629f3e0622619194178a49a28a02e",
     owner: User.all.sample,
-    total_budget: "$3,000"
   )
 
 
@@ -105,7 +102,6 @@ Project.create(
     short_description: "A weighted blanket engineered to be 10 percent of your body weight to naturally reduce stress and increase relaxation.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/316/565/cff9e7bdc4eb8fefbfb5c0e47e179a43_original.png?w=680&fit=max&v=1492614995&auto=format&lossless=true&s=0cbd8b4a2669c9b24a015a34fa1a3260",
     owner: User.all.sample,
-    total_budget: "$20,000"
   )
 
 Project.create(
@@ -119,7 +115,6 @@ Project.create(
     short_description: "An autographed collection of prints from Magic: The Gathering illustrator Johannes Voss.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/232/905/a9a82a9694a07f6fb9c7b01e59d8f72f_original.jpg?w=1024&h=576&fit=fill&bg=000000&v=1492012411&auto=format&q=92&s=87fc2ba11671c136bf6abf0834860676",
     owner: User.all.sample,
-    total_budget: "$5,000"
   )
 
 
@@ -134,7 +129,6 @@ Project.create(
     short_description: "19x27 Curiosity: The conquest of space series poster.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/378/245/8746113bdae37b9b6ec3aa7c8837c61c_original.png?w=680&fit=max&v=1493051688&auto=format&lossless=true&s=3838c5638a73704c54bbe178531c0549",
     owner: User.all.sample,
-    total_budget: "$10,000"
   )
 
 Project.create(
@@ -148,7 +142,6 @@ Project.create(
     short_description: "Love Is A Dirty Word is a solo written and performed by Giovanni Adams. Directed by Becca Wolff.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/514/773/2318d1e4d5733cc509f7f2f98a768f56_original.jpg?w=680&fit=max&v=1493834292&auto=format&q=92&s=4f5cc6df7d29b55afe94a9fdb37b7328",
     owner: User.all.sample,
-    total_budget: "$5,000"
   )
 
 Project.create(
@@ -164,7 +157,6 @@ If this campaign gets 10 backers from the same state, I will create a series of 
     short_description: "What are those awesome patterns? TOPO MAPS! Topographic Maps from around the US creating the coolest patterns since tie-dye",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/401/019/a35613ffa71924e02b66c1b186cdc95b_original.jpg?w=680&fit=max&v=1493165247&auto=format&q=92&s=c0e3c1e2c030e40a11300bbc2e8f8c54",
     owner: User.all.sample,
-    total_budget: "$10,000"
   )
 Project.create(
     title: "Vanessa",
@@ -177,7 +169,6 @@ Project.create(
     short_description: "Vanessa, is the story of a woman with a mark, who chooses a forbidden lifestyle obtaining pleasure, witnessing it in others.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/064/532/6e1be095526593c84819a04266c907c9_original.jpg?w=680&fit=max&v=1490876711&auto=format&q=92&s=92b546e9318dace6825e66f2280bb7a2",
     owner: User.all.sample,
-    total_budget: "$30,000"
   )
 
 Project.create(
@@ -191,7 +182,6 @@ Project.create(
     short_description: "It's true, VH-80 is the world's first bilateral LDM. Let us show you what that means, what changes, and how awesome it really is.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/015/921/024/926c699c919787601d4fac16269900db_original.png?w=680&fit=max&v=1489929489&auto=format&lossless=true&s=02c653752d09f974046553c992d47fa0",
     owner: User.all.sample,
-    total_budget: "20,000"
   )
 
 Project.create(
@@ -205,7 +195,6 @@ Project.create(
     short_description: "Paul Nicklen and the SeaLegacy team are traveling to Svalbard, Norway, to document the effects of disappearing sea ice on polar bears.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/519/023/afbe09236f0380ac2bd686be0c109050_original.jpg?w=680&fit=max&v=1493851430&auto=format&q=92&s=81f2b4a6fdb3bb984db44adda4652498",
     owner: User.all.sample,
-    total_budget: "$60,000"
   )
 
 
@@ -222,7 +211,6 @@ Here are two pieces, which will be on the record, that I performed live at the T
     short_description: "John draws inspiration from neuroscience to compose all original music for the piano and other keyboards.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/096/227/c9fb997136460417244951e16a60e454_original.jpg?w=680&fit=max&v=1491079857&auto=format&q=92&s=377804bcc67a3e1e14644b13e721bc3b",
     owner: User.all.sample,
-    total_budget: "$5,000"
   )
 
 
@@ -237,7 +225,6 @@ Project.create(
     short_description: "80 locations, landscapes, NPCs, and events ripped from history, and ways to use them to spice up your game.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/401/083/d51c02aec7c7c8fd4a6a85d01bcef25d_original.png?w=680&fit=max&v=1493165667&auto=format&lossless=true&s=ae3118ca4e5eb6f3b28f6172980a101a",
     owner: User.all.sample,
-    total_budget: "$14,000"
   )
 
 Project.create(
@@ -251,7 +238,6 @@ Project.create(
     short_description: "",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/158/061/6c6287c44bd0fa5a83374f56812abd46_original.jpg?w=680&fit=max&v=1491486318&auto=format&q=92&s=8e1530e101d991720fa3c9e63c3e3c67",
     owner: User.all.sample,
-    total_budget: "$1,000"
   )
 
 Project.create(
@@ -265,7 +251,6 @@ Project.create(
     short_description: "Gear Supply Co. is launching a new line of affordable, hand wired guitar pedals",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/570/611/32be15bd46af15b4db368b49ad6df52b_original.png?w=680&fit=max&v=1494191152&auto=format&lossless=true&s=046f59869a86b99cf10d4c9d913ae6a5",
     owner: User.all.sample,
-    total_budget: "15,000"
   )
 
 Project.create(
@@ -279,7 +264,6 @@ Project.create(
     short_description: "Two dance companies come together on a mission to find a studio space to call home. Where possibilities become reality.",
     remote_picture_url: "https://cdn.pixabay.com/photo/2016/03/10/21/14/dance-1249292_1280.jpg",
     owner: User.all.sample,
-    total_budget: "$13,000"
   )
 
 Project.create(
@@ -293,7 +277,6 @@ Project.create(
     short_description: "A Trip to the Moon by Georges Méliès, was the first science fiction film, ever. With your help it will be a coloring book…pretty soon.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/015/580/493/3d0b5226c4d920507088f1e98b3af45b_original.png?w=680&fit=max&v=1487642252&auto=format&lossless=true&s=84d23d78229ecf67f19415b2eb446aa2",
     owner: User.all.sample,
-    total_budget: "$20,000"
   )
 
 Project.create(
@@ -307,7 +290,6 @@ Project.create(
     short_description: "Loud Harp's Third Full Length Album | Available everywhere June 09, 2017.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/015/610/119/199775de03ef6be802591ce56772060f_original.jpg?w=680&fit=max&v=1487828948&auto=format&q=92&s=8036a4c554352f4f6a241a8ca8523776",
     owner: User.all.sample,
-    total_budget: "$17,500"
   )
 
 Project.create(
@@ -321,7 +303,6 @@ Project.create(
     short_description: "A film about a lesbian couple in Peru calling upon Andean magic to fight against discrimination, produced by Berlinale participant D.S.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/013/690/796/0f6132f147b78032af0b12f91b2c3a70_original.jpg?w=1552&h=873&fit=fill&bg=000000&v=1475766504&auto=format&q=92&s=fab0a96e2a41aeb71a9c6c67d0840b0c",
     owner: User.all.sample,
-    total_budget: "$20,000"
   )
 
 Project.create(
@@ -335,7 +316,6 @@ Project.create(
     short_description: "Robot Core is a robot controller that connects to the Raspberry Pi, allowing you to easily control motors, servos, and read sensors.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/014/821/824/fdd29344fda8be7f80c46075842042bf_original.JPG?w=700&fit=max&v=1481248256&auto=format&q=92&s=a895d4c33c7ab2f03293a645339b5caf",
     owner: User.all.sample,
-    total_budget: "$13,000"
   )
 
 Project.create(
@@ -349,7 +329,6 @@ Project.create(
     short_description: "Art installation with reality show performances about political ideology, celebrity-obsessed media, and an Iranian-American activist.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/013/755/782/9ae2b2c17625d3e7b5a10077e39346d5_original.jpg?w=1552&h=873&fit=fill&bg=000000&v=1473988421&auto=format&q=92&s=331409da86f815c7f72929b7218097e1",
     owner: User.all.sample,
-    total_budget: "$7,000"
   )
 
 Project.create(
@@ -363,7 +342,6 @@ Project.create(
     short_description: "'Vacillation - Adolescence' is a short dance film about teenage love.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/003/775/929/314c481354d012aa67852eea7128c053_original.jpg?w=680&fit=max&v=1431418793&auto=format&q=92&s=832da987e7c9422848130e269bfd3449",
     owner: User.all.sample,
-    total_budget: "$2,000"
   )
 
 Project.create(
@@ -377,7 +355,6 @@ Project.create(
     short_description: "A modern 82-card color illustrated tarot deck centering on the natural beauty and struggles of life in the Mississippi Delta.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/487/822/bd72e66c4a71a315a9860e1a2afb575b_original.jpg?w=680&fit=max&v=1493695657&auto=format&q=92&s=bbbaffae2b473ccc0c333551e75e6879",
     owner: User.all.sample,
-    total_budget: "$6,000"
   )
 
 Project.create(
@@ -391,7 +368,6 @@ Project.create(
     short_description: "A film quality Sci-fi Anthology series, where fans, celebrities, and professional filmmakers work together.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/310/749/6ae7ff79ff4f80e98682925be3cf73b0_original.jpg?w=680&fit=max&v=1492575349&auto=format&q=92&s=6b35baca432ba81663600c03f03d3a8c",
     owner: User.all.sample,
-    total_budget: "$75,000"
   )
 
 Project.create(
@@ -405,7 +381,6 @@ Project.create(
     short_description: "After being abruptly fired, my struggling 75 year old mom and I go on her bucket list journey to find meaning in a life without work.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/330/245/8ce2a5179b335b9e4f489398d0266dc3_original.jpg?w=680&fit=max&v=1492697632&auto=format&q=92&s=673e970acd520afedf1ed7e0d4a37d02",
     owner: User.all.sample,
-    total_budget: "$23,000"
   )
 
 Project.create(
@@ -419,7 +394,6 @@ Project.create(
     short_description: "'Meant to Be Broken' is a feature length dark comedy that follows 3 unlikely companions on a road trip crime spree down the East Coast.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/523/460/6db4abe045466fc62186bdef78c761f4_original.jpg?w=680&fit=max&v=1493878649&auto=format&q=92&s=195bb4a612c2af791f8851895460e2e6",
     owner: User.all.sample,
-    total_budget: "$6,200"
   )
 
 Project.create(
@@ -433,7 +407,6 @@ Project.create(
     short_description: "An action film set in 1985, filled with explosions, synth music, and a man who will stop at nothing to get his revenge.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/411/532/f22c28f40166b5232ce21f86fd326adc_original.jpg?w=680&fit=max&v=1493224424&auto=format&q=92&s=9707257028e7ac59109cbe75f738fee9",
     owner: User.all.sample,
-    total_budget: "$20,000"
   )
 
 Project.create(
@@ -448,7 +421,6 @@ Project.create(
     short_description: "Join the largest community screening in history, featuring a film about 'the father of African cinema,' shown in every African nation.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/462/864/bcdfa44c85b3ef1ffe22f4cab4278fda_original.jpg?w=680&fit=max&v=1493559775&auto=format&q=92&s=560af71426da774ac4e66542f4fec41d",
     owner: User.all.sample,
-    total_budget: "$14,500"
   )
 
 Project.create(
@@ -463,7 +435,6 @@ Project.create(
     short_description: "Set in a quiet beach town in grunge-saturated 1994, Pans puts a feminist twist on the classic Peter Pan.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/384/675/91b99f791f6925bc29d11d26499ac3e9_original.jpg?w=680&fit=max&v=1493083120&auto=format&q=92&s=756a07dcee33c807a4067ac1c05f18dc",
     owner: User.all.sample,
-    total_budget: "$50,000"
   )
 
 Project.create(
@@ -477,7 +448,6 @@ Project.create(
     short_description: "V is a confrontational coming-of-age drama that uses vampire mythology to explore themes of femininity, isolation and sexual abuse.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/463/044/b27f1f064831d084bbb2f467ad675b0f_original.png?w=680&fit=max&v=1493561075&auto=format&lossless=true&s=2133d8de7e7c407920e687ea9562bc7a",
     owner: User.all.sample,
-    total_budget: "$3,000"
   )
 Project.create(
     title: "BETTER EATING",
@@ -490,7 +460,6 @@ Project.create(
     short_description: "Creating smart and inclusive animated videos to expose animal abuse, inspire compassion, and empower millions to explore vegan eating",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/227/143/0f05f81dad388a7fe1e1cd87ec83690f_original.png?w=680&fit=max&v=1491971620&auto=format&lossless=true&s=56ee3ea5adc789214b34fa75b566cb3d",
     owner: User.all.sample,
-    total_budget: "$95,000"
   )
 Project.create(
     title: "FOODIES",
@@ -503,6 +472,5 @@ Project.create(
     short_description: "We are shooting a short horror-comedy film using vintage camera equipment and old-school DIY filmmaking techniques.",
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/435/830/8f6e2d4e566a01d85de1c0e5e1f92b60_original.JPG?w=680&fit=max&v=1493345613&auto=format&q=92&s=c1380c99f4b8ecb100125384d84e6ab3",
     owner: User.all.sample,
-    total_budget: "$1,475"
   )
 
