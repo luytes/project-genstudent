@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def index
     @students = Student.all
@@ -8,6 +10,15 @@ class StudentsController < ApplicationController
   end
 
   def create
+    @student = Student.new(student_params)
+    @student.picture = "chemi.jpg"  if student_params[:student_picture].nil?
+    @student.user = current_user
+    authorize @student
+    if @student.save!
+      redirect_to student_path
+    else
+      render 'new'
+    end
   end
 
   def edit
