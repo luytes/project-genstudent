@@ -42,7 +42,7 @@ end
 
 # SEEDING STUDENTS
 20.times do
-  student = Student.new(
+  Student.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     description: Faker::Lorem.paragraph(2),
@@ -53,10 +53,9 @@ end
     subject: "#{SUBJECT.sample}",
     rating: (1..5).to_a.sample,
     category: category,
-    degree: "Master"
+    degree: "Master",
+    remote_student_picture_url: url,
     )
-  student.remote_student_picture_url = url
-  student.save
 end
 
 # BEGINNING OF PROJECTS

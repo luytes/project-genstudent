@@ -1,7 +1,7 @@
 class Student < ApplicationRecord
   belongs_to :user
 
-  # alias_attribute :owner, :user
+  alias_attribute :owner, :user
   # has_many :roles, :dependent => :destroy
   # has_many :requests, through: :roles
   validates :first_name, presence: true

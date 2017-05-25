@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :projects
+  has_many :students
   # has_many :requests, through: :projects
   validates :email, uniqueness: true
 

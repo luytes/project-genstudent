@@ -14,7 +14,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     @student.picture = "chemi.jpg"  if student_params[:student_picture].nil?
     @student.user = current_user
-    authorize @student
+    # authorize @student
     if @student.save!
       redirect_to student_path
     else
@@ -40,7 +40,7 @@ class StudentsController < ApplicationController
 
   def set_student
     @student = Student.find(params[:id])
-    authorize @student
+    # authorize @student
   end
 
 
