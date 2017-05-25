@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  devise_for :company
+  devise_for :students
 
-  resources :students
   resources :services
   resources :users
   resources :projects

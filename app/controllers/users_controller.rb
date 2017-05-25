@@ -23,22 +23,9 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-    # redirect_to edit_user_path(@user)
-  end
-
-  def invite
-    @request = Request.new
-    @request.user = User.find(params[:id])
-    @request.owner_confirm = true
-    @request.created_by = current_user
-    @request.role.project = Project.where()
   end
 
   private
-
-  # def piece_params
-  #   params.require(:piece).permit(:title, :description, :cloudinary_path, :cloudinary_path_cache)
-  # end
 
   def user_params
     params.require(:user).permit(:profile_picture, :profile_picture_cache, :bio,
