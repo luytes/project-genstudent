@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :projects
   has_many :students
+  has_many :services
   # has_many :requests, through: :projects
   validates :email, uniqueness: true
 
