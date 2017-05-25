@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="profile-card">
+        <div class="profile-picture text-center">
+           <% if @user.profile_picture %>
+            <%= cl_image_tag @user.profile_picture%>
+            <% else %>
+            <%= image_tag "default-user.png", width: 100%>
+            <% end %>
+        </div>
+        <div class="card-content">
+          <h2 class="username"><%= @user.full_name %></h2>
+          <p><%= @user.bio %></p>
+          <h4>Skills</h4>
+          <p><%= @user.skills %></p>
+          <h4>Portfolio</h4>
+          <p><%= link_to "my portfolio", "http://#{@user.portfolio_url}" %></p>
+        </div>
+      </div>
+    </div>
+      <div class="col md-offset-1 col-md-8">
+        <div class="active-services">
+          <h1 class="service-title">services</h1>
+          <div class="row">
+          <% @user.services.each do |service| %>
+            <div class="col-md-6">
+              <%= link_to service_path(service.id) do %>
+              <div class="card">
+                <div class="card-img" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.2) 30%), url( <%= service.picture %>);">
+                </div>
+                <div class="card-content">
+                  <h4 class="card-title"><%= service.title %></h4>
+                  <h4 class="card-category"><%= service.category %></h4>
+                  <h5 class="card-subcategory subcategory"><%= service.description %></h5>
+                  <p class="service-description"><%= service.rating %></p>
+                </div>
+              <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
