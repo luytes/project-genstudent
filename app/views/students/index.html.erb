@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+
+    <% if @students.empty? %>
+      <div class="col-xs-12 col-sm-6">
+        <h1>Sorry, no results found</h1>
+      </div>
+    <% else %>
+      <% @students.each do |student| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 selectable-card" data-subcategory="<%=student.subcategory%>">
+          <%= link_to student_path(student.id) do%>
+          <div class="index-card text-center">
+            <div class="index-card-img" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 30%), url( <%= student.student_picture %>);">
+            </div>
+            <div class="index-card-content">
+              <h3 class="index-card-title"><%= student.full_name %></h3>
+              <h5 class="index-card-subcategory"><%= student.category %></h5>
+              <p><%= cutoff_text(student.description) %></p>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
