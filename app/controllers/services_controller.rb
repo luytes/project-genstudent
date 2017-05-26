@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @services = service.all
+    @services = Service.all
   end
 
   def show
@@ -40,13 +40,13 @@ class ServicesController < ApplicationController
   private
 
   def set_service
-    @service = service.find(params[:id])
+    @service = Service.find(params[:id])
     # authorize @service
   end
 
 
   def service_params
-    params.require(:service).permit(:title :category, :description,
+    params.require(:service).permit(:title, :category, :description,
                                     :rating, :user_id, :picture)
   end
 
