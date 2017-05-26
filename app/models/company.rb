@@ -1,7 +1,7 @@
 class Company < User
-  belongs_to :user
+  # belongs_to :user
 
-  alias_attribute :owner, :user
+  # alias_attribute :owner, :user
 
   validates :name, presence: true
   validates :category, presence: true

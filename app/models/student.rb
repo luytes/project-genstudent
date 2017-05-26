@@ -1,9 +1,6 @@
 class Student < User
-  belongs_to :user
 
-  alias_attribute :owner, :user
-  # has_many :roles, :dependent => :destroy
-  # has_many :requests, through: :roles
+  # alias_attribute :owner, :user
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :category, presence: true
