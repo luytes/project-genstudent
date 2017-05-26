@@ -10,6 +10,14 @@
   padding-bottom: 5em;
 }
 
+.no-margin-bot {
+  margin-bottom: 0;
+}
+.no-padding-side {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
