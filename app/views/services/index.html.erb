@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+
+    <% if @services.empty? %>
+      <div class="col-xs-12 col-sm-6">
+        <h1>Sorry, no results found</h1>
+      </div>
+    <% else %>
+      <% @services.each do |service| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 selectable-card">
+          <%= link_to service_path(service.id) do%>
+          <div class="index-card text-center">
+            <div class="index-card-img" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 30%), url( <%= service.picture %>);">
+            </div>
+            <div class="index-card-content">
+              <h3 class="index-card-title"><%= service.title %></h3>
+              <h5><%= service.user.full_name %></h5>
+              <h5><%= service.student.university %></h5>
+              <div style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 30%), url( <%= service.user.profile_picture %>);"></div>
+
+            </div>
+          </div>
+        <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

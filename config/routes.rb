@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  devise_for :company
-  devise_for :students
+  devise_for :users, :controllers => { :sessions => 'sessions' }, :skip => :registrations
+  devise_for :students, :companies, :skip => :sessions
 
   resources :services
   resources :users
