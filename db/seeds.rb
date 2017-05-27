@@ -10,7 +10,7 @@ require "open-uri"
 
 Service.destroy_all
 User.destroy_all
-Student.destroy_all
+# Student.destroy_all
 
 category = Service::CATEGORIES.keys.sample.to_s
 
@@ -35,7 +35,6 @@ url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
     bio: Faker::Lorem.paragraph(2),
     portfolio_url: "www.portfolio.com",
     skills: "#{SKILLS.sample} and #{SKILLS.sample}"
-    type: "Student"
     )
   u.remote_profile_picture_url = url
   u.save
@@ -69,7 +68,7 @@ Service.create(
     start_date: Faker::Date.backward(14).to_datetime,
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/205/161/dc52b24cf918b327820fe59cd9286b66_original.png?w=680&fit=max&v=1491844850&auto=format&lossless=true&s=e9f5719089c4b5dd161ccb69fe2958e0",
-    owner: Student.all.sample,
+    owner: User.all.sample,
   )
 
 Service.create(
@@ -80,7 +79,7 @@ Service.create(
     start_date: Faker::Date.backward(14).to_datetime,
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/118/731/1e64c31529f786fee57fb6b78125b995_original.jpg?w=680&fit=max&v=1491248233&auto=format&q=92&s=38783ac2eadede486bb5f2348ed7674b",
-    owner: Student.all.sample,
+    owner: User.all.sample,
   )
 
 Service.create(
@@ -91,18 +90,18 @@ Service.create(
     start_date: Faker::Date.backward(14).to_datetime,
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/063/697/187f0c894fa55e864f0bdfea333c5706_original.png?w=680&fit=max&v=1490870733&auto=format&lossless=true&s=241882d4b02654f5c98012859b9a8b00",
-    owner: Student.all.sample,
+    owner: User.all.sample,
   )
 
 Service.create(
     title: "The Florence Dance Festival",
-    description: "Molissa, assisted by Christiana Axelsen will be very busy while in Florence, as the week residency will require her to teach contemporary classes, set a new work on the dancers of Toscana Dance HUB, mentor dance musicians of Music HUB and student choreographers, plus rehearse and perform at the Florence Dance Festival.",
+    description: "Molissa, assisted by Christiana Axelsen will be very busy while in Florence, as the week residency will require her to teach contemporary classes, set a new work on the dancers of Toscana Dance HUB, mentor dance musicians of Music HUB and User choreographers, plus rehearse and perform at the Florence Dance Festival.",
     category: "theater",
     address: address.sample,
     start_date: Faker::Date.backward(14).to_datetime,
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/481/464/84ac7de1832e19a38cb480e70672cd7f_original.jpg?w=680&fit=max&v=1493666758&auto=format&q=92&s=5aa629f3e0622619194178a49a28a02e",
-    owner: Student.all.sample,
+    owner: User.all.sample,
   )
 
 
@@ -114,5 +113,5 @@ Service.create(
     start_date: Faker::Date.backward(14).to_datetime,
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/316/565/cff9e7bdc4eb8fefbfb5c0e47e179a43_original.png?w=680&fit=max&v=1492614995&auto=format&lossless=true&s=0cbd8b4a2669c9b24a015a34fa1a3260",
-    owner: Student.all.sample,
+    owner: User.all.sample,
   )

@@ -1,5 +1,8 @@
 class Student < User
 
+  has_one :user
+  has_many :services
+
   # alias_attribute :owner, :user
   validates :first_name, presence: true
   validates :last_name, presence: true

@@ -8,17 +8,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :services
-  belongs_to :student
-  belongs_to :company
-  # has_many :requests, through: :projects
+  # has_one :student
+  # belongs_to :company
   validates :email, uniqueness: true
 
   # has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
   # has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
   # has_many :personal_messages, dependent: :destroy
-  # TODO
-  # validates :first_name, presence: true
-  # validates :last_name, presence: true
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   def full_name
     "#{self.first_name} #{self.last_name}"
