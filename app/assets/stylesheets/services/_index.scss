@@ -1,0 +1,39 @@
+@import "show";
+.index-card {
+  background-color: white;
+  box-shadow: 1px;
+  width: 360px;
+  box-shadow: 0 0 5px grey;
+}
+.index-card:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+.index-card-img {
+  height: 175px;
+}
+.index-card-content {
+  height: 190px;
+  padding: 45px 1.5em 1.5em 1.5em;
+  position: relative;
+  font-size: 1em;
+}
+.index-card-title {
+  color: black;
+  font-size: 1em;
+  font-weight: 600;
+}
+.index-card-description {
+  color: #5E5266;
+  font-size: .875em;
+  max-width: 100%;
+  line-height: 1.6;
+}
+.index-card-description:hover {
+  text-decoration: none
+}
+.picture-absolute {
+  position: absolute;
+  left: 155px;
+  top: -15px;
+}

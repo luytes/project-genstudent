@@ -9,13 +9,21 @@
   padding-top: 5em;
   padding-bottom: 5em;
 }
-
+.space-top-20{
+  margin-top: 20px;
+}
+.space-bot-1 {
+  padding-bottom: 70px;
+}
 .no-margin-bot {
   margin-bottom: 0;
 }
 .no-padding-side {
   padding-right: 0;
   padding-left: 0;
+}
+.no-margin {
+  margin: 0;
 }
 
 // Backgrounds
