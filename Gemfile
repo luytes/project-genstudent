@@ -20,6 +20,10 @@ gem 'devise'
 gem 'faker'
 gem "geocoder"
 
+gem "coffee-rails"
+gem "coffee-script"
+gem 'money-rails'
+
 gem 'carrierwave', '~> 0.11.2'
 gem 'cloudinary'
 
