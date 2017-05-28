@@ -3,16 +3,12 @@ class CreateStudents < ActiveRecord::Migration[5.0]
     create_table :students do |t|
       t.string :first_name
       t.string :last_name
-      t.string :skills
-      t.text :description
-      t.integer :rating
-      t.string :subject
-      t.date :year
+      t.string :email
+      t.text :introduction
       t.string :university
-      t.string :category
       t.string :degree
-      t.integer :cost
-      t.references :user, foreign_key: true
+      t.string :subject
+      t.integer :year
 
       t.timestamps
     end

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :sessions => 'sessions' }, :skip => :registrations
-  devise_for :students, :companies, :skip => :sessions
+  # devise_for :students, :companies, :skip => :sessions
 
   resources :services do
     resources :reviews, only: [ :index, :new, :create ]
