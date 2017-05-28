@@ -2,46 +2,50 @@
   <div class="row">
 
     <!-- left side -->
-    <div class="col-xs-8">
-        <div>
-          <h3><%= @service.title %> | 4 Blog Post / Month</h3>
+    <div class="col-xs-12 col-sm-10">
+        <div class="gen-header">
+          <h1><%= @service.title %> | 4 Blog Post / Month</h1>
           <p>Reviews here pls</p>
         </div>
 
         <div>
-          <h3>Portfolio</h3>
+          <h3 class="gen-subheader">Portfolio</h3>
           <p>What the fuck should be here</p>
         </div>
 
         <div>
-          <h3>Description</h3>
+          <h3 class="gen-subheader">Description</h3>
           <p><%= @service.description %></p>
         </div>
 
         <div>
-          <h3>What can you expect</h3>
+          <h3 class="gen-subheader">What can you expect</h3>
+          <p><%= @service.what_i_will_do_for_you %></p>
         </div>
 
         <div>
-          <h3>What I need from you</h3>
+          <h3 class="gen-subheader">What I need from you</h3>
+          <p><%= @service.what_i_need_from_you %></p>
         </div>
 
         <div>
-          <h3>Reviews</h3>
+          <h3 class="gen-subheader">Reviews</h3>
         </div>
 
         <div>
           <h3>About Me</h3>
-          <div class="bg-picture">flex</div>
-          <div class="aboutme-content">
-            <h5>name</h5>
-            <p>description</p>
+          <div class="user-information">
+            <div class="bg-picture avatar-height avatar-bordered" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 30%), url( <%= @service.user.profile_picture %>);"></div>
+            <div class="aboutme-content">
+              <h5>name</h5>
+              <p>description</p>
+            </div>
           </div>
         </div>
     </div>
 
     <!-- right side -->
-    <div class="col-xs-4">
+    <div class="col-xs-12 col-sm-2">
       <%= link_to 'Subscribe Now', services_path, class: "btn btn-primary" %>
     </div>
 
