@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   devise_for :students, :companies, :skip => :sessions
 
   resources :services do
-    resources :reviews, only: [ :new, :create ]
+    resources :reviews, only: [ :index, :new, :create ]
   end
+  resources :reviews, only: [ :show, :edit, :update, :destroy ]
 
   resources :users
-  resources :projects
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
