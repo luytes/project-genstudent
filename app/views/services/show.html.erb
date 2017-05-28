@@ -1,33 +1,49 @@
 <div class="container">
-
   <div class="row">
-    <div class="col-xs-12">
-      Service
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-xs-12">
-      t
-    </div>
-  </div>
+    <!-- left side -->
+    <div class="col-xs-8">
+        <div>
+          <h3><%= @service.title %> | 4 Blog Post / Month</h3>
+          <p>Reviews here pls</p>
+        </div>
 
-  <div class="row">
-    <div class="col-xs-12">
-      t1
-    </div>
-  </div>
+        <div>
+          <h3>Portfolio</h3>
+          <p>What the fuck should be here</p>
+        </div>
 
-  <div class="row">
-    <div class="col-xs-12">
-      t2
-    </div>
-  </div>
+        <div>
+          <h3>Description</h3>
+          <p><%= @service.description %></p>
+        </div>
 
-  <div class="row">
-    <div class="col-xs-12">
-      t3
-    </div>
-  </div>
+        <div>
+          <h3>What can you expect</h3>
+        </div>
 
+        <div>
+          <h3>What I need from you</h3>
+        </div>
+
+        <div>
+          <h3>Reviews</h3>
+        </div>
+
+        <div>
+          <h3>About Me</h3>
+          <div class="bg-picture">flex</div>
+          <div class="aboutme-content">
+            <h5>name</h5>
+            <p>description</p>
+          </div>
+        </div>
+    </div>
+
+    <!-- right side -->
+    <div class="col-xs-4">
+      <%= link_to 'Subscribe Now', services_path, class: "btn btn-primary" %>
+    </div>
+
+  </div>
 </div>
