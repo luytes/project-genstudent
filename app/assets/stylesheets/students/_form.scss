@@ -9,18 +9,18 @@
     border-radius: none;
     border: solid $dark-green 2px;
     background-color: white;
-    width:1000px;
+    width: 900px;
     margin: 30px auto;
     overflow:hidden;
 }
 #steps{
-    width:700px;
+    width: 900px;
     // width doesnt matter since its going to be expanded automatically
     overflow:hidden;
 }
 .step{
     float:left;
-    width:1000px;
+    width: 900px;
 }
 #navigation{
     height:47px;
@@ -130,7 +130,7 @@
     padding: 5px;
     width: 400px;
     margin: auto;
-    color: $light-green;
+    color: $dark-green;
 }
 
 // ::-webkit-input-placeholder,

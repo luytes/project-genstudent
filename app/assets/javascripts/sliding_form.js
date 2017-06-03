@@ -2,7 +2,7 @@ $(function() {
   /*
   number of fieldsets
   */
-  var fieldsetCount = $('#new_project').children().length;
+  var fieldsetCount = $('#new_student').children().length;
 
   /*
   current position of fieldset / navigation link
@@ -25,7 +25,7 @@ $(function() {
   /*
   to avoid problems in IE, focus the first input of the form
   */
-  $('#new_project').children(':first').find(':input:first').focus();
+  $('#new_student').children(':first').find(':input:first').focus();
 
   /*
   show the navigation bar
@@ -63,7 +63,7 @@ $(function() {
         validateSteps();
       else
         validateStep(prev);
-      $('#new_project').children(':nth-child('+ parseInt(current) +')').find(':input:first').focus();
+      $('#new_student').children(':nth-child('+ parseInt(current) +')').find(':input:first').focus();
     });
         e.preventDefault();
     });
@@ -72,7 +72,7 @@ $(function() {
   clicking on the tab (on the last input of each fieldset), makes the form
   slide to the next step
   */
-  $('#new_project > fieldset').each(function(){
+  $('#new_student > fieldset').each(function(){
     var $fieldset = $(this);
     $fieldset.children(':last').find(':input').keydown(function(e){
       if (e.which == 9){
@@ -86,7 +86,7 @@ $(function() {
 
   /*
   validates errors on all the fieldsets
-  records if the form has errors in $('#new_project').data()
+  records if the form has errors in $('#new_student').data()
   */
   function validateSteps(){
     var FormErrors = false;
@@ -95,7 +95,7 @@ $(function() {
       if(error == -1)
         FormErrors = true;
     }
-    $('#new_project').data('errors',FormErrors);
+    $('#new_student').data('errors',FormErrors);
   }
 
   /*
@@ -107,7 +107,7 @@ $(function() {
 
     var error = 1;
     var hasError = false;
-    $('#new_project').children(':nth-child('+ parseInt(step) +')').find(':input:not(button)').each(function(){
+    $('#new_student').children(':nth-child('+ parseInt(step) +')').find(':input:not(button)').each(function(){
       var $this     = $(this);
       var valueLength = jQuery.trim($this.val()).length;
 
@@ -134,8 +134,8 @@ $(function() {
   /*
   if there are errors don't allow the user to submit
   */
-  $('#registerButton').bind('click',function(){
-    if($('#new_project').data('errors')){
+  $('.submit-btn').bind('click',function(){
+    if($('#new_student').data('errors')){
       alert('Please correct the errors in the Form');
       return false;
     }

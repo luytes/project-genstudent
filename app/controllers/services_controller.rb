@@ -1,5 +1,4 @@
 class ServicesController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
@@ -8,18 +7,24 @@ class ServicesController < ApplicationController
   end
 
   def show
-    @user = current_user
+  end
+
+  def new
+    @service = Service.new
+    @student = Student.find(params[:id])
+    @service.student = @student
   end
 
   def create
-    @service = service.new(service_params)
+    @service = Service.new(service_params)
     @service.picture = "chemi.jpg"  if service_params[:picture].nil?
-    @service.user = current_user
+    @student = Student.find(params[:id])
+    @service.student = @student
     # authorize @service
-    if @service.save!
-      redirect_to service_path
+    if @service.save
+      render :new
     else
-      render 'new'
+      redirect_to new_service_path
     end
   end
 
@@ -34,10 +39,8 @@ class ServicesController < ApplicationController
     end
   end
 
-  def new
-  end
-
   def destroy
+    @service.destroy
   end
 
   private
@@ -50,7 +53,7 @@ class ServicesController < ApplicationController
 
   def service_params
     params.require(:service).permit(:title, :category, :description,
-                                    :rating, :user_id, :picture)
+                                    :rating, :student_id, :picture)
   end
 
 end
