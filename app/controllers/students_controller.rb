@@ -8,16 +8,22 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @user = current_user
+  end
+
+  def new
+    @student = Student.new
+    # 10.times do
+    #   @student.services.new
+    # end
   end
 
   def create
     @student = Student.new(student_params)
-    @student.student_picture = "chemi.jpg"  if student_params[:student_picture].nil?
-    # @student.user = current_user
+    @student.student_picture = "default-user.png" if student_params[:student_picture].nil?
+    # @student.services = Service.new
     # authorize @student
     if @student.save!
-      redirect_to student_path(@student)
+      redirect_to dashboard_path
     else
       render 'new'
     end
@@ -32,10 +38,6 @@ class StudentsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def new
-    @student = Student.new
   end
 
   def destroy
@@ -59,9 +61,10 @@ class StudentsController < ApplicationController
 
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :category, :description,
-                                    :cost, :user_id, :student_picture, :rating, :year,
-                                    :university, :degree)
+    params.require(:student).permit(:first_name, :last_name, :introduction,
+                                    :subject, :student_picture, :year,
+                                    :university, :degree, :skills, :email, :student_id,
+                                    :services_attributes => [:title, :category, :description, :picture])
   end
 
 end

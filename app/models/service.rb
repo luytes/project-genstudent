@@ -1,6 +1,5 @@
 class Service < ApplicationRecord
 
-  belongs_to :student
   has_many :reviews, dependent: :destroy
   # alias_attribute :owner, :user
   alias_attribute :owner, :student
@@ -8,6 +7,9 @@ class Service < ApplicationRecord
   validates :category, presence: true
   validates :description, presence: true
   validates :rating, inclusion: { in: [1,2,3,4,5], allow_nil: true }
+
+  belongs_to :student
+  validates_associated :student
 
   monetize :price_pennies
 

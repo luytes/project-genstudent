@@ -6,7 +6,7 @@ class Student < ApplicationRecord
 
   mount_uploader :student_picture, PhotoUploader
 
-  has_many :services
+  has_many :services, :dependent => :destroy
   validates :email, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true

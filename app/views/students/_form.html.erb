@@ -1,6 +1,6 @@
 <div class="container">
   <div id="wrapper-form">
-    <div id="navigation" >
+    <div id="navigation" style="display:none;">
       <ul>
         <li class="active">
           <a href="#">Personal Information</a>
@@ -10,9 +10,6 @@
         </li>
         <li>
           <a href="#">Services</a>
-        </li>
-        <li>
-          <a href="#">Optional</a>
         </li>
         <li>
           <a href="#">Confirm</a>
@@ -37,16 +34,19 @@
             </div>
             <div class="col-xs-12 margin-top-5">
               <p>
-              <%= f.label :email, 'Email' %><%= f.text_field :email, placeholder: "chemi@chemi.com", label:false %>
+              <%= f.label :email, 'Email' %><%= f.text_field :email, placeholder: 'Chemi email', label:false %>
               </p>
             </div>
-
             <div class="col-xs-12 margin-top-5">
               <p>
-              <%= f.label :introduction, 'intro' %><%= f.input :introduction, as: :text, :input_html => { id: 'descr', class: 'test', :cols => 10, :rows => 5 }, label:false %>
+                <%= f.input :student_picture, class: "space-auto", label: "Add a student picture"%>
               </p>
             </div>
-
+            <div class="col-xs-12 margin-top-5">
+              <p>
+              <%= f.label :introduction, 'Description' %><%= f.input :introduction, as: :text, :input_html => { id: 'descr', class: 'test', :cols => 10, :rows => 5 }, label:false %>
+              </p>
+            </div>
           </div>
         </fieldset>
 
@@ -54,38 +54,27 @@
           <legend>Academic Information</legend>
           <div class="col-xs-12 margin-top-5">
             <p>
-            <%= f.label :university, 'University' %><%= f.text_field :university, required: true, autofocus: true, placeholder: "Chemi University", label:false %>
+            <%= f.label :university, 'University' %><%= f.text_field :university, required: true, placeholder: "Chemi University", label:false %>
             </p>
           </div>
 
           <div class="col-xs-12 margin-top-5">
             <p>
-            <%= f.label :subject, 'Subject' %><%= f.text_field :subject, required: true, autofocus: true, placeholder: "Mechanical Engineering", label:false %>
+            <%= f.label :subject, 'Subject' %><%= f.text_field :subject, required: true, placeholder: "Mechanical Engineering", label:false %>
             </p>
           </div>
 
           <div class="col-xs-12 margin-top-5">
             <p>
-            <%= f.label :degree, 'Degree' %><%= f.text_field :degree, required: true, autofocus: true, placeholder: "Bachelor of ...", label:false %>
+            <%= f.label :degree, 'Degree' %><%= f.text_field :degree, required: true, placeholder: "Bachelor of ...", label:false %>
             </p>
           </div>
 
           <div class="col-xs-12 margin-top-5">
             <p>
-            <%= f.label :year, 'Year' %><%= f.text_field :year, required: true, autofocus: true, placeholder: "2012", label:false %>
+            <%= f.label :year, 'Year' %><%= f.text_field :year, required: true, placeholder: "2012", label:false %>
             </p>
           </div>
-
-          <div class="col-xs-12 margin-top-5">
-            <p>
-            <%= f.label :skills, 'skills' %><%= f.input :skills, as: :text, :input_html => { id: 'descr', class: 'test', :cols => 10, :rows => 5 }, label:false %>
-            </p>
-          </div>
-
-
-            <div class="col-xs-12 margin-top-5">
-              test
-            </div>
         </fieldset>
 
         <fieldset class="step">
@@ -93,7 +82,7 @@
             <div class="col-xs-12 margin-top-5">
                 <% count = 0 %>
                   <%= f.simple_fields_for :services do |p| %>
-                  <div id="service-count<%=count%>" class="service-input">
+                  <div id="service-count-<%=count%>" class="service-input">
                     <% if count == 0 %>
                       <%= p.input :title, disabled: false %>
                       <%= p.input :description, disabled: false %>
@@ -114,17 +103,8 @@
         </fieldset>
 
         <fieldset class="step">
-          <legend>Optional</legend>
           <div class="col-xs-12 margin-top-5">
-            <p>
-              <%= f.input :student_picture, class: "space-auto", label: false%>
-            </p>
-          </div>
-        </fieldset>
-
-        <fieldset class="step">
-          <div class="col-xs-12 margin-top-5">
-            <%= f.button :submit, 'submit', class: "btn" %>
+            <%= f.button :submit, 'submit', class: "btn submit-btn" %>
           </div>
         </fieldset>
 
@@ -133,7 +113,7 @@
   </div>
 </div>
 
-<% content_for(:after_js) do %>
+<%= content_for(:after_js) do %>
   <script>
     // Get the modal
     $(document).ready(function() {
@@ -142,8 +122,8 @@
 
       $('#add').on('click', function(e){
         e.preventDefault('submit');
-        $('#service-count' + count).show();
-        $('#service-count' + count + ' :input').removeAttr("disabled").removeClass("disabled");
+        $('#service-count-' + count).show();
+        $('#service-count-' + count + ' :input').removeAttr("disabled").removeClass("disabled");
         count += 1;
       });
 
@@ -152,17 +132,14 @@
         $(e.target).parent().remove();
       })
 
-
       $('#navigation').click(function(event) {
         console.log($(event.target).parent());
         if ($(event.target).parent().is("li")) {
           $(event.target).parent().siblings().removeClass('active');
           $(event.target).parent().addClass('active');
         }
-        // $(btnValForId).show();
-        // $(btnValForId).siblings().hide();
       });
     });
-
   </script>
 <% end %>
+
