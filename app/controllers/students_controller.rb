@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize_admin, except: [:index, :show]
 
   def index
     @students = Student.all
@@ -12,11 +13,11 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
-    @student.picture = "chemi.jpg"  if student_params[:student_picture].nil?
-    @student.user = current_user
+    @student.student_picture = "chemi.jpg"  if student_params[:student_picture].nil?
+    # @student.user = current_user
     # authorize @student
     if @student.save!
-      redirect_to student_path
+      redirect_to student_path(@student)
     else
       render 'new'
     end
@@ -26,14 +27,27 @@ class StudentsController < ApplicationController
   end
 
   def update
-    @student.update(student_params)
-    redirect_to student_path(@student)
+    if @student.update(student_params)
+      redirect_to student_path(@student)
+    else
+      render :edit
+    end
   end
 
   def new
+    @student = Student.new
   end
 
   def destroy
+    @student.destroy!
+    respond_to do |format|
+      format.js do
+        redirect_to dashboard_path, notice: "Successfully Deleted"
+      end
+      format.html do
+        redirect_to dashboard_path
+      end
+    end
   end
 
   private

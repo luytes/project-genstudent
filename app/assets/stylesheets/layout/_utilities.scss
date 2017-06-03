@@ -1,29 +1,64 @@
-/* -------------------------------------
- * Utilities classes
- * These are examples of utilities classes
- * Feel free to change them and create your own
- * ------------------------------------- */
-
 // Paddings
 .padded {
   padding-top: 5em;
   padding-bottom: 5em;
 }
+.pad-right-5 {
+  padding-right: 5px;
+}
+.no-padding-side {
+  padding-right: 0;
+  padding-left: 0;
+}
+.pad-12 {
+  padding: 0 12.5px;
+}
+.pad-25-right {
+  padding: 0 25px 0 0;
+}
+.no-pad-left {
+  padding-left: 0;
+}
+.pad-top-bot {
+  padding: 25px 0;
+}
+.pad-top-6 {
+  padding-top: 6px;
+}
+
+// Margins
+.no-margin-bot {
+  margin-bottom: 0;
+}
+.no-margin-top {
+  margin-top: 0;
+}
+.no-margin {
+  margin: 0;
+}
+.marg-bot-5 {
+  margin-bottom: 5px;
+}
+.margin-top-5 {
+  margin-top: 5px;
+}
+
+//Space
 .space-top-20{
   margin-top: 20px;
 }
 .space-bot-1 {
   padding-bottom: 70px;
 }
-.no-margin-bot {
-  margin-bottom: 0;
+.space-top-25 {
+  margin: 25px 0;
 }
-.no-padding-side {
-  padding-right: 0;
-  padding-left: 0;
+.space {
+  margin-bottom: 24px;
 }
-.no-margin {
-  margin: 0;
+.space-1 {
+  margin-bottom: 18px;
+  margin-top: 0;
 }
 
 // Backgrounds
@@ -43,4 +78,54 @@
   background-size: cover !important;
   background-repeat: no-repeat;
   background-position: center;
+}
+.service-picture {
+  height: 11em;
+}
+
+// Buttons
+.btn-genstudent {
+  width: 100%;
+  background-color: $dark-green;
+  color: white;
+}
+.btn-contrast:hover, .btn-contrast:focus {
+  border-color: #5a5a5a;
+  background-color: #5a5a5a;
+  color: #fff;
+}
+.btn:hover {
+  text-decoration: none;
+  color: white;
+}
+.btn-addlist:hover {
+  opacity: 0.8;
+}
+
+// Positions
+.pos-abs {
+  position: absolute;
+}
+.pos-rel {
+  position: relative;
+}
+
+
+// Miscs
+hr {
+    border: none;
+    height: 1px;
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
+    opacity: 0.4;
+}
+
+.big {
+  height: 220px;
+}
+.middle {
+  height: 150px;
+}
+#title {
+  margin-top: 10px;
 }
