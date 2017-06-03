@@ -12,20 +12,20 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
-    # 10.times do
-    #   @student.services.new
-    # end
+    10.times do
+      @student.services.new
+    end
   end
 
   def create
     @student = Student.new(student_params)
     @student.student_picture = "default-user.png" if student_params[:student_picture].nil?
-    # @student.services = Service.new
+
     # authorize @student
     if @student.save!
       redirect_to dashboard_path
     else
-      render 'new'
+      render 'new', notice: "Failed"
     end
   end
 
@@ -63,7 +63,7 @@ class StudentsController < ApplicationController
   def student_params
     params.require(:student).permit(:first_name, :last_name, :introduction,
                                     :subject, :student_picture, :year,
-                                    :university, :degree, :skills, :email, :student_id,
+                                    :university, :degree, :skills, :email, :service_id,
                                     :services_attributes => [:title, :category, :description, :picture])
   end
 

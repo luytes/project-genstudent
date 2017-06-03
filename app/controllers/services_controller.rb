@@ -13,7 +13,6 @@ class ServicesController < ApplicationController
     @service = Service.new
     @student = Student.find(params[:id])
     @service.student = @student
-    authorize @service
   end
 
   def create
@@ -22,7 +21,7 @@ class ServicesController < ApplicationController
     @student = Student.find(params[:id])
     @service.student = @student
     # authorize @service
-    if @service.save!
+    if @service.save
       render :new
     else
       redirect_to new_service_path
