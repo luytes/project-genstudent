@@ -1,0 +1,168 @@
+<div class="container">
+  <div id="wrapper-form">
+    <div id="navigation" >
+      <ul>
+        <li class="active">
+          <a href="#">Personal Information</a>
+        </li>
+        <li>
+          <a href="#">Academic Information</a>
+        </li>
+        <li>
+          <a href="#">Services</a>
+        </li>
+        <li>
+          <a href="#">Optional</a>
+        </li>
+        <li>
+          <a href="#">Confirm</a>
+        </li>
+      </ul>
+    </div>
+    <div id="steps" class="text-center">
+      <%= simple_form_for @student do |f| %>
+
+        <fieldset class="step">
+          <legend>Personal Information</legend>
+          <div class="row text-center">
+            <div class="col-xs-12 margin-top-5">
+              <p>
+              <%= f.label :first_name, 'First Name' %><%= f.text_field :first_name, placeholder: 'Chemi first', label:false %>
+              </p>
+            </div>
+            <div class="col-xs-12 margin-top-5">
+              <p>
+              <%= f.label :last_name, 'Last Name' %><%= f.text_field :last_name, placeholder: 'Chemi last', label:false %>
+              </p>
+            </div>
+            <div class="col-xs-12 margin-top-5">
+              <p>
+              <%= f.label :email, 'Email' %><%= f.text_field :email, placeholder: "chemi@chemi.com", label:false %>
+              </p>
+            </div>
+
+            <div class="col-xs-12 margin-top-5">
+              <p>
+              <%= f.label :introduction, 'intro' %><%= f.input :introduction, as: :text, :input_html => { id: 'descr', class: 'test', :cols => 10, :rows => 5 }, label:false %>
+              </p>
+            </div>
+
+          </div>
+        </fieldset>
+
+        <fieldset class="step">
+          <legend>Academic Information</legend>
+          <div class="col-xs-12 margin-top-5">
+            <p>
+            <%= f.label :university, 'University' %><%= f.text_field :university, required: true, autofocus: true, placeholder: "Chemi University", label:false %>
+            </p>
+          </div>
+
+          <div class="col-xs-12 margin-top-5">
+            <p>
+            <%= f.label :subject, 'Subject' %><%= f.text_field :subject, required: true, autofocus: true, placeholder: "Mechanical Engineering", label:false %>
+            </p>
+          </div>
+
+          <div class="col-xs-12 margin-top-5">
+            <p>
+            <%= f.label :degree, 'Degree' %><%= f.text_field :degree, required: true, autofocus: true, placeholder: "Bachelor of ...", label:false %>
+            </p>
+          </div>
+
+          <div class="col-xs-12 margin-top-5">
+            <p>
+            <%= f.label :year, 'Year' %><%= f.text_field :year, required: true, autofocus: true, placeholder: "2012", label:false %>
+            </p>
+          </div>
+
+          <div class="col-xs-12 margin-top-5">
+            <p>
+            <%= f.label :skills, 'skills' %><%= f.input :skills, as: :text, :input_html => { id: 'descr', class: 'test', :cols => 10, :rows => 5 }, label:false %>
+            </p>
+          </div>
+
+
+            <div class="col-xs-12 margin-top-5">
+              test
+            </div>
+        </fieldset>
+
+        <fieldset class="step">
+          <legend>Services</legend>
+            <div class="col-xs-12 margin-top-5">
+                <% count = 0 %>
+                  <%= f.simple_fields_for :services do |p| %>
+                  <div id="service-count<%=count%>" class="service-input">
+                    <% if count == 0 %>
+                      <%= p.input :title, disabled: false %>
+                      <%= p.input :description, disabled: false %>
+                      <%= p.input :category, disabled: false %>
+                      <%= p.input :price_pennies, disabled: false %>
+                    <% else %>
+                      <%= p.input :title, disabled: true %>
+                      <%= p.input :description, disabled: true %>
+                      <%= p.input :category, disabled: true %>
+                      <%= p.input :price_pennies, disabled: true %>
+                    <% end %>
+                    <% count += 1 %>
+                    <button class="btn delete">Delete this service</button>
+                  </div>
+                  <% end %>
+            </div>
+            <button id="add" class="btn">Add a service</button>
+        </fieldset>
+
+        <fieldset class="step">
+          <legend>Optional</legend>
+          <div class="col-xs-12 margin-top-5">
+            <p>
+              <%= f.input :student_picture, class: "space-auto", label: false%>
+            </p>
+          </div>
+        </fieldset>
+
+        <fieldset class="step">
+          <div class="col-xs-12 margin-top-5">
+            <%= f.button :submit, 'submit', class: "btn" %>
+          </div>
+        </fieldset>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% content_for(:after_js) do %>
+  <script>
+    // Get the modal
+    $(document).ready(function() {
+      var count = 1;
+      $('.service-input').first().siblings().hide();
+
+      $('#add').on('click', function(e){
+        e.preventDefault('submit');
+        $('#service-count' + count).show();
+        $('#service-count' + count + ' :input').removeAttr("disabled").removeClass("disabled");
+        count += 1;
+      });
+
+      $('.delete').on('click', function(e){
+        e.preventDefault();
+        $(e.target).parent().remove();
+      })
+
+
+      $('#navigation').click(function(event) {
+        console.log($(event.target).parent());
+        if ($(event.target).parent().is("li")) {
+          $(event.target).parent().siblings().removeClass('active');
+          $(event.target).parent().addClass('active');
+        }
+        // $(btnValForId).show();
+        // $(btnValForId).siblings().hide();
+      });
+    });
+
+  </script>
+<% end %>

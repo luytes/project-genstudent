@@ -1,0 +1,179 @@
+<div>
+  <div class="tab-container">
+    <!-- Nav tabs -->
+    <div class="responsive">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#dashboard" aria-controls="home" role="tab" data-toggle="tab">Dashboard</a></li>
+        <li role="presentation"><a href="#my-students" aria-controls="profile" role="tab" data-toggle="tab">My Students</a></li>
+        <li role="presentation"><a href="#my-services" aria-controls="messages" role="tab" data-toggle="tab">My Services</a></li>
+        <li role="presentation"><a href="#subscriptions" aria-controls="settings" role="tab" data-toggle="tab">Subscriptions</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tab panes -->
+  <div class="tab-content" style="margin-top: 3em">
+
+<!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
+    <div role="tabpanel" class="tab-pane active" id="dashboard">
+      <div class="space-top-25">
+        <div class="container-700">
+          <div class="row">
+            <div class="dash-body col-md-3 col-xs-3">
+              <div class="panel">
+                <div class="panel-image">
+                  <!-- ADD PICTURE HERE -->
+
+                  <%= cl_image_tag @user.profile_picture, class: "bg-picture" %>
+                </div>
+                <div class="panel-body">
+                  <h2 class="text-center"><%= @user.full_name %></h2>
+                  <ul class="list-unstyled text-center">
+                    <li><%= link_to "View Profile", user_path(@user) %></li>
+                    <li><%= link_to "Edit Profile", edit_user_path(@user) %></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="panel text-center">
+                <div class="panel-header">Verified Information</div>
+                <div class="panel-body">
+                  <ul class="list-unstyled">
+                    <li><a href="#"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="dash-aside col-md-9 col-xs-9">
+              <div class="panel">
+                <div class="panel-header" id="notification">
+                  Notification
+                </div>
+                <div class="panel-body">
+                  <p>No new company signed up today</p>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header" id="notification">
+                  Messages
+                </div>
+                <div class="panel-body">
+                  <p>--Chemi chemi</p>
+                  <p>--Chemi chemi</p>
+                  <p>--Chemi chemi</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
+    <div role="tabpanel" class="tab-pane" id="my-students">
+      <div class="space-top">
+        <div class="container">
+          <div class="row">
+            <div class="dash-body col-md-2">
+              <ul class="sidenav-list">
+                <div class="space-top">
+                  <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
+                </div>
+              </ul>
+            </div>
+            <div class="dash-aside col-md-10">
+
+              <% if @students.nil? %>
+
+                <div class="space-1 h3">
+                  Ah, it seems you have no students yet chemi.
+                </div>
+
+              <% end %>
+
+                <% @students.each do |student| %>
+                <div class="row panel">
+                  <div class="col-md-3 pad-25-right">
+                    <div class="panel-image bg-picture middle" style= "background-image: linear-gradient(-225deg, rgba(0,78,55,0.3) 0%, rgba(0,36,61,0.3) 50%), url('<%= student.student_picture %>')">
+                    </div>
+                  </div>
+                  <div class="col-md-7 pad-12">
+                    <div>
+                      <h3 id="title" class="marg-bot-5"><%= student.full_name %> - <%= student.university %></h3>
+                      <hr id="line-more-top">
+                      <p><%= student.degree %> - Subject: <%= student.subject %> - Year: 19<%= student.year %></p>
+                      <p style="opacity: 0.7"><%= student.introduction %></p>
+                    </div>
+                  </div>
+                  <div class="col-md-2 text-center">
+                    <div class="pad-top-6"><%= link_to "Show", student_path(student), class: "btn btn-genstudent" %></div>
+                    <div class="pad-top-6"><%= link_to "Edit", edit_student_path(student), class: "btn btn-genstudent" %>
+                    </div>
+                    <div class="pad-top-6"><%= link_to "Delete", student_path(student), class: "btn btn-genstudent" %></div>
+                  </div>
+                </div>
+                <% end %>
+              <div class="space-top">
+                <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
+    <div role="tabpanel" class="tab-pane" id="my-services">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 no-margin-top"><h2>Your Services</h2></div>
+          <% @services.each do |service| %>
+          <div class="dash-body col-md-4">
+            <div class="panel">
+              <div class="panel-image bg-picture service-picture" style= "background-image: linear-gradient(-225deg, rgba(0,78,55,0.3) 0%, rgba(0,36,61,0.3) 50%), url('<%= service.picture %>')">
+                <div class="text-center pos-abs avatar-position">
+
+                <% if service.student.student_picture.nil? %>
+                  <%= image_tag ("https://cms-assets.tutsplus.com/uploads/users/107/posts/25507/image/38-flat-professions-avatars-icons.jpg"), class: "avatar-large-bordered" %>
+                <% else %>
+                  <%= cl_image_tag service.student.student_picture_url, height: 50, width: 50, crop: :fill, class: "profile-large-bordered" %>
+                <% end %>
+
+                </div>
+              </div>
+
+              <div class="panel-body text-center">
+                <h2 id="title"><%= service.category %></h2>
+                <div>
+                  <p><%= service.start_date %> - <%= service.finish_date %></p>
+                  <p style="opacity: 0.7"><%= cutoff_text(service.description) %></p>
+                </div>
+                <hr size="10">
+                <div class="review"><%= link_to "View Service", service_path(service) %></div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+<!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE!-->
+    <div role="tabpanel" class="tab-pane" id="subscriptions">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Work on this Alex</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+

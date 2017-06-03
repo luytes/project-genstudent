@@ -1,0 +1,278 @@
+#wrapper-form {
+  // moz stands for mozilla firefox
+  // and webkit is for safari and chrome
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow: none;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius: none;
+    border: solid $dark-green 2px;
+    background-color: white;
+    width:1000px;
+    margin: 30px auto;
+    overflow:hidden;
+}
+#steps{
+    width:700px;
+    // width doesnt matter since its going to be expanded automatically
+    overflow:hidden;
+}
+.step{
+    float:left;
+    width:1000px;
+}
+#navigation{
+    height:47px;
+    background-color: $dark-green;
+    border: none;
+    -moz-border-radius: none;
+    -webkit-border-bottom-left-radius: none;
+    -webkit-border-bottom-right-radius: none;
+    border-bottom-left-radius: none;
+    border-bottom-right-radius:none;
+    border-bottom: none;
+    margin-top: -11px;
+}
+#navigation ul{
+  list-style:none;
+  float:center;
+
+  background-color: white;
+}
+
+#navigation ul li{
+  float:left;
+    border: none;
+    position:relative;
+  margin:0px -1px;
+}
+#navigation ul li a{
+    display:block;
+    height:45px;
+    background-color:none;
+    color: white;
+    outline:none;
+    font-weight:300;
+    text-decoration:none;
+    line-height:45px;
+    padding:0px 20px;
+    border-left: solid white 2px;
+    border-right: solid white 2px;
+    background:$dark-green;
+    font-family: $header-font;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    word-spacing: 1.3px;
+}
+
+
+
+#navigation ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-shadow:none
+}
+
+#navigation ul li.active a{
+    color: $dark-green;
+    text-shadow:none;
+    background-color: white;
+}
+
+#navigation ul li.active:hover a{
+    opacity: 1;
+}
+// span.checked{
+//     background:transparent url(../images/checked.png) no-repeat top left;
+//     position:absolute;
+//     top:0px;
+//     left:1px;
+//     width:20px;
+//     height:20px;
+// }
+// span.error{
+//     background:transparent url(../images/error.png) no-repeat top left;
+//     position:absolute;
+//     top:0px;
+//     left:1px;
+//     width:20px;
+//     height:20px;
+// }
+#steps form fieldset{
+    border:none;
+    padding-bottom:20px;
+}
+#steps form legend{
+    text-align:center;
+    // background-color:#f0f0f0;
+    color: $dark-green;
+    font-size:42px;
+    // text-shadow:1px 1px 1px #fff;
+    font-weight:100;
+    float:left;
+    width:100%;
+    padding:0 10px;
+    margin:10px 0px;
+    border-bottom:1px solid #fff;
+    border-top: none;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+#steps form input:not([type=radio]),
+#steps form textarea {
+    background: #ffffff;
+    border: 2px solid $light-green;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 0px;
+    outline: none;
+    padding: 5px;
+    width: 400px;
+    margin: auto;
+    color: $light-green;
+}
+
+// ::-webkit-input-placeholder,
+//  { /* WebKit, Blink, Edge */
+//     color: $light-green;
+// }
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: $light-green;
+  background-color: white;
+  border: none;
+}
+
+
+::-webkit-text-area { /* WebKit, Blink, Edge */
+    color: $light-green;
+}
+
+#steps form select{
+    background: #ffffff;
+    border: 2px solid white;
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    border-radius: 0px !important;
+    padding: 5px;
+    width: 400px;
+    // margin: auto;
+}
+#steps form input:focus{
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: white;
+}
+// Credit goes to Mary Lou Tutorials thnak you
+
+#steps form p label{
+    width: 100px;
+    text-align:right;
+    margin-right:25px;
+    line-height:26px;
+    color: $light-green;
+    text-shadow: none;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+// .simple_form label {
+//   float: left;
+//   width: 100px;
+//   text-align: right;
+//   margin: 2px 10px;
+// }
+
+
+.inline-label {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#project_picture {
+  border: none !important;
+}
+
+
+.select {
+  border-radius: 0 !important;
+  border: solid $light-green 2px;
+  color: $light-green;
+  background-color: white;
+  box-shadow: none;
+}
+
+#normal {
+  outline: solid $light-green 2px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#art.form-control {
+  outline: solid $light-green 2px;
+  border-radius: 0;
+  box-shadow: none;
+  color: $light-green;
+}
+
+#design.form-control {
+  outline: solid $light-green 2px;
+  border-radius: 0;
+  box-shadow: none;
+  color: $light-green;
+}
+
+#fashion.form-control {
+  outline: solid $light-green 2px;
+  border-radius: 0;
+  box-shadow: none;
+  color: $light-green;
+}
+
+#film.form-control {
+  outline: solid $light-green 2px;
+  border-radius: 0;
+  box-shadow: none;
+  color: $light-green;
+}
+
+#journalism.form-control {
+  outline: solid $light-green 2px;
+  border-radius: 0;
+  box-shadow: none;
+  color: $light-green;
+}
+
+#music.form-control {
+  outline: solid $light-green 2px;
+  border-radius: 0;
+  box-shadow: none;
+  color: $light-green;
+}
+
+#photography.form-control {
+  outline: solid $light-green 2px;
+  border-radius: 0;
+  box-shadow: none;
+  color: $light-green;
+}
+
+#technology.form-control {
+  outline: solid $light-green 2px;
+  border-radius: 0;
+  box-shadow: none;
+  color: $light-green;
+}
+
+#theater.form-control {
+  outline: solid $light-green 2px;
+  border-radius: 0;
+  box-shadow: none;
+  color: $light-green;
+}
+
+

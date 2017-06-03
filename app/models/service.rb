@@ -15,25 +15,6 @@ class Service < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  CATEGORIES = {
-    content: [
-      "ceramics", "conceptual art", "digital art", "illustration", "installations",
-    "mixed media", "painting", "performance art", "public art", "sculpture", "textiles",
-    "video art", "printmaking"
-    ],
-    social_media: [
-      "architecture", "civic design", "graphic design", "interactive design",
-    "product design", "typography", "industrial design", "interior design"
-    ],
-    design: [
-      "accessories", "apparel", "childrenswear", "couture", "footwear",
-    "jewelry", "pet fashion"
-    ],
-    research: [
-      "action", "animation", "comedy", "documentary", "drama", "experimental", "family",
-    "fantasy", "horror", "music videos", "narrative film", "romance", "science fiction",
-    "short"
-    ]
-  }
+  CATEGORIES = ["Content", "Social Media", "Design", "Research"]
 
 end
