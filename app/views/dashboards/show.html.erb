@@ -110,7 +110,7 @@
                     <div class="pad-top-6"><%= link_to "Show", student_path(student), class: "btn btn-genstudent" %></div>
                     <div class="pad-top-6"><%= link_to "Edit", edit_student_path(student), class: "btn btn-genstudent" %>
                     </div>
-                    <div class="pad-top-6"><%= link_to "Delete", student_path(student), class: "btn btn-genstudent" %></div>
+                    <div class="pad-top-6"><%= link_to "Delete", student, class: "btn btn-genstudent", data: { confirm: "Are you sure?" }, method: :delete %></div>
                   </div>
                 </div>
                 <% end %>
