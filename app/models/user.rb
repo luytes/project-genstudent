@@ -7,7 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :services
+  has_many :services, through: :students
   # has_one :student
   # belongs_to :company
   validates :email, uniqueness: true
