@@ -1,8 +1,8 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon" style="background-color: #218D46;">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <div class="genstudent-logo">
-      <h3>GENSTUDENT</h3>
+      <h3 class="gen-logo">GENSTUDENT</h3>
     </div>
   <% end %>
 
@@ -15,7 +15,7 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag current_user.profile_picture || "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag current_user.profile_picture || "default-user.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to user_path(current_user) do %>
@@ -24,7 +24,7 @@
             </li>
 
             <!-- If admin -->
-            <% if current_user.admin = true %>
+            <% if current_user.admin == true %>
               <li>
                 <%= link_to dashboard_path do %>
                   <i class="fa fa-home"></i>  <%= t(".profile", default: "Dashboard") %>

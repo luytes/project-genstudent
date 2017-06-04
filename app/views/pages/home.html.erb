@@ -1,18 +1,13 @@
-<div class="container-fluid banner bg-picture banner-home" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('<%= asset_path('genstudent.png') %>')">
+<div class="container-fluid banner bg-picture" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('<%= asset_path('genstudent.png') %>')">
   <div class="row">
     <div class="banner-content">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
         <h1>GET READY FOR GROWTH<br> <h2>We connect startups with top university students</h2></h1>
       </div>
 
-      <div class="col-xs-12 col-sm-4 col-sm-offset-2 col-md-3 col-md-offset-3 text-center">
+      <div class="col-xs-12 col-xs-12 col-md-6 col-md-offset-3 text-center space-top-20">
         <%= link_to services_path do %>
-          <div class="btn btn-primary">I am a Company</div>
-        <% end %>
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-3 text-center">
-        <%= link_to users_path do %>
-          <div class="btn btn-primary">I am a Student</div>
+          <div class="btn btn-primary bordered">Get Started</div>
         <% end %>
       </div>
     </div>

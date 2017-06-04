@@ -14,7 +14,7 @@
   padding: 0 12.5px;
 }
 .pad-25-right {
-  padding: 0 25px 0 0;
+  padding: 0 12.5px;
 }
 .no-pad-left {
   padding-left: 0;
@@ -60,6 +60,9 @@
   margin-bottom: 18px;
   margin-top: 0;
 }
+.space-top-2 {
+  margin-top: 2em;
+}
 
 // Backgrounds
 .bg-black {
@@ -79,10 +82,17 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+.bg-full-width {
+  width:100%;
+}
 .service-picture {
   height: 11em;
 }
-
+.bordered {
+  border-radius: 50px;
+  width: 150px;
+  font-size: 20px;
+}
 // Buttons
 .btn-genstudent {
   width: 100%;
@@ -117,7 +127,7 @@ hr {
     height: 1px;
     color: #333; /* old IE */
     background-color: #333; /* Modern Browsers */
-    opacity: 0.4;
+    opacity: 0.1;
 }
 
 .big {

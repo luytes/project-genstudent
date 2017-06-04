@@ -21,6 +21,7 @@ gem 'pundit'
 gem 'devise'
 gem 'faker'
 gem "geocoder"
+gem 'stripe'
 
 gem "coffee-rails"
 gem "coffee-script"

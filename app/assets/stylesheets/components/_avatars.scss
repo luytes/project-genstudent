@@ -1,5 +1,6 @@
 .avatar {
   width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 .avatar-large {
@@ -10,7 +11,7 @@
   width: 50px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: lightgreen 1px solid;
+  border: $light-green 1px solid;
 }
 .avatar-square {
   width: 30px;
@@ -25,8 +26,20 @@
   top: 10em;
   left: 11em;
 }
+.avatar-big-bordered {
+  width: 6.25em;
+  height: 5.25em;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: $light-green 1px solid;
+  margin: 0 0.2em;
+}
 .profile-large-bordered {
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+.profile-large {
+  height: 150px;
+  width: 150px;
 }

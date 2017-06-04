@@ -17,14 +17,14 @@
 <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
     <div role="tabpanel" class="tab-pane active" id="dashboard">
       <div class="space-top-25">
-        <div class="container-700">
+        <div class="container">
           <div class="row">
-            <div class="dash-body col-md-3 col-xs-3">
+            <div class="dash-body col-md-3 col-xs-12">
               <div class="panel">
                 <div class="panel-image">
                   <!-- ADD PICTURE HERE -->
 
-                  <%= cl_image_tag @user.profile_picture, class: "bg-picture" %>
+                  <%= cl_image_tag @user.profile_picture, class: "bg-picture bg-full-width" %>
                 </div>
                 <div class="panel-body">
                   <h2 class="text-center"><%= @user.full_name %></h2>
@@ -44,7 +44,7 @@
               </div>
             </div>
 
-            <div class="dash-aside col-md-9 col-xs-9">
+            <div class="dash-aside col-md-offset-1 col-md-8 col-xs-12">
               <div class="panel">
                 <div class="panel-header" id="notification">
                   Notification
@@ -76,11 +76,9 @@
         <div class="container">
           <div class="row">
             <div class="dash-body col-md-2">
-              <ul class="sidenav-list">
-                <div class="space-top">
-                  <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
-                </div>
-              </ul>
+              <div class="space-top sidenav-list">
+                <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
+              </div>
             </div>
             <div class="dash-aside col-md-10">
 
