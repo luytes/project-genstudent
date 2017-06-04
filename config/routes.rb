@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :orders, only: [:show, :create]
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
 
   get 'dashboard' => 'dashboards#show'
 
