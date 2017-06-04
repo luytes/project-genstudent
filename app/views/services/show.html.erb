@@ -52,6 +52,13 @@
           <%= link_to 'Subscribe Now / ' + "#{@service.price_pennies}" + '£ a month', services_path, class: "btn btn-primary subscribe-btn" %>
         </div>
 
+        <div>
+          <%= form_tag orders_path do %>
+            <%= hidden_field_tag 'service_id', @service.id %>
+            <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+
 
     </div>
 

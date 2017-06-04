@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170528153602) do
+ActiveRecord::Schema.define(version: 20170604144453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "state"
+    t.string   "service_sku"
+    t.integer  "amount_pennies", default: 0, null: false
+    t.json     "payment"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.string   "content"
@@ -41,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170528153602) do
     t.integer  "price_pennies",          default: 0,     null: false
     t.string   "price_currency",         default: "GBP", null: false
     t.integer  "student_id"
+    t.string   "sku"
     t.index ["student_id"], name: "index_services_on_student_id", using: :btree
   end
 
@@ -76,8 +86,6 @@ ActiveRecord::Schema.define(version: 20170528153602) do
     t.string   "last_name"
     t.string   "profile_picture"
     t.string   "skills"
-    t.text     "bio"
-    t.string   "portfolio_url"
     t.string   "type"
     t.boolean  "admin",                  default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
