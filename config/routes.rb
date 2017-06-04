@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :orders, only: [:show, :create]
+
   get 'dashboard' => 'dashboards#show'
 
   root to: 'pages#home'
