@@ -12,6 +12,19 @@ class ServicesController < ApplicationController
   def show
     @review = Review.new
     @user = current_user
+
+    count = 0
+    # This gives me an aray of hashes with a rating as single key
+    @hash = Review.where(service_id: @service.id).map do |hash|
+      { rating: hash[:rating] }
+    end
+    # Now I want to add all the ratings together. i get the rating by writing @hash.first.values[0]
+    @total = @hash.each do |val|
+      count += val.values[0]
+    end
+    @number_of_reviews = Review.where(service_id: @service.id).count
+    # count gets set to the new value because of @total
+    @average = (count.to_f/@number_of_reviews.to_f)
   end
 
   def new
