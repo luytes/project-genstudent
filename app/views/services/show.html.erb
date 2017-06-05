@@ -36,10 +36,17 @@
             <h3 class="gen-subheader">Reviews</h3>
 
             <% @service.reviews.each do |r| %>
-              <%= r.content %>
-              <%= r.rating.times do %>
-              <i class="fa fa-star"></i>
+              <div class="row">
+                <div class="col-xs-12">
+                  <%= r.content %>
+                  <%= r.rating.times do %>
+                    <i class="fa fa-star"></i>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
+
+            <%= render :partial => 'reviews/form' %>
 
           </div>
           <hr class="gen-line">
