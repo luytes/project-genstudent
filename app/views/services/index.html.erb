@@ -1,4 +1,16 @@
 <div class="container">
+
+  <div class="filter-buttons space-top-20">
+    <form id="filters">
+      <% @categories.each do |categ| %>
+        <div class="inline-stuff category-list">
+          <input type="checkbox" name='<%= categ %>' id='<%= categ %>'>
+          <label class="index-category" for='<%= categ %>'> <%= categ %> </label>
+        </div>
+      <% end %>
+    </form>
+  </div>
+
   <div class="row">
     <% if @services.empty? %>
       <div class="col-xs-12 col-sm-6">
@@ -6,7 +18,7 @@
       </div>
     <% else %>
       <% @services.each do |service| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 space-top-20">
+        <div class="col-xs-12 col-sm-6 col-md-4 space-top-20 selectable-card" data-category="<%=service.category%>">
           <%= link_to service_path(service.id) do%>
           <div class="index-card text-left">
             <div class="bg-picture index-card-img" style="background-image: url( <%= service.picture %>);">
@@ -25,3 +37,29 @@
     <% end %>
   </div>
 </div>
+
+<%= content_for(:after_js) do %>
+
+  <script>
+    $(document).ready(function() {
+      $('#filters input:checkbox').change(function () {
+
+        var selectedCategoryNames = $('#filters input:checkbox:checked').map(function () {
+          return $(this).attr('name')
+        }).toArray();
+
+        cards = $('.selectable-card');
+        cards.hide()
+
+        cards.each(function() {
+          if (selectedCategoryNames.includes($(this).attr('data-category'))) $(this).show()
+        });
+
+        if (selectedCategoryNames.length === 0) cards.show();
+
+      });
+    });
+  </script>
+
+<% end %>
+

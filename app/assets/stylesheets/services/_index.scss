@@ -38,3 +38,79 @@
   left: 155px;
   top: -15px;
 }
+.index-category {
+  background-color: $dark-green;
+  padding: 5px 30px;
+  color: $dark-green;
+  text-decoration: none;
+  margin-right: 10px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  border: 1px solid white;
+}
+
+
+.index-category:hover {
+  background-color: white;
+  border: 1px solid $dark-green;
+
+}
+
+.index-category:hover a {
+  color: $dark-green
+}
+
+.index-category a {
+  color: white;
+  font-size: 13px;
+  margin: 0 6px;
+}
+
+.filter-buttons {
+  form {
+    border: none;
+    padding: 10px;
+  }
+  .inline-stuff{
+    display: inline-block;
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    & + label {
+      display: block;
+      border: 1px solid white;
+      line-height: 1;
+      color: #fff;
+      padding: 10px 10px;
+      text-decoration: none;
+      margin-right: 10px;
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      background-color: $light-green;
+      &:hover, &:focus {
+          background-color: white;
+          border: 1px solid $light-green;
+          color: $light-green;
+      }
+      &:active {
+          background-color: $light-green;
+          border: 1px solid white;
+          color: white;
+      }
+    }
+    &:checked + label {
+      background-color: $dark-green;
+      color:  white;
+      &:hover, &:focus, &:active {
+        background-color: $dark-green;
+        border: 1px solid white;
+        color: white;
+      }
+    }
+  }
+}
