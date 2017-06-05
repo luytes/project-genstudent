@@ -10,6 +10,8 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @user = current_user
   end
 
   def new
