@@ -3,39 +3,41 @@
     <div class="gen-body space-top-2">
       <!-- left side -->
       <div class="col-xs-12 col-sm-8">
-          <div class="gen-header">
-            <h1><%= @service.title %></h1>
-            <p>Reviews here pls</p>
-          </div>
+        <div class="gen-header">
+          <h1><%= @service.title %></h1>
+          <p><%= @average %></p>
+        </div>
 
-          <div class="gen-image bg-picture gen-service" style="background-image: url('<%= @service.picture %>')">
-          </div>
+        <div class="gen-image bg-picture gen-service" style="background-image: url('<%= @service.picture %>')">
+        </div>
 
-          <div>
-            <h3 class="gen-subheader">Portfolio</h3>
-            <p>What the fuck should be here</p>
-          </div>
+        <div>
+          <h3 class="gen-subheader">Portfolio</h3>
+          <p>What should be here?</p>
+        </div>
 
-          <hr class="gen-line">
-          <div>
-            <h3 class="gen-subheader">Description</h3>
-            <p><%= @service.description %></p>
-          </div>
-          <hr class="gen-line">
-          <div>
-            <h3 class="gen-subheader">What can you expect</h3>
-            <p><%= @service.what_i_will_do_for_you %></p>
-          </div>
-          <hr class="gen-line">
-          <div>
-            <h3 class="gen-subheader">What I need from you</h3>
-            <p><%= @service.what_i_need_from_you %></p>
-          </div>
-          <hr class="gen-line">
-          <div>
-            <h3 class="gen-subheader">Reviews</h3>
-
-            <% @service.reviews.each do |r| %>
+        <hr class="gen-line">
+        <div>
+          <h3 class="gen-subheader">Description</h3>
+          <p><%= @service.description %></p>
+        </div>
+        <hr class="gen-line">
+        <div>
+          <h3 class="gen-subheader">What can you expect</h3>
+          <p><%= @service.what_i_will_do_for_you %></p>
+        </div>
+        <hr class="gen-line">
+        <div>
+          <h3 class="gen-subheader">What I need from you</h3>
+          <p><%= @service.what_i_need_from_you %></p>
+        </div>
+        <hr class="gen-line">
+        <div class="reviews" id="review">
+          <h3 class="gen-subheader">Reviews</h3>
+          <% if @service.reviews.map(&:content).all?(&:nil?) %>
+            <p>No reviews yet</p>
+          <% else %>
+            <% @service.reviews.limit(5).each do |r| %>
               <div class="row">
                 <div class="col-xs-12">
                   <%= r.content %>
@@ -46,35 +48,58 @@
               </div>
             <% end %>
 
-            <%= render :partial => 'reviews/form' %>
+            <div class="reviews-expanded-list">
+              <% @service.reviews.offset(5).each do |r| %>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <%= r.content %>
+                    <%= r.rating.times do %>
+                      <i class="fa fa-star"></i>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
 
-          </div>
-          <hr class="gen-line">
-          <div>
-            <h3 class="gen-subheader">About Me</h3>
-            <div class="user-information">
-              <div class="bg-picture avatar-big-bordered" style="background-image: url( <%= @service.student.student_picture %>);"></div>
-              <div class="aboutme-content">
-                <h4 class="no-margin-top"><%= @service.student.full_name %></h4>
-                <p><%= @service.student.introduction %></p>
-              </div>
+            <!-- <button class="btn btn-expand" id="btn-expand-reviews"> Show more reviews</button> -->
+
+          <% end %>
+
+
+          <%= render :partial => 'reviews/form' %>
+
+        </div>
+        <hr class="gen-line">
+        <div>
+          <h3 class="gen-subheader">About Me</h3>
+          <div class="user-information">
+            <div class="bg-picture avatar-big-bordered" style="background-image: url( <%= @service.student.student_picture %>);"></div>
+            <div class="aboutme-content">
+              <h4 class="no-margin-top"><%= @service.student.full_name %></h4>
+              <p><%= @service.student.introduction %></p>
             </div>
           </div>
+        </div>
       </div>
+
       <!-- right side -->
-        <div class="col-xs-12 col-sm-4 text-center">
-          <%= link_to 'Subscribe Now / ' + "#{@service.price_pennies}" + '£ a month', services_path, class: "btn btn-primary subscribe-btn" %>
-        </div>
-
-        <div>
-          <%= form_tag orders_path do %>
-            <%= hidden_field_tag 'service_id', @service.id %>
-            <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-          <% end %>
-        </div>
-
+      <div class="col-xs-12 col-sm-4 text-center">
+        <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'service_id', @service.id %>
+          <%= submit_tag 'Subscribe Now / ' + "#{@service.price_pennies}" + '£ a month',
+          class: 'btn btn-primary subscribe-btn' %>
+        <% end %>
+      </div>
 
     </div>
 
+
   </div>
 </div>
+
+<script>
+  $('#reviews').click(function(e){
+    e.preventDefault();
+  $('#review')[0].scrollIntoView(true);
+  });
+</script>

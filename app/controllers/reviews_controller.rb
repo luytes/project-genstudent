@@ -26,4 +26,15 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:content, :rating)
   end
+
+  # def render_ratings(value)
+  #   output = ''
+  #   if (1..5).include?(value.floor)
+  #     value.floor.times { output += image_tag('star.gif')}
+  #   end
+  #   if value == (value.floor + 0.5) && value.to_i != 5
+  #     output += image_tag('half-star.gif')
+  #   end
+  #   output.html_safe
+  # end
 end
