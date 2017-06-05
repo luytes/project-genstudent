@@ -14,7 +14,7 @@ Student.destroy_all
 User.destroy_all
 # Student.destroy_all
 
-category = Service::CATEGORIES.keys.sample.to_s
+category = ["Content", "Social Media", "Design", "Research"]
 
 address = ["Spreekanal, 10179 Berlin", "Alexanderplatz, 10178 Berlin",
            "Kollwitzplatz, Kollwitzstraße 1, 10405 Berlin",
@@ -34,13 +34,24 @@ puts 'Creating Users...'
     password_confirmation: password,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    bio: Faker::Lorem.paragraph(2),
-    portfolio_url: "www.portfolio.com",
     skills: "#{SKILLS.sample} and #{SKILLS.sample}"
     )
   u.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
   u.save!
 end
+
+puts 'Creating Admin For Lisa...'
+l = User.new(
+  email: '123456@gmail.com',
+  password: '123456',
+  password_confirmation: '123456',
+  first_name: 'Lisa',
+  last_name: 'Chemi',
+  skills: "Fragen wann es fertig ist",
+  admin: true
+  )
+l.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
+l.save!
 
 puts 'Creating Students...'
 
@@ -66,7 +77,7 @@ Service.create!(
     title: "Noches de teatro.",
     description: "Noches de teatro (or Theatre Nights) is a documentary short-film in production selected for the Identidad y Pertenencia contest at the Guanajuato International Film Festival. Our story is about Ivanna Tovar, a young transgender actress from Guanajuato, Mexico. We follow Ivanna as she directs and rehearses for Noches de Cabaret with her theatre group La Cabaretera Escénica. Center stage are her fears, her deepest feelings, the concerns of being different and the desire of being a spokeswoman for people whose voices are often misheard.
 ",
-    category: "film",
+    category: category.sample,
     address: address.sample,
     start_date: Faker::Date.backward(14).to_datetime,
     finish_date: Faker::Date.forward(23).to_datetime,
@@ -78,7 +89,7 @@ Service.create!(
 Service.create!(
     title: "In the Air",
     description: "Environmental justice is the fair treatment and meaningful involvement of all people regardless of race, color, national origin, or income, with respect to the development, implementation, and enforcement of environmental laws, regulations, and policies. It will be achieved when all people have the same degree of protection from environmental and health hazards, as well as equal access to the decision making process to have a healthy environment in which to live, learn, and work.",
-    category: "film",
+    category: category.sample,
     address: address.sample,
     start_date: Faker::Date.backward(14).to_datetime,
     finish_date: Faker::Date.forward(23).to_datetime,
@@ -90,7 +101,7 @@ Service.create!(
 Service.create!(
     title: "Legal Termination of a Warlock.",
     description: "It's a genre bender filtering urban fantasy, horror and detective fiction through a sardonic worldview.  The influences are The Night Stalker by way of Raymond Chandler, Dashiell Hammett and Art Buchwald.",
-    category: "journalism",
+    category: category.sample,
     address: address.sample,
     start_date: Faker::Date.backward(14).to_datetime,
     finish_date: Faker::Date.forward(23).to_datetime,
@@ -102,7 +113,7 @@ Service.create!(
 Service.create!(
     title: "The Florence Dance Festival",
     description: "Molissa, assisted by Christiana Axelsen will be very busy while in Florence, as the week residency will require her to teach contemporary classes, set a new work on the dancers of Toscana Dance HUB, mentor dance musicians of Music HUB and User choreographers, plus rehearse and perform at the Florence Dance Festival.",
-    category: "theater",
+    category: category.sample,
     address: address.sample,
     start_date: Faker::Date.backward(14).to_datetime,
     finish_date: Faker::Date.forward(23).to_datetime,
@@ -115,7 +126,7 @@ Service.create!(
 Service.create!(
     title: "Gravity: The Weighted Blanket",
     description: "Gravity is a premium-grade, therapeutic weighted blanket that harnesses the power of deep touch stimulation – a proven anxiety treatment – to gently distribute deep pressure across your body.",
-    category: "design",
+    category: category.sample,
     address: address.sample,
     start_date: Faker::Date.backward(14).to_datetime,
     finish_date: Faker::Date.forward(23).to_datetime,
