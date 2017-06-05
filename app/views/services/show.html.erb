@@ -34,6 +34,13 @@
           <hr class="gen-line">
           <div>
             <h3 class="gen-subheader">Reviews</h3>
+
+            <% @service.reviews.each do |r| %>
+              <%= r.content %>
+              <%= r.rating.times do %>
+              <i class="fa fa-star"></i>
+            <% end %>
+
           </div>
           <hr class="gen-line">
           <div>

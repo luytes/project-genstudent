@@ -1,4 +1,16 @@
-<%= simple_form_for [@service, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit "add a review", class: "btn btn-primary" %>
-<% end %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 space-top-20">
+    <div class="profile-form">
+      <div class="row">
+        <div class="col-lg-12 profile-form-header">
+          <h2>Add a Review</h2>
+        </div>
+      </div>
+      <%= simple_form_for [@service, @review] do |f| %>
+        <%= f.input :content %>
+        <%= f.submit "add a review", class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
