@@ -3,8 +3,16 @@ class DashboardsController < ApplicationController
   def show
     @user = current_user
     @students = Student.all
+    @order = Order.where(state: 'paid') # gives me all the paid orders
+    @hash = @order.map do |hash|
+      hash.service #creates an array of service objects
+    end
+
+    if @user.admin == true
       @services = Service.all
-      @orders = Order.where(state: 'paid')
+    else
+      @services = @hash
+    end
     # @requests = Request.where(user: current_user)
   end
 

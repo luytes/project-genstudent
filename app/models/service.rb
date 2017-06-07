@@ -1,6 +1,8 @@
 class Service < ApplicationRecord
 
   has_many :reviews, :dependent => :destroy
+  has_many :orders
+
   # alias_attribute :owner, :user
   alias_attribute :owner, :student
   validates :title, presence: true, uniqueness: true
