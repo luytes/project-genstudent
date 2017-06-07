@@ -6,21 +6,17 @@
            <% if @user.profile_picture %>
             <%= cl_image_tag @user.profile_picture%>
             <% else %>
-            <%= image_tag "default-user.png", class: "profile-large" %>
+            <%= image_tag "/assets/images/default-user.png", class: "profile-large" %>
             <% end %>
         </div>
         <div class="card-content">
           <h2 class="username"><%= @user.full_name %></h2>
-          <p><%= @user.bio %></p>
-          <h4>Skills</h4>
-          <p><%= @user.skills %></p>
-          <h4>Portfolio</h4>
-          <p><%= link_to "my portfolio", "http://#{@user.portfolio_url}" %></p>
-
+          <h4>Company</h4>
+          <p><%= @user.company_name %></p>
+          <h4>Description</h4>
+          <p><%= @user.company_description %></p>
         </div>
       </div>
     </div>
-
-
   </div>
 </div>

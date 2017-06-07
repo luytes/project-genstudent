@@ -4,7 +4,9 @@
     <div class="responsive">
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#dashboard" aria-controls="home" role="tab" data-toggle="tab">Dashboard</a></li>
-        <li role="presentation"><a href="#my-students" aria-controls="profile" role="tab" data-toggle="tab">My Students</a></li>
+        <% if current_user.admin == true %>
+          <li role="presentation"><a href="#my-students" aria-controls="profile" role="tab" data-toggle="tab">My Students</a></li>
+        <% end %>
         <li role="presentation"><a href="#my-services" aria-controls="messages" role="tab" data-toggle="tab">My Services</a></li>
         <li role="presentation"><a href="#subscriptions" aria-controls="settings" role="tab" data-toggle="tab">Subscriptions</a></li>
       </ul>
@@ -29,7 +31,6 @@
                 <div class="panel-body">
                   <h2 class="text-center"><%= @user.full_name %></h2>
                   <ul class="list-unstyled text-center">
-                    <li><%= link_to "View Profile", user_path(@user) %></li>
                     <li><%= link_to "Edit Profile", edit_user_path(@user) %></li>
                   </ul>
                 </div>
@@ -71,56 +72,58 @@
 
 
 <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
-    <div role="tabpanel" class="tab-pane" id="my-students">
-      <div class="space-top">
-        <div class="container">
-          <div class="row">
-            <div class="dash-body col-md-2">
-              <div class="space-top sidenav-list">
-                <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
-              </div>
+<% if current_user.admin == true %>
+  <div role="tabpanel" class="tab-pane" id="my-students">
+    <div class="space-top">
+      <div class="container">
+        <div class="row">
+          <div class="dash-body col-md-2">
+            <div class="space-top sidenav-list">
+              <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
             </div>
-            <div class="dash-aside col-md-10">
-
-              <% if @students.nil? %>
-
-                <div class="space-1 h3">
-                  Ah, it seems you have no students yet chemi.
-                </div>
-
-              <% end %>
-
-                <% @students.each do |student| %>
-                <div class="row panel">
-                  <div class="col-md-3 pad-25-right">
-                    <div class="panel-image bg-picture middle" style= "background-image: linear-gradient(-225deg, rgba(0,78,55,0.3) 0%, rgba(0,36,61,0.3) 50%), url('<%= student.student_picture %>')">
-                    </div>
-                  </div>
-                  <div class="col-md-7 pad-12">
-                    <div>
-                      <h3 id="title" class="marg-bot-5"><%= student.full_name %> - <%= student.university %></h3>
-                      <hr id="line-more-top">
-                      <p><%= student.degree %> - Subject: <%= student.subject %> - Year: 19<%= student.year %></p>
-                      <p style="opacity: 0.7"><%= student.introduction %></p>
-                    </div>
-                  </div>
-                  <div class="col-md-2 text-center">
-                    <div class="pad-top-6"><%= link_to "Show", student_path(student), class: "btn btn-genstudent" %></div>
-                    <div class="pad-top-6"><%= link_to "Edit", edit_student_path(student), class: "btn btn-genstudent" %>
-                    </div>
-                    <div class="pad-top-6"><%= link_to "Delete", student, class: "btn btn-genstudent", data: { confirm: "Are you sure?" }, method: :delete %></div>
-                  </div>
-                </div>
-                <% end %>
-              <div class="space-top">
-                <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
-              </div>
-            </div>
-
           </div>
+          <div class="dash-aside col-md-10">
+
+            <% if @students.nil? %>
+
+              <div class="space-1 h3">
+                Ah, it seems you have no students yet chemi.
+              </div>
+
+            <% end %>
+
+              <% @students.each do |student| %>
+              <div class="row panel">
+                <div class="col-md-3 pad-25-right">
+                  <div class="panel-image bg-picture middle" style= "background-image: linear-gradient(-225deg, rgba(0,78,55,0.3) 0%, rgba(0,36,61,0.3) 50%), url('<%= student.student_picture %>')">
+                  </div>
+                </div>
+                <div class="col-md-7 pad-12">
+                  <div>
+                    <h3 id="title" class="marg-bot-5"><%= student.full_name %> - <%= student.university %></h3>
+                    <hr id="line-more-top">
+                    <p><%= student.degree %> - Subject: <%= student.subject %> - Year: 19<%= student.year %></p>
+                    <p style="opacity: 0.7"><%= student.introduction %></p>
+                  </div>
+                </div>
+                <div class="col-md-2 text-center">
+                  <div class="pad-top-6"><%= link_to "Show", student_path(student), class: "btn btn-genstudent" %></div>
+                  <div class="pad-top-6"><%= link_to "Edit", edit_student_path(student), class: "btn btn-genstudent" %>
+                  </div>
+                  <div class="pad-top-6"><%= link_to "Delete", student, class: "btn btn-genstudent", data: { confirm: "Are you sure?" }, method: :delete %></div>
+                </div>
+              </div>
+              <% end %>
+            <div class="space-top">
+              <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
+  </div>
+<% end %>
 
 <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
     <div role="tabpanel" class="tab-pane" id="my-services">
@@ -164,7 +167,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>Work on this Alex</h1>
+            <h1>chemi</h1>
           </div>
         </div>
       </div>
