@@ -3,7 +3,8 @@ class DashboardsController < ApplicationController
   def show
     @user = current_user
     @students = Student.all
-    @services = Service.all
+      @services = Service.all
+      @orders = Order.where(state: 'paid')
     # @requests = Request.where(user: current_user)
   end
 
