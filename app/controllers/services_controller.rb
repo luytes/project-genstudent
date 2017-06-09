@@ -12,6 +12,7 @@ class ServicesController < ApplicationController
   def show
     @review = Review.new
     @user = current_user
+    # @order = Order.where(state: 'paid').find(params[:id])
 
     count = 0
     # This gives me an aray of hashes with a rating as single key

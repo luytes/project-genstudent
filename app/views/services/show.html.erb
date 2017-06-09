@@ -31,7 +31,9 @@
           <h3 class="gen-subheader">What I need from you</h3>
           <p><%= @service.what_i_need_from_you %></p>
         </div>
+
         <hr class="gen-line">
+
         <div class="reviews" id="review">
           <h3 class="gen-subheader">Reviews</h3>
           <% if @service.reviews.map(&:content).all?(&:nil?) %>
@@ -65,8 +67,9 @@
 
           <% end %>
 
-
-          <%= render :partial => 'reviews/form' %>
+          <% if already order bought %>
+            <%= render :partial => 'reviews/form' %>
+          <% end %>
 
         </div>
         <hr class="gen-line">
