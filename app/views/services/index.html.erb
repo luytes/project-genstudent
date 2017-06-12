@@ -1,9 +1,7 @@
-<div class="container">
-
-  <div class="filter-buttons space-top-20">
+<div class="filter-buttons space-top-20">
     <form id="filters">
       <% @categories.each do |categ| %>
-        <div class="inline-stuff category-list">
+        <div class="inline-stuff">
           <input type="checkbox" name='<%= categ %>' id='<%= categ %>'>
           <label class="index-category" for='<%= categ %>'> <%= categ %> </label>
         </div>
@@ -11,6 +9,7 @@
     </form>
   </div>
 
+<div class="container">
   <div class="row">
     <% if @services.empty? %>
       <div class="col-xs-12 col-sm-6">
