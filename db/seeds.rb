@@ -12,7 +12,7 @@ puts 'Cleaning database...'
 Service.destroy_all
 Student.destroy_all
 User.destroy_all
-# Student.destroy_all
+Order.destroy_all
 
 category = ["Content", "Social Media", "Design", "Research"]
 
