@@ -66,7 +66,15 @@
         cards.hide()
 
         cards.each(function() {
-          if (selectedCategoryNames.includes($(this).attr('data-category'))) $(this).show()
+
+        //   if (selectedCategoryNames.includes($(this).attr('data-category'))) $(this).show()
+        // });
+
+        // if you want fade in do
+        // ...each(function(index) {
+        //     $(this).delay(100*index).fadeIn(300);
+        // });
+          if (selectedCategoryNames.includes($(this).attr('data-category'))) $(this).delay(100).fadeIn(300);
         });
 
         if (selectedCategoryNames.length === 0) cards.show();
