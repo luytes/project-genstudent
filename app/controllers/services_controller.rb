@@ -12,7 +12,11 @@ class ServicesController < ApplicationController
   def show
     @review = Review.new
     @user = current_user
-    # @order = Order.where(state: 'paid').find(params[:id])
+    # Shows me all orders with the service id of the service I am looking at right now
+    @order = Order.where(service_id: @service.id)
+    if !@order.nil?
+      @paid = Order.first #CHANGE THAT!!!!!!!!!!
+    end
 
     count = 0
     # This gives me an aray of hashes with a rating as single key

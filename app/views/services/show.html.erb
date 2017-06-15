@@ -67,8 +67,10 @@
 
           <% end %>
 
-          <% if already order bought %>
-            <%= render :partial => 'reviews/form' %>
+          <% if !@order.nil? %>
+            <% if @paid.state == "paid" && !@user.customer_id.nil? %>
+              <%= render :partial => 'reviews/form' %>
+            <% end %>
           <% end %>
 
         </div>
