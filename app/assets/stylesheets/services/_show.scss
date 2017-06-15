@@ -3,10 +3,13 @@
   color: #5E5266;
   font-weight: 300;
 }
+.gen-body li {
+  padding: .25em 0;
+}
 .gen-subheader {
   font-size: 1.25em;
   color: #5E5266;
-  font-weight: 650;
+  font-weight: 700;
 }
 .gen-image {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.24), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
@@ -23,6 +26,14 @@
   background-color: #333; /* Modern Browsers */
   opacity: 0.1;
   margin: 3em auto;
+}
+.gen-faq li:nth-child(odd) {
+  color: #5E5266;
+  font-weight: 600;
+}
+.gen-faq li:nth-child(even) {
+  list-style-type: none;
+  margin-bottom: 1em;
 }
 .user-information {
   display: flex;
