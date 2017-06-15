@@ -7,7 +7,8 @@ class CreateSurveys < ActiveRecord::Migration[5.0]
       t.text :description
       t.integer :budget
       t.string :presence
-      t.references :user, foreign_key: true
+      t.string :email
+      t.string :phone
 
       t.timestamps
     end
