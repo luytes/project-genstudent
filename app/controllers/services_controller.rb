@@ -6,7 +6,6 @@ class ServicesController < ApplicationController
     @services = Service.all
     # @category = @services.first.category unless @services.empty?
     @categories = @services.map { |p| p.category }.uniq
-
   end
 
   def show
@@ -72,7 +71,6 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     # authorize @service
   end
-
 
   def service_params
     params.require(:service).permit(:title, :category, :description,

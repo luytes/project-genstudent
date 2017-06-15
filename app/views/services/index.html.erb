@@ -29,7 +29,19 @@
                     <div class="avatar-bordered bg-picture avatar-height picture-absolute" style="background-image: url( <%= service.student.student_picture %>);">
                     </div>
                     <h4 class="index-card-title no-margin"><%= service.title %></h4>
-                    <p>there will be a rating here</p>
+                    <% count = 0 %>
+                    <!-- This gives me an aray of hashes with a rating as single key -->
+                    <% @hash = Review.where(service_id: service.id).map do |hash| %>
+                      <% { rating: hash[:rating] } %>
+                    <% end %>
+                    <!-- Now I want to add all the ratings together. i get the rating by writing @hash.first.values[0] -->
+                    <% @total = @hash.each do |val| %>
+                      <% count += val.values[0] %>
+                    <% end %>
+                    <% @number_of_reviews = service.reviews.count %>
+                    <!-- Count gets set to the new value because of @total -->
+                    <% @average = (count.to_f/@number_of_reviews.to_f) %>
+                    <%= render 'stars' %>
                     <h5 class="index-card-description no-margin"><%= service.student.full_name %></h5>
                   </div>
                 </div>
