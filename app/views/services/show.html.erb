@@ -119,7 +119,7 @@
       <div class="col-xs-12 col-sm-4 text-center">
         <%= form_tag orders_path do %>
           <%= hidden_field_tag 'service_id', @service.id %>
-          <%= submit_tag 'Subscribe Now / ' + "#{@service.price_pennies}" + '£ a month',
+          <%= submit_tag 'Subscribe Now / ' + "#{@service.price}" + '£ a month',
           class: 'btn btn-primary subscribe-btn' %>
         <% end %>
       </div>
