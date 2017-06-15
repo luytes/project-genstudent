@@ -7,10 +7,18 @@ class SurveysController < ApplicationController
       @survey = Survey.new(survey_params)
       # authorize @survey
       if @survey.save!
-        render :new
-      else
         redirect_to root_path
+      else
+        render :new
       end
+    end
+
+    def index
+      @surveys = Survey.all
+    end
+
+    def show
+      @survey = Survey.find(params[:id])
     end
 
     private

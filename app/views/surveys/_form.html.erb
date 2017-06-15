@@ -34,11 +34,11 @@
           </div>
           <div class="col-xs-12 margin-top-5">
             <p>Should the Student be present in your office for this project?</p>
-            <%= f.label :presence, "Yes", :value => "Yes"  %>
-            <%= f.radio_button :presence, false %>
+            <%= f.label :presence, "Yes", :value => "true"  %>
+            <%= f.radio_button :presence, true %>
             <br>
-            <%= f.label :presence, "No", :value => "No" %>
-            <%= f.radio_button :presence, true, :checked => true %>
+            <%= f.label :presence, "No", :value => "false" %>
+            <%= f.radio_button :presence, false, :checked => true %>
           </div>
           <div class="col-xs-12 margin-top-5">
             <p>
