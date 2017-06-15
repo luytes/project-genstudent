@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607162611) do
+ActiveRecord::Schema.define(version: 20170615155716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,19 @@ ActiveRecord::Schema.define(version: 20170607162611) do
     t.string   "student_picture"
   end
 
+  create_table "surveys", force: :cascade do |t|
+    t.string   "category"
+    t.string   "subcategory"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "budget"
+    t.string   "presence"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_surveys_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -99,4 +112,5 @@ ActiveRecord::Schema.define(version: 20170607162611) do
   add_foreign_key "orders", "services"
   add_foreign_key "reviews", "services"
   add_foreign_key "services", "students"
+  add_foreign_key "surveys", "users"
 end
