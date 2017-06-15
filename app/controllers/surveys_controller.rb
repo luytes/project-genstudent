@@ -1,31 +1,32 @@
 class SurveysController < ApplicationController
-    def new
-      @survey = Survey.new
-    end
+  skip_before_action :authenticate_user!, only: [:new, :create]
+  def new
+    @survey = Survey.new
+  end
 
-    def create
-      @survey = Survey.new(survey_params)
-      # authorize @survey
-      if @survey.save!
-        redirect_to root_path
-      else
-        render :new
-      end
+  def create
+    @survey = Survey.new(survey_params)
+    # authorize @survey
+    if @survey.save!
+      redirect_to root_path
+    else
+      render :new
     end
+  end
 
-    def index
-      @surveys = Survey.all
-    end
+  def index
+    @surveys = Survey.all
+  end
 
-    def show
-      @survey = Survey.find(params[:id])
-    end
+  def show
+    @survey = Survey.find(params[:id])
+  end
 
-    private
+  private
 
-    def survey_params
-      params.require(:survey).permit(:title, :category, :description,
-                                      :subcategory, :budget, :presence,
-                                      :email, :phone)
-    end
+  def survey_params
+    params.require(:survey).permit(:title, :category, :description,
+                                    :subcategory, :budget, :presence,
+                                    :email, :phone)
+  end
 end
