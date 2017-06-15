@@ -1,7 +1,8 @@
-<div class="filter-buttons space-top-20">
+<div class="gen-wrapper">
+  <div class="filter-buttons space-top-20 gen-width sidebar hidden-xs">
     <form id="filters">
       <% @categories.each do |categ| %>
-        <div class="inline-stuff">
+        <div class="category-list">
           <input type="checkbox" name='<%= categ %>' id='<%= categ %>'>
           <label class="index-category" for='<%= categ %>'> <%= categ %> </label>
         </div>
@@ -9,34 +10,48 @@
     </form>
   </div>
 
-<div class="container">
-  <div class="row">
-    <% if @services.empty? %>
-      <div class="col-xs-12 col-sm-6">
-        <h1>Sorry, no results found</h1>
-      </div>
-    <% else %>
-      <% @services.each do |service| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 space-top-20 selectable-card" data-category="<%=service.category%>">
-          <%= link_to service_path(service.id) do%>
-          <div class="index-card text-left">
-            <div class="bg-picture index-card-img" style="background-image: url( <%= service.picture %>);">
+  <div class="gen-content">
+    <div class="gen-listing">
+      <div class="container pad-25-right">
+        <div class="row">
+          <% if @services.empty? %>
+            <div class="col-xs-12 col-sm-6">
+              <h1>Sorry, no results found</h1>
             </div>
-            <div class="index-card-content no-margin">
-              <div class="avatar-bordered bg-picture avatar-height picture-absolute" style="background-image: url( <%= service.student.student_picture %>);">
+          <% else %>
+            <% @services.each do |service| %>
+              <div class="col-xs-12 col-sm-6 col-md-4 space-top-20 selectable-card gen-underline" data-category="<%=service.category%>">
+                <%= link_to service_path(service.id) do%>
+                <div class="index-card text-left">
+                  <div class="bg-picture index-card-img" style="background-image: url( <%= service.picture %>);">
+                  </div>
+                  <div class="index-card-content no-margin">
+                    <div class="avatar-bordered bg-picture avatar-height picture-absolute" style="background-image: url( <%= service.student.student_picture %>);">
+                    </div>
+                    <h4 class="index-card-title no-margin"><%= service.title %></h4>
+                    <% count = 0 %>
+                    <% @hash = Review.where(service_id: service.id).map do |hash| %>
+                      <% { rating: hash[:rating] } %>
+                    <% end %>
+                    <% @total = @hash.each do |val| %>
+                      <% count += val.values[0] %>
+                    <% end %>
+                    <% @number_of_reviews = service.reviews.count %>
+                    <% @average = (count.to_f/@number_of_reviews.to_f) %>
+                    <%= render 'stars' %>
+                    <h5 class="index-card-description no-margin"><%= service.student.full_name %></h5>
+                  </div>
+                </div>
+              <% end %>
               </div>
-              <h4 class="index-card-title no-margin"><%= service.title %></h4>
-              <p>there will be a rating here</p>
-              <h5 class="index-card-description no-margin"><%= service.student.full_name %></h5>
-            </div>
-          </div>
-        <% end %>
+            <% end %>
+          <% end %>
         </div>
-      <% end %>
-    <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
-
 <%= content_for(:after_js) do %>
 
   <script>

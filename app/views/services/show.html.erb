@@ -5,7 +5,7 @@
       <div class="col-xs-12 col-sm-8">
         <div class="gen-header">
           <h1><%= @service.title %></h1>
-          <p><%= @average %></p>
+          <%= render 'stars' %>
         </div>
 
         <div class="gen-image bg-picture gen-service" style="background-image: url('<%= @service.picture %>')">
@@ -31,7 +31,9 @@
           <h3 class="gen-subheader">What I need from you</h3>
           <p><%= @service.what_i_need_from_you %></p>
         </div>
+
         <hr class="gen-line">
+
         <div class="reviews" id="review">
           <h3 class="gen-subheader">Reviews</h3>
           <% if @service.reviews.map(&:content).all?(&:nil?) %>
@@ -65,8 +67,11 @@
 
           <% end %>
 
-
-          <%= render :partial => 'reviews/form' %>
+          <% if !@order.nil? %>
+            <% if @paid.state == "paid" && !@user.customer_id.nil? %>
+              <%= render :partial => 'reviews/form' %>
+            <% end %>
+          <% end %>
 
         </div>
         <hr class="gen-line">
