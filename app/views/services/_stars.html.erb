@@ -1,57 +1,59 @@
-<% if @average.to_f > 4.75 %>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-<% elsif @average.to_f > 4.25%>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star-half-o" aria-hidden="true"></i>
-<% elsif @average.to_f > 3.75%>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-<% elsif @average.to_f > 3.25%>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star-half-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-<% elsif @average.to_f > 2.75%>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-<% elsif @average.to_f > 2.25%>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star-half-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-<% elsif @average.to_f > 1.75%>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-<% elsif @average.to_f > 1.25%>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star-half-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-<% elsif @average.to_f < 1.25 %>
-  <i class="fa fa-star" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
-<% else %>
-  <p>No Reviews Yet</p>
-<% end %>
+<div class="star-color">
+  <% if @average.to_f > 4.75 %>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+  <% elsif @average.to_f > 4.25%>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+  <% elsif @average.to_f > 3.75%>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+  <% elsif @average.to_f > 3.25%>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+  <% elsif @average.to_f > 2.75%>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+  <% elsif @average.to_f > 2.25%>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+  <% elsif @average.to_f > 1.75%>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+  <% elsif @average.to_f > 1.25%>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+  <% elsif @average.to_f < 1.25 %>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+  <% else %>
+    <p class="no-rev">No Reviews Yet</p>
+  <% end %>
+</div>
