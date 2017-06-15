@@ -1,0 +1,111 @@
+.survey-header h2 {
+  color: black;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.survey-header p {
+  color: #656B75;
+  font-weight: 400;
+}
+#no-resize {
+  resize: none;
+  min-width: 600px;
+  height: 150px;
+  padding: 15px;
+  margin: 1px;
+}
+#survey-steps form fieldset{
+    border:none;
+    padding-bottom:20px;
+}
+#survey-steps form legend{
+    text-align:center;
+    // background-color:#f0f0f0;
+    color: $dark-green;
+    font-size:42px;
+    // text-shadow:1px 1px 1px #fff;
+    font-weight:100;
+    float:left;
+    width:100%;
+    padding:0 10px;
+    margin:10px 0px;
+    border-bottom:1px solid #fff;
+    border-top: none;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+#survey-steps form input:not([type=radio]),
+#survey-steps form textarea {
+    background: #ffffff;
+    border: 2px solid $light-green;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 0px;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+    margin: auto;
+    color: $dark-green;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: $light-green;
+  background-color: white;
+  border: none;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    $light-green;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    $light-green;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    $light-green;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    $light-green;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    $light-green;
+}
+
+#survey-steps form select{
+    background: #ffffff;
+    border: 2px solid white;
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    border-radius: 0px !important;
+    padding: 5px;
+    width: 100%;
+    // margin: auto;
+}
+#survey-steps form input:focus{
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: white;
+}
+#survey-steps form p label{
+    width: 100px;
+    text-align:right;
+    margin-right:25px;
+    line-height:26px;
+    color: $light-green;
+    text-shadow: none;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+#survey-btn {
+  width: 300px;
+  text-align: center;
+}
+// .gen-radio-btn {
+//   box-sizing: border-box;
+//   display: block;
+//   margin-bottom: 16px;
+//   white-space: nowrap;
+//   cursor: pointer;
+//   position: relative;
+// }
