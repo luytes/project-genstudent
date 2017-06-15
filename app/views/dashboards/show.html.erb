@@ -6,6 +6,8 @@
         <li role="presentation" class="active"><a href="#dashboard" aria-controls="home" role="tab" data-toggle="tab">Dashboard</a></li>
         <% if current_user.admin == true %>
           <li role="presentation"><a href="#my-students" aria-controls="profile" role="tab" data-toggle="tab">My Students</a></li>
+          <li role="presentation"><a href="#orders" aria-controls="profile" role="tab" data-toggle="tab">Orders</a></li>
+          <li role="presentation"><a href="#surveys" aria-controls="profile" role="tab" data-toggle="tab">Surveys</a></li>
         <% end %>
         <li role="presentation"><a href="#my-services" aria-controls="messages" role="tab" data-toggle="tab">My Services</a></li>
         <li role="presentation"><a href="#subscriptions" aria-controls="settings" role="tab" data-toggle="tab">Subscriptions</a></li>
@@ -127,10 +129,67 @@
 
 <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
 <% if current_user.admin == true %>
+  <div role="tabpanel" class="tab-pane" id="orders">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 no-margin-top"><h2>Paid Orders</h2></div>
+        <% @orders.where(state: 'paid') do |order| %>
+        <div class="dash-body col-md-4">
+          <div class="panel">
+            <div class="panel-body text-center">
+              <h2 id="title"><%= order.service.title %></h2>
+              <div>
+                <p><%= order.service.price %></p>
+                <p><%= order.created_at %></p>
+                <p><%= order.state %></p>
+              </div>
+              <hr size="10">
+              <div class="review"><%= link_to "View Order", order_path(order) %></div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <p>No Orders yet</p>
+<% end %>
+
+<!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
+<% if current_user.admin == true %>
+  <div role="tabpanel" class="tab-pane" id="surveys">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 no-margin-top"><h2>Surveys</h2></div>
+        <% @surveys.each do |survey| %>
+        <div class="dash-body col-md-4">
+          <div class="panel">
+            <div class="panel-body text-center">
+              <h2 id="title"><%= survey.category %></h2>
+              <div>
+                <p><%= survey.title %></p>
+                <p style="opacity: 0.7"><%= cutoff_text(survey.description) %></p>
+              </div>
+              <hr size="10">
+              <div class="review"><%= link_to "View Survey", survey_path(survey) %></div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <p>No surveys yet</p>
+<% end %>
+
+<!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
+<% if current_user.admin == true %>
   <div role="tabpanel" class="tab-pane" id="my-services">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 no-margin-top"><h2>Your Services</h2></div>
+        <div class="col-md-12 no-margin-top"><h2 class="font-25">Your Services</h2></div>
         <% @services.each do |service| %>
         <div class="dash-body col-md-4">
           <div class="panel">
@@ -170,7 +229,7 @@
     <div role="tabpanel" class="tab-pane" id="my-services">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 no-margin-top"><h2>Your Services (that you have bought)</h2></div>
+          <div class="col-md-12 no-margin-top"><h2 class="font-25">Your Services</h2></div>
           <% @services.each do |service| %>
           <div class="dash-body col-md-4">
             <div class="panel">
