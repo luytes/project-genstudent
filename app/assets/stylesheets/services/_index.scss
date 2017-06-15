@@ -10,6 +10,7 @@
 .index-card:hover {
   text-decoration: none;
   opacity: 0.8;
+  transition: all .3s ease-in-out;
 }
 .index-card-img {
   height: 175px;
