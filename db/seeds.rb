@@ -83,6 +83,8 @@ Service.create!(
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/205/161/dc52b24cf918b327820fe59cd9286b66_original.png?w=680&fit=max&v=1491844850&auto=format&lossless=true&s=e9f5719089c4b5dd161ccb69fe2958e0",
     owner: Student.all.sample,
+    what_i_need_from_you: Faker::Lorem.paragraph(2),
+    what_i_will_do_for_you: "Remember that you are unique. Do not sell yourself short. Do not sell the world short. This is your life – love it, live it. One life, one chance – grab it.",
     price: 10,
   )
 
@@ -95,6 +97,8 @@ Service.create!(
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/118/731/1e64c31529f786fee57fb6b78125b995_original.jpg?w=680&fit=max&v=1491248233&auto=format&q=92&s=38783ac2eadede486bb5f2348ed7674b",
     owner: Student.all.sample,
+    what_i_need_from_you: Faker::Lorem.paragraph(2),
+    what_i_will_do_for_you: "Remember that you are unique. Do not sell yourself short. Do not sell the world short. This is your life – love it, live it. One life, one chance – grab it.",
     price: 22,
   )
 
@@ -107,6 +111,8 @@ Service.create!(
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/063/697/187f0c894fa55e864f0bdfea333c5706_original.png?w=680&fit=max&v=1490870733&auto=format&lossless=true&s=241882d4b02654f5c98012859b9a8b00",
     owner: Student.all.sample,
+    what_i_need_from_you: Faker::Lorem.paragraph(2),
+    what_i_will_do_for_you: "Remember that you are unique. Do not sell yourself short. Do not sell the world short. This is your life – love it, live it. One life, one chance – grab it.",
     price: 5,
   )
 
@@ -119,6 +125,8 @@ Service.create!(
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/481/464/84ac7de1832e19a38cb480e70672cd7f_original.jpg?w=680&fit=max&v=1493666758&auto=format&q=92&s=5aa629f3e0622619194178a49a28a02e",
     owner: Student.all.sample,
+    what_i_need_from_you: Faker::Lorem.paragraph(2),
+    what_i_will_do_for_you: "Remember that you are unique. Do not sell yourself short. Do not sell the world short. This is your life – love it, live it. One life, one chance – grab it.",
     price: 26,
   )
 
@@ -132,6 +140,8 @@ Service.create!(
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/316/565/cff9e7bdc4eb8fefbfb5c0e47e179a43_original.png?w=680&fit=max&v=1492614995&auto=format&lossless=true&s=0cbd8b4a2669c9b24a015a34fa1a3260",
     owner: Student.all.sample,
+    what_i_need_from_you: Faker::Lorem.paragraph(2),
+    what_i_will_do_for_you: "Remember that you are unique. Do not sell yourself short. Do not sell the world short. This is your life – love it, live it. One life, one chance – grab it.",
     price: 12,
   )
 
@@ -144,6 +154,8 @@ Service.create(
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/003/775/929/314c481354d012aa67852eea7128c053_original.jpg?w=680&fit=max&v=1431418793&auto=format&q=92&s=832da987e7c9422848130e269bfd3449",
     owner: Student.all.sample,
+    what_i_need_from_you: Faker::Lorem.paragraph(2),
+    what_i_will_do_for_you: "Remember that you are unique. Do not sell yourself short. Do not sell the world short. This is your life – love it, live it. One life, one chance – grab it.",
     price: 8,
   )
 
@@ -156,6 +168,8 @@ Service.create(
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/487/822/bd72e66c4a71a315a9860e1a2afb575b_original.jpg?w=680&fit=max&v=1493695657&auto=format&q=92&s=bbbaffae2b473ccc0c333551e75e6879",
     owner: Student.all.sample,
+    what_i_need_from_you: Faker::Lorem.paragraph(2),
+    what_i_will_do_for_you: "Remember that you are unique. Do not sell yourself short. Do not sell the world short. This is your life – love it, live it. One life, one chance – grab it.",
     price: 14,
   )
 
@@ -168,6 +182,8 @@ Service.create(
     finish_date: Faker::Date.forward(23).to_datetime,
     remote_picture_url: "https://ksr-ugc.imgix.net/assets/016/310/749/6ae7ff79ff4f80e98682925be3cf73b0_original.jpg?w=680&fit=max&v=1492575349&auto=format&q=92&s=6b35baca432ba81663600c03f03d3a8c",
     owner: Student.all.sample,
+    what_i_need_from_you: Faker::Lorem.paragraph(2),
+    what_i_will_do_for_you: "Remember that you are unique. Do not sell yourself short. Do not sell the world short. This is your life – love it, live it. One life, one chance – grab it.",
     price: 12,
   )
 
