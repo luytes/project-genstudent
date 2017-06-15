@@ -69,7 +69,7 @@
 
           <% end %>
 
-          <% if !@order.nil? %>
+          <% if !@paid.nil? %>
             <% if @paid.state == "paid" && !@user.customer_id.nil? %>
               <%= render :partial => 'reviews/form' %>
             <% end %>
