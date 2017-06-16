@@ -16,3 +16,46 @@
   h3 {font-size: 24px;}
   p {font-size: 20px;}
 }
+.gen-category-big {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+.gen-category-small {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.gen-text-big {
+  left: 0;
+  margin: 0px;
+  position:absolute;
+  text-align:center;
+  top: 40%;
+  position: absolute;
+  width: 100%;
+}
+.gen-text-small {
+  left: 0;
+  margin: 0px;
+  position:absolute;
+  text-align:center;
+  top: 35%;
+  position: absolute;
+  width: 100%;
+}
+.gen-num-small {
+  font-size: 20px;
+}
+.gen-num {
+  font-size: 30px;
+}
+@media only screen and (max-device-width: 480px) {
+  .gen-num-small {
+    font-size: 30px;
+  }
+  .gen-text-big {
+    top: 34%;
+  }
+}
