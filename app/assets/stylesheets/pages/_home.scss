@@ -12,14 +12,20 @@
   font-size: 20px;
 }
 .how-it-works {
+  color: #656B75;
   h2 {font-size: 40px;}
   h3 {font-size: 24px;}
   p {font-size: 20px;}
 }
 .gen-category-big {
+  background-color: rgba(41,47,57,.5);
+  transition: background-color .3s ease-in-out;
   width: 100%;
   height: auto;
   border-radius: 5px;
+}
+.gen-category-big:hover {
+  background-color: rgba(41,47,57,.8);
 }
 .gen-category-small {
   width: 100%;
@@ -28,6 +34,7 @@
   border-radius: 5px;
 }
 .gen-text-big {
+  color: white;
   left: 0;
   margin: 0px;
   position:absolute;
@@ -37,6 +44,7 @@
   width: 100%;
 }
 .gen-text-small {
+  color: white;
   left: 0;
   margin: 0px;
   position:absolute;
