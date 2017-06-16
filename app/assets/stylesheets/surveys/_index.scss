@@ -48,6 +48,9 @@
     margin: auto;
     color: $dark-green;
 }
+#survey-steps input[type=submit] {
+  width: 300px;
+}
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
@@ -97,15 +100,7 @@ textarea::-webkit-input-placeholder {
     font-weight: 300;
     text-transform: uppercase;
 }
-#survey-btn {
-  width: 300px;
-  text-align: center;
+.gen-radio {
+  width: 30px;
+  color: #656B75;
 }
-// .gen-radio-btn {
-//   box-sizing: border-box;
-//   display: block;
-//   margin-bottom: 16px;
-//   white-space: nowrap;
-//   cursor: pointer;
-//   position: relative;
-// }

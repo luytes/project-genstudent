@@ -34,10 +34,10 @@
           </div>
           <div class="col-xs-12 margin-top-5">
             <p>Should the Student be present in your office for this project?</p>
-            <%= f.label :presence, "Yes", :value => "true"  %>
+            <%= f.label :presence, "Yes", :value => "true", class: "gen-radio"  %>
             <%= f.radio_button :presence, true %>
             <br>
-            <%= f.label :presence, "No", :value => "false" %>
+            <%= f.label :presence, "No", :value => "false", class: "gen-radio" %>
             <%= f.radio_button :presence, false, :checked => true %>
           </div>
           <div class="col-xs-12 margin-top-5">
@@ -50,8 +50,11 @@
               <%= f.text_field :phone, placeholder: 'Your Phone Number', label:false %>
             </p>
           </div>
-
-          <%= f.button :submit, "Submit your survey", :input_html => { id: "no-resize" } %>
+           <div class="col-xs-12 margin-top-5">
+            <p>
+              <%= f.button :submit, "Submit your survey", :input_html => { id: "no-resize" } %>
+            </p>
+          </div>
         <% end %>
       </div>
     </div>
