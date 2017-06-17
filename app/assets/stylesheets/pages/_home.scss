@@ -66,4 +66,25 @@
   .gen-text-big {
     top: 34%;
   }
+  .test {
+      width: 100%;
+      height: 300px;
+  }
+}
+.test {
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url("genstudent.png");
+
+  color: #f00;
+  transition: background-color .3s ease-in-out;
+  width: 100%;
+  height: 500px;
+  border-radius: 5px;
+}
+.test:hover {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("genstudent.png");
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("genstudent.png");
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("genstudent.png");
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("genstudent.png");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.1))), url("genstudent.png");
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("genstudent.png");
 }
