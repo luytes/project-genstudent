@@ -22,7 +22,7 @@
   transition: background-color .3s ease-in-out;
   width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 .gen-category-big:hover {
   background-color: rgba(41,47,57,.8);
@@ -31,7 +31,7 @@
   width: 100%;
   height: auto;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 .gen-text-big {
   color: white;
@@ -66,19 +66,20 @@
   .gen-text-big {
     top: 34%;
   }
-  .test {
-      width: 100%;
-      height: 300px;
+  div .test {
+    width: 100%;
+    height: 300px;
   }
 }
-.test {
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url("genstudent.png");
-
-  color: #f00;
+// APPARENTLY YOU CANT USE TRANSITION ON BACKGROUND-IMAGE
+div .test {
+  background-color: rgba(41,47,57,.5);
   transition: background-color .3s ease-in-out;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url("genstudent.png");
+  // transition: all 0.3s ease;
   width: 100%;
   height: 500px;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 .test:hover {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("genstudent.png");
