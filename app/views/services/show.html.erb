@@ -1,61 +1,50 @@
-<div class="container">
-  <div class="row">
-    <div class="gen-body space-top-2">
-      <!-- left side -->
-      <div class="col-xs-12 col-sm-8">
-        <div class="gen-header">
-          <h1><%= @service.title %></h1>
-          <div class="inline-stuff">
-            <%= render 'stars' %>
+<div class="space-nav">
+  <div class="container">
+    <div class="row">
+      <div class="gen-body space-top-2">
+        <!-- left side -->
+        <div class="col-xs-12 col-sm-8">
+          <div class="gen-header">
+            <h1><%= @service.title %></h1>
+            <div class="inline-stuff">
+              <%= render 'stars' %>
+            </div>
           </div>
-        </div>
 
-        <div class="gen-image bg-picture gen-service" style="background-image: url('<%= @service.picture %>')">
-        </div>
+          <div class="gen-image bg-picture gen-service" style="background-image: url('<%= @service.picture %>')">
+          </div>
 
-        <div>
-          <h3 class="gen-subheader">Portfolio</h3>
-          <p>What should be here?</p>
-        </div>
+          <div>
+            <h3 class="gen-subheader">Portfolio</h3>
+            <p>What should be here?</p>
+          </div>
 
-        <hr class="gen-line">
-        <div>
-          <h3 class="gen-subheader">Description</h3>
-          <p><%= @service.description %></p>
-        </div>
-        <hr class="gen-line">
-        <div>
-          <h3 class="gen-subheader">What can you expect:</h3>
-          <p><%= @service.what_i_will_do_for_you %></p>
-        </div>
-        <hr class="gen-line">
-        <div>
-          <h3 class="gen-subheader">What I need from you:</h3>
-          <p><%= @service.what_i_need_from_you %></p>
-        </div>
+          <hr class="gen-line">
+          <div>
+            <h3 class="gen-subheader">Description</h3>
+            <p><%= @service.description %></p>
+          </div>
+          <hr class="gen-line">
+          <div>
+            <h3 class="gen-subheader">What can you expect:</h3>
+            <p><%= @service.what_i_will_do_for_you %></p>
+          </div>
+          <hr class="gen-line">
+          <div>
+            <h3 class="gen-subheader">What I need from you:</h3>
+            <p><%= @service.what_i_need_from_you %></p>
+          </div>
 
-        <hr class="gen-line">
+          <hr class="gen-line">
 
-        <div class="reviews" id="review">
-          <h3 class="gen-subheader">Reviews (<%= @service.reviews.count %>)</h3>
-          <% if @service.reviews.map(&:content).all?(&:nil?) %>
-            <p>No reviews yet</p>
-          <% else %>
-            <% @service.reviews.limit(5).each do |r| %>
-              <div class="row">
-                <div class="col-xs-12 space-top-2">
-                  <%= r.content %>
-                  <%= r.rating.times do %>
-                    <i class="fa fa-star"></i>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-
-            <div class="reviews-expanded-list">
-              <% @service.reviews.offset(5).each do |r| %>
+          <div class="reviews" id="review">
+            <h3 class="gen-subheader">Reviews (<%= @service.reviews.count %>)</h3>
+            <% if @service.reviews.map(&:content).all?(&:nil?) %>
+              <p>No reviews yet</p>
+            <% else %>
+              <% @service.reviews.limit(5).each do |r| %>
                 <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-xs-12 space-top-2">
                     <%= r.content %>
                     <%= r.rating.times do %>
                       <i class="fa fa-star"></i>
@@ -63,70 +52,83 @@
                   </div>
                 </div>
               <% end %>
-            </div>
 
-            <!-- <button class="btn btn-expand" id="btn-expand-reviews"> Show more reviews</button> -->
+              <div class="reviews-expanded-list">
+                <% @service.reviews.offset(5).each do |r| %>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <%= r.content %>
+                      <%= r.rating.times do %>
+                        <i class="fa fa-star"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
 
-          <% end %>
+              <!-- <button class="btn btn-expand" id="btn-expand-reviews"> Show more reviews</button> -->
 
-          <% if !@paid.nil? %>
-            <% if @paid.state == "paid" && !@user.customer_id.nil? %>
-              <%= render :partial => 'reviews/form' %>
             <% end %>
-          <% end %>
 
-        </div>
-        <hr class="gen-line">
-        <div>
-          <h3 class="gen-subheader">About Me:</h3>
-          <div class="user-information">
-            <div class="bg-picture avatar-big-bordered" style="background-image: url( <%= @service.student.student_picture %>);"></div>
-            <div class="aboutme-content">
-              <h4 class="no-margin-top"><%= @service.student.full_name %></h4>
-              <p><%= @service.student.introduction %></p>
+            <% if !@paid.nil? %>
+              <% if @paid.state == "paid" && !@user.customer_id.nil? %>
+                <%= render :partial => 'reviews/form' %>
+              <% end %>
+            <% end %>
+
+          </div>
+          <hr class="gen-line">
+          <div>
+            <h3 class="gen-subheader">About Me:</h3>
+            <div class="user-information">
+              <div class="bg-picture avatar-big-bordered" style="background-image: url( <%= @service.student.student_picture %>);"></div>
+              <div class="aboutme-content">
+                <h4 class="no-margin-top"><%= @service.student.full_name %></h4>
+                <p><%= @service.student.introduction %></p>
+              </div>
             </div>
           </div>
+          <hr class="gen-line">
+          <div>
+            <h3 class="gen-subheader">FAQs:</h3>
+            <ul class="gen-faq">
+              <li>Are these real followers?</li>
+              <li>Yes all new followers are 100% real and targeted. You may find some places online that sell followers, these are mostly farmed networks or fake accounts. That is not what we offer.</li>
+              <li>How do you do it?</li>
+              <li>Each day we'll perform many tasks in order to grow your account, following, unfollowing, retweeting, favoriting, etc to organically grow your audience.</li>
+              <li>Will this unfollow any accounts I've personally followed?</li>
+              <li>Yes. Any account not following you upon purchase will be unfollowed during this campaign. If you want to remain following certain profiles, please send the geek a white list of these accounts immediately after purchase. For example - friends, family, colleagues, industry related accounts, etc.</li>
+              <li>Do you tweet content to my account?</li>
+              <li>You remain in control of all the content you post. We do not post any tweets for you. This allows you to solely focus on tweeting the best material possible, while we focus on bringing you the right audience to view your Tweets.</li>
+              <li>Why don't I know the exact number, i.e. 200-1000 new followers?</li>
+              <li>There are several factors. In general it is related to the size of your account from the start. Once we get good momentum with growing your followers, the faster we can run with results every month.</li>
+              <li>What if I don't like the results?</li>
+              <li>Cancel anytime and if you truly aren't happy we'll give you your money back.</li>
+              <li>How is the correct audience targeted?</li>
+              <li>We can target by hashtag and targeting accounts that have similar followers that you'd like to have.</li>
+              <li>This gig includes commenting and liking to increase engagement and following. What types of comments are they?</li>
+              <li>The comments are custom written, so they can be anything you want them to say. However, this isn't manually screened, so we don't normally get into this unless it's requested. It can be promotional as well, telling them to check out your bio, but we try not to do that because it can appear spammy. It works great with non business accounts like charities and entertainment related accounts.</li>
+              <li>How quickly will my Growth Engine be underway?</li>
+              <li>New campaigns are generally underway within 48 hours, and the geek will be in touch as soon as it kicks off to let you know.</li>
+              <li>How does the targeting work?</li>
+              <li>Once you provide us with your ideal customer, we'll focus our efforts on a particular target or niche. For example, if your product or service targets moms, then that's who we'll work on getting moms to follow you.</li>
+            </ul>
+          </div>
         </div>
-        <hr class="gen-line">
-        <div>
-          <h3 class="gen-subheader">FAQs:</h3>
-          <ul class="gen-faq">
-            <li>Are these real followers?</li>
-            <li>Yes all new followers are 100% real and targeted. You may find some places online that sell followers, these are mostly farmed networks or fake accounts. That is not what we offer.</li>
-            <li>How do you do it?</li>
-            <li>Each day we'll perform many tasks in order to grow your account, following, unfollowing, retweeting, favoriting, etc to organically grow your audience.</li>
-            <li>Will this unfollow any accounts I've personally followed?</li>
-            <li>Yes. Any account not following you upon purchase will be unfollowed during this campaign. If you want to remain following certain profiles, please send the geek a white list of these accounts immediately after purchase. For example - friends, family, colleagues, industry related accounts, etc.</li>
-            <li>Do you tweet content to my account?</li>
-            <li>You remain in control of all the content you post. We do not post any tweets for you. This allows you to solely focus on tweeting the best material possible, while we focus on bringing you the right audience to view your Tweets.</li>
-            <li>Why don't I know the exact number, i.e. 200-1000 new followers?</li>
-            <li>There are several factors. In general it is related to the size of your account from the start. Once we get good momentum with growing your followers, the faster we can run with results every month.</li>
-            <li>What if I don't like the results?</li>
-            <li>Cancel anytime and if you truly aren't happy we'll give you your money back.</li>
-            <li>How is the correct audience targeted?</li>
-            <li>We can target by hashtag and targeting accounts that have similar followers that you'd like to have.</li>
-            <li>This gig includes commenting and liking to increase engagement and following. What types of comments are they?</li>
-            <li>The comments are custom written, so they can be anything you want them to say. However, this isn't manually screened, so we don't normally get into this unless it's requested. It can be promotional as well, telling them to check out your bio, but we try not to do that because it can appear spammy. It works great with non business accounts like charities and entertainment related accounts.</li>
-            <li>How quickly will my Growth Engine be underway?</li>
-            <li>New campaigns are generally underway within 48 hours, and the geek will be in touch as soon as it kicks off to let you know.</li>
-            <li>How does the targeting work?</li>
-            <li>Once you provide us with your ideal customer, we'll focus our efforts on a particular target or niche. For example, if your product or service targets moms, then that's who we'll work on getting moms to follow you.</li>
-          </ul>
+
+        <!-- right side -->
+        <div class="col-xs-12 col-sm-4 text-center">
+          <%= form_tag orders_path do %>
+            <%= hidden_field_tag 'service_id', @service.id %>
+            <%= submit_tag 'Subscribe Now / ' + "#{@service.price}" + '£ a month',
+            class: 'btn btn-primary subscribe-btn' %>
+          <% end %>
         </div>
+
       </div>
 
-      <!-- right side -->
-      <div class="col-xs-12 col-sm-4 text-center">
-        <%= form_tag orders_path do %>
-          <%= hidden_field_tag 'service_id', @service.id %>
-          <%= submit_tag 'Subscribe Now / ' + "#{@service.price}" + '£ a month',
-          class: 'btn btn-primary subscribe-btn' %>
-        <% end %>
-      </div>
 
     </div>
-
-
   </div>
 </div>
 
