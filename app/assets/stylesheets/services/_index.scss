@@ -129,6 +129,19 @@
   position: relative;
   height: 100%;
 }
+@media (max-width: 480px) {
+  .gen-content {
+    margin-left: 0;
+    position: relative;
+    height: 100%;
+  }
+  .pad-25-right {
+    padding-right: 0;
+  }
+  .col-xs-12 {
+    width: 100vw;
+  }
+}
 .gen-wrapper {
   display: inline-block;
   height: 100%;
