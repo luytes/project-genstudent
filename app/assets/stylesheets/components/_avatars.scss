@@ -8,7 +8,7 @@
   border-radius: 50%;
 }
 .avatar-bordered {
-  width: 60px;
+  width: 90px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: $light-green 1px solid;
@@ -29,7 +29,7 @@
   border: white 1px solid;
 }
 .avatar-height {
-  height: 60px;
+  height: 90px;
 }
 .avatar-position {
   top: 10em;
@@ -46,6 +46,6 @@
 }
 .picture-absolute {
   position: absolute;
-  left: 155px;
-  top: -25px;
+  left: 210px;
+  top: -100px;
 }
