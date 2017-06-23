@@ -40,7 +40,7 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
-    @service.picture = "chemi.jpg"  if service_params[:picture].nil?
+    # @service.picture = "chemi.jpg"  if service_params[:picture].nil?
     @student = Student.find(params[:id])
     @service.student = @student
     # authorize @service
