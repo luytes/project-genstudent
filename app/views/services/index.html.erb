@@ -1,18 +1,29 @@
-<div class="gen-wrapper space-nav">
-  <div class="filter-buttons space-top-20 gen-width sidebar hidden-xs">
+<div class="gen-wrapper space-nav-ind">
+  <div class="filter-buttons gen-width sidebar hidden-xs">
     <form id="filters">
       <% @categories.each do |categ| %>
         <div class="category-list">
           <input type="checkbox" name='<%= categ %>' id='<%= categ %>'>
-          <label class="index-category" for='<%= categ %>'> <%= categ %> </label>
+          <label class="index-category" for='<%= categ %>'>
+            <% if categ == "Social Media" %>
+              <i class="fa fa-twitter margin-right-10" aria-hidden="true"></i>
+            <% elsif categ == "Content" %>
+              <i class="fa fa-pencil margin-right-10" aria-hidden="true"></i>
+            <% elsif categ == "Research" %>
+              <i class="fa fa-flask margin-right-10" aria-hidden="true"></i>
+            <% else %>
+              <i class="fa fa-object-group margin-right-5" aria-hidden="true"></i>
+            <% end %>
+          <%= categ %>
+          </label>
         </div>
       <% end %>
     </form>
   </div>
-      <div class="container margin-right-10">
 
-  <div class="gen-content">
-    <div class="gen-listing">
+  <div class="container margin-right-10 space-top-10">
+    <div class="gen-content">
+      <div class="gen-listing">
         <div class="row">
           <% if @services.empty? %>
             <div class="col-xs-12 col-sm-6">
@@ -49,9 +60,9 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
+
 <%= content_for(:after_js) do %>
 
   <script>

@@ -54,9 +54,15 @@
 .margin-right-10 {
   margin-right: 10px;
 }
+.margin-right-5 {
+  margin-right: 5px;
+}
 //Space
-.space-top-20{
+.space-top-20 {
   margin-top: 20px;
+}
+space-top-10 {
+  margin-top: 10px;
 }
 .space-bot-1 {
   padding-bottom: 70px;
@@ -72,6 +78,11 @@
 }
 .space-nav {
   margin-top: 80px;
+  z-index: 0;
+  // position: absolute;
+}
+.space-nav-ind {
+  margin-top: 70px;
   z-index: 0;
   // position: absolute;
 }

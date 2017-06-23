@@ -5,6 +5,7 @@ class ServicesController < ApplicationController
   def index
     @services = Service.all
     # @category = @services.first.category unless @services.empty?
+    # creating an array of categories
     @categories = @services.map { |p| p.category }.uniq
   end
 
