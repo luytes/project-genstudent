@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container space-nav">
   <div id="wrapper-form">
     <div id="navigation" style="display:none;">
       <ul>
@@ -89,7 +89,7 @@
                       <%= p.input :category, disabled: false %>
                       <%= p.input :what_i_will_do_for_you, disabled: false %>
                       <%= p.input :what_i_need_from_you, disabled: false %>
-                      <%= p.input :picture, label: "Optional Picture", disabled: false%>
+                      <!-- <#%= p.input :picture, label: "Optional Picture", disabled: false%> -->
                       <%= p.input :price_pennies, disabled: false %>
                     <% else %>
                       <%= p.input :title, disabled: true %>
@@ -97,7 +97,7 @@
                       <%= p.input :category, disabled: true %>
                       <%= p.input :what_i_will_do_for_you, disabled: true %>
                       <%= p.input :what_i_need_from_you, disabled: true %>
-                      <%= p.input :picture, label: "Optional Picture", disabled: true%>
+                      <!-- <#%= p.input :picture, label: "Optional Picture", disabled: true%> -->
                       <%= p.input :price_pennies, disabled: true %>
                     <% end %>
                     <% count += 1 %>
