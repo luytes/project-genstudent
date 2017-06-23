@@ -44,10 +44,15 @@
   margin-top: 0;
 }
 .subscribe-btn {
-  margin-top: 25px;
+  margin-top: 100px;
   margin-bottom: 11px;
   border-radius: 100px;
   height: 65px;
   padding: 0 25px;
   font-size: 20px;
+}
+@media only screen and (max-device-width: 480px) {
+  .subscribe-btn {
+    margin-top: 25px;
+  }
 }
