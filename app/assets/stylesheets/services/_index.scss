@@ -37,20 +37,22 @@
 }
 .index-category {
   background-color: $dark-green;
-  padding: 5px 30px;
+  // padding: 5px 30px;
+  padding: 25px 35px;
+  margin: 20px 0;
   color: $dark-green;
   text-decoration: none;
-  margin-right: 10px;
+  // margin-right: 10px;
   font-weight: 300;
   letter-spacing: 1px;
-  margin-bottom: 10px;
-  border: 1px solid white;
+  // margin-bottom: 10px;
+  // border: 1px solid white;
 }
 
 
 .index-category:hover {
   background-color: white;
-  border: 1px solid $dark-green;
+  // border: 1px solid $dark-green;
 
 }
 
@@ -69,7 +71,7 @@
 .filter-buttons {
   form {
     border: none;
-    padding: 0 0 10px 10px;
+    // padding: 0 0 10px 10px;
   }
   // .inline-stuff{
   //   display: inline-block;
@@ -80,24 +82,24 @@
     opacity: 0;
     & + label {
       display: block;
-      border: 1px solid white;
+      // border: 1px solid white;
       line-height: 1;
       color: #fff;
-      padding: 10px 10px;
+      padding: 25px 35px;
       text-decoration: none;
-      margin-right: 10px;
+      // margin-right: 10px;
       font-weight: 300;
-      font-size: 13px;
+      font-size: 16px;
       letter-spacing: 1px;
-      margin-bottom: 10px;
+      // margin-bottom: 10px;
       background-color: $dark-green;
       &:hover, &:focus {
           background-color: white;
-          border: 1px solid $dark-green;
+          // border: 1px solid $dark-green;
           color: $dark-green;
       }
       &:active {
-          background-color: $dark-green;
+          // background-color: $dark-green;
           border: 1px solid white;
           color: white;
       }
@@ -107,13 +109,14 @@
       color:  white;
       &:hover, &:focus, &:active {
         background-color: $light-green;
-        border: 1px solid white;
+        // border: 1px solid white;
         color: white;
       }
     }
   }
 }
 .gen-width {
+  background-color: $dark-green;
   width: 15.625em;
   margin-right: 0;
   // position: absolute;
