@@ -14,6 +14,7 @@
   border: $light-green 1px solid;
 }
 .avatar-big-bordered {
+  float: left;
   width: 9.25em;
   height: 9.25em;
   overflow: hidden;
@@ -48,4 +49,11 @@
   position: absolute;
   left: 210px;
   top: -100px;
+}
+@media only screen and (max-device-width: 480px) {
+  .avatar-big-bordered {
+    width: 9.25em;
+    height: 9.25em;
+    border-radius: 50%;
+  }
 }
