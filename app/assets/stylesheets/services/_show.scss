@@ -36,11 +36,11 @@
   margin-bottom: 1em;
 }
 .user-information {
-  display: flex;
+  overflow: hidden;
   margin: 2em auto;
 }
 .aboutme-content {
-  margin-left: 1.5625em;
+  margin-left: 11.5625em;
   margin-top: 0;
 }
 .subscribe-btn {
@@ -54,5 +54,11 @@
 @media only screen and (max-device-width: 480px) {
   .subscribe-btn {
     margin-top: 25px;
+  }
+  ul {
+    padding-left: 20px;
+  }
+  .aboutme-content {
+    margin-left: 10.5625em;
   }
 }
