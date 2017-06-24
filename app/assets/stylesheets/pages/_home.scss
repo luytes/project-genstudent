@@ -11,11 +11,23 @@
 .wrapper-grey p {
   font-size: 20px;
 }
-.how-it-works {
-  color: #656B75;
-  h2 {font-size: 40px;}
-  h3 {font-size: 24px;}
-  p {font-size: 20px;}
+.gen-header {
+  letter-spacing: 0.0725em;
+  font-size: .675em;
+  color: black;
+  font-weight: 600;
+}
+.subhead {
+  h2 {
+    font-size: 1.5em;
+    color: #999999;
+    font-weight: 300;
+    line-height: 1.5em;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  p {font-size: 16px;}
 }
 .gen-category-big {
   background-color: rgba(41,47,57,.5);
@@ -100,4 +112,12 @@ div .test {
   background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("genstudent.png");
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.1))), url("genstudent.png");
   background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("genstudent.png");
+}
+.small-line {
+  border-top-width: 1px;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-style: solid;
+  border-color: #C2C2C2;
 }

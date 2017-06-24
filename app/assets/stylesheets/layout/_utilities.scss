@@ -28,6 +28,12 @@
 .pad-top-6 {
   padding-top: 6px;
 }
+.pad-top-7 {
+  padding-top: 7px;
+}
+.pad-top-20 {
+  padding-top: 20px;
+}
 .no-padding {
   padding: 0;
 }
@@ -69,6 +75,9 @@ space-top-10 {
 }
 .space-bot-30 {
   padding-bottom: 30px;
+}
+.space-bot-45 {
+  padding-bottom: 45px;
 }
 .space-bot-15 {
   padding-bottom: 15px;
@@ -171,4 +180,7 @@ hr {
 }
 #title {
   margin-top: 30px;
+}
+.up-case {
+  text-transform: uppercase;
 }
