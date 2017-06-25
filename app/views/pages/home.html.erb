@@ -36,98 +36,38 @@
       <div class="small-line"></div>
     </div>
 
-    <div class="col-xs-12 col-sm-6 space-bot-15 pos-rel">
-      <%= image_tag ("genstudent.png"), class: "gen-category-big" %>
-      <div class="gen-num gen-text-big">WHATEVER</div>
-    </div>
-    <div class="col-xs-12 col-sm-6 space-bot-15">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 space-bot-15">
-          <%= image_tag ("social_media.jpg"), class: "gen-category-small" %>
-          <div class="gen-num-small gen-text-small">SOCIAL MEDIA</div>
-        </div>
-        <div class="col-xs-12 col-sm-6 space-bot-15">
-          <%= image_tag ("design.jpg"), class: "gen-category-small" %>
-          <div class="gen-num-small gen-text-small">DESIGN</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 space-bot-15">
-          <%= image_tag ("research.jpg"), class: "gen-category-small" %>
-          <div class="gen-num-small gen-text-small">RESEARCH</div>
-        </div>
-        <div class="col-xs-12 col-sm-6 space-bot-15">
-          <%= image_tag ("content.jpg"), class: "gen-category-small" %>
-          <div class="gen-num-small gen-text-small">CONTENT</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="effect" class="clearfix">
-    <div class="gen-img">
-        <%= image_tag ("genstudent.png") %>
-        <div class="overlay">
-            <a href="#" class="expand">test</a>
-            <a class="close-overlay hidden">x</a>
-        </div>
-    </div>
-    <div class="gen-img">
-        <%= image_tag ("genstudent.png") %>
-        <div class="overlay">
-            <a href="#" class="expand">it works!!!!</a>
-            <a class="close-overlay hidden">x</a>
-        </div>
-    </div>
-</div>
-
-<div class="container text-center pad-top-20 subhead">
-  <div class="row">
-    <h2>OUR SERVICES</h2>
-    <h3 class="space-bot-30">We've Got You Covered</h3>
-
-    <div id="effect" class="clearfix">
-      <div class="gen-img">
-          <%= image_tag ("genstudent.png") %>
+    <div id="effect">
+      <div class="col-xs-12 col-sm-6 space-bot-15 pos-rel">
+        <div class="gen-img" id="gen-dis">
+          <div class="bg-picture gen-category-big gen-wth"></div>
+          <div class="gen-num gen-text-big"><span id="dis">WHATEVER</span></div>
           <div class="overlay">
-              <a href="#" class="expand">test</a>
+              <a href="#" class="expand">Here comes your text lisa</a>
               <a class="close-overlay hidden">x</a>
           </div>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-6 space-bot-15 pos-rel">
-      <div class="bg-picture gen-category-big gen-darker"></div>
-      <div class="gen-num gen-text-big">WHATEVER</div>
-    </div>
-    <!-- test -->
-    <div class="col-xs-12 col-sm-6 space-bot-15 pos-rel">
-      <div class="bg-picture gen-category-big gen-darker"></div>
-      <div class="gen-num gen-text-big">WHATEVER</div>
-    </div>
-    <!-- test -->
-
-
-    <div class="col-xs-12 col-sm-6 space-bot-15">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 space-bot-15">
-          <%= image_tag ("genstudent.png"), class: "gen-category-small" %>
-          <div class="gen-num-small gen-text-small">SOCIAL MEDIA</div>
-        </div>
-        <div class="col-xs-12 col-sm-6 space-bot-15">
-          <%= image_tag ("genstudent.png"), class: "gen-category-small" %>
-          <div class="gen-num-small gen-text-small">DESIGN</div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 space-bot-15">
-          <%= image_tag ("genstudent.png"), class: "gen-category-small" %>
-          <div class="gen-num-small gen-text-small">RESEARCH</div>
+
+      <div class="col-xs-12 col-sm-6 space-bot-15">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 space-bot-15">
+            <div class="bg-picture gen-category-small gen-social"></div>
+            <div class="gen-num-small gen-text-small">SOCIAL MEDIA</div>
+          </div>
+          <div class="col-xs-12 col-sm-6 space-bot-15">
+            <div class="bg-picture gen-category-small gen-design"></div>
+            <div class="gen-num-small gen-text-small">DESIGN</div>
+          </div>
         </div>
-        <div class="col-xs-12 col-sm-6 space-bot-15">
-          <%= image_tag ("genstudent.png"), class: "gen-category-small" %>
-          <div class="gen-num-small gen-text-small">CONTENT</div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 space-bot-15">
+            <div class="bg-picture gen-category-small gen-research"></div>
+            <div class="gen-num-small gen-text-small">RESEARCH</div>
+          </div>
+          <div class="col-xs-12 col-sm-6 space-bot-15">
+            <div class="bg-picture gen-category-small gen-cont"></div>
+            <div class="gen-num-small gen-text-small">CONTENT</div>
+          </div>
         </div>
       </div>
     </div>
@@ -238,6 +178,14 @@
             $(this).removeClass("hover");
         });
       }
+    });
+  </script>
+  <script>
+    var disappear = $("#dis");
+    $("#gen-dis").hover(function(){
+        disappear.fadeOut();
+    }, function() {
+        disappear.fadeIn();
     });
   </script>
 <% end %>

@@ -1,7 +1,21 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+div {
+  .gen-wth {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("genstudent.png");
+  }
+  .gen-research {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("research.jpg");
+  }
+  .gen-cont {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("content.jpg");
+  }
+  .gen-social {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("social_media.jpg");
+  }
+  .gen-design {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("design.jpg");
+  }
+}
+
 .wrapper-grey {
   background-color: #F6F6F6;
 }
@@ -32,17 +46,11 @@
 
 // APPARENTLY YOU CANT USE TRANSITION ON BACKGROUND-IMAGE
 
-div .gen-darker {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url("genstudent.png");
-}
 .gen-category-big {
   width: 100%;
   height: 345px;
   // height: auto;
   border-radius: 2px;
-}
-.gen-category-big:hover {
-  background-color: rgba(41,47,57,.8);
 }
 .gen-category-small {
   width: 100%;
@@ -77,6 +85,9 @@ div .gen-darker {
 .gen-num {
   font-size: 30px;
 }
+#gen-dis {
+  transition: all .3s ease-in-out;
+}
 // ON PHONE
 @media only screen and (max-device-width: 480px) {
   .gen-num-small {
@@ -101,26 +112,15 @@ div .gen-darker {
 // BACKGROUND IMAGE EFFECTS
 .gen-img {
   position: relative;
-  // float: left;
-  margin-bottom: 5px;
   overflow: hidden;
   background-color: rgba(41,47,57,.5);
   transition: background-color .3s ease-in-out;
   // width: 100%;
   // height: 345px;
 
-  width: 25%;
-  height: auto;
+  // width: 25%;
+  // height: auto;
   border-radius: 2px;
-}
-.gen-img:nth-child(n) {
-  margin-right: 5px;
-}
-.gen-img:first-child {
-  margin-left: -15px;
-}
-.gen-img:last-child {
-  margin-right: 0;
 }
 .gen-img img {
   display: block;
@@ -133,7 +133,7 @@ div .gen-darker {
   display: block;
   position: absolute;
   z-index: 20;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.45);
   overflow: hidden;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -165,11 +165,11 @@ a.expand {
   display: block;
   position: absolute;
   z-index: 100;
-  width: 60px;
+  width: 300px;
   height: 60px;
   text-align: center;
   color: #fff;
-  line-height: 50px;
+  line-height: 30px;
   font-weight: 700;
   font-size: 30px;
 }
