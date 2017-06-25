@@ -49,12 +49,10 @@ div {
 .gen-category-big {
   width: 100%;
   height: 345px;
-  // height: auto;
   border-radius: 2px;
 }
 .gen-category-small {
   width: 100%;
-  // height: auto;
   height: 165px;
   overflow: hidden;
   border-radius: 2px;
@@ -81,32 +79,11 @@ div {
 }
 .gen-num-small {
   font-size: 20px;
+  letter-spacing: 0.125em;
 }
 .gen-num {
   font-size: 30px;
-}
-#gen-dis {
-  transition: all .3s ease-in-out;
-}
-// ON PHONE
-@media only screen and (max-device-width: 480px) {
-  .gen-num-small {
-    font-size: 30px;
-    top: 36%;
-  }
-  .gen-text-big {
-    top: 36%;
-  }
-  div .test {
-    width: 100%;
-    height: 300px;
-  }
-  .gen-category-big {
-    height: 175px;
-  }
-  .gen-category-small {
-    height: 175px;
-  }
+  letter-spacing: 0.25em;
 }
 
 // BACKGROUND IMAGE EFFECTS
@@ -115,11 +92,6 @@ div {
   overflow: hidden;
   background-color: rgba(41,47,57,.5);
   transition: background-color .3s ease-in-out;
-  // width: 100%;
-  // height: 345px;
-
-  // width: 25%;
-  // height: auto;
   border-radius: 2px;
 }
 .gen-img img {
@@ -160,7 +132,6 @@ a.close-overlay {
 a.close-overlay.hidden {
   display: none;
 }
-
 a.expand {
   display: block;
   position: absolute;
@@ -173,7 +144,11 @@ a.expand {
   font-weight: 700;
   font-size: 30px;
 }
-
+.gen-hs {
+  a.expand {
+    font-size: 16px;
+  }
+}
 #effect .overlay {
   top: 0;
   bottom: 0;
@@ -199,4 +174,33 @@ a.expand {
   top: 50%;
   margin-top: -30px;
   opacity: 1;
+}
+
+// ON PHONE
+@media only screen and (max-device-width: 480px) {
+  .gen-num {
+    letter-spacing: 0.125em;
+  }
+  .gen-num-small {
+    font-size: 30px;
+    top: 36%;
+  }
+  .gen-text-big {
+    top: 36%;
+  }
+  div .test {
+    width: 100%;
+    height: 300px;
+  }
+  .gen-category-big {
+    height: 175px;
+  }
+  .gen-category-small {
+    height: 175px;
+  }
+  .gen-hs {
+    a.expand {
+      font-size: 30px;
+    }
+  }
 }
