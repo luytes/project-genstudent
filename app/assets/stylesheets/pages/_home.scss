@@ -11,17 +11,30 @@
 .wrapper-grey p {
   font-size: 20px;
 }
-.how-it-works {
-  color: #656B75;
-  h2 {font-size: 40px;}
-  h3 {font-size: 24px;}
-  p {font-size: 20px;}
+.gen-header {
+  letter-spacing: 0.0725em;
+  font-size: .675em;
+  color: black;
+  font-weight: 600;
+}
+.subhead {
+  h2 {
+    font-size: 1.5em;
+    color: #999999;
+    font-weight: 300;
+    line-height: 1.5em;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  p {font-size: 16px;}
 }
 .gen-category-big {
   background-color: rgba(41,47,57,.5);
   transition: background-color .3s ease-in-out;
   width: 100%;
-  height: auto;
+  height: 345px;
+  // height: auto;
   border-radius: 2px;
 }
 .gen-category-big:hover {
@@ -29,7 +42,8 @@
 }
 .gen-category-small {
   width: 100%;
-  height: auto;
+  // height: auto;
+  height: 165px;
   overflow: hidden;
   border-radius: 2px;
 }
@@ -39,7 +53,7 @@
   margin: 0px;
   position:absolute;
   text-align:center;
-  top: 40%;
+  top: 41%;
   position: absolute;
   width: 100%;
 }
@@ -49,7 +63,7 @@
   margin: 0px;
   position:absolute;
   text-align:center;
-  top: 35%;
+  top: 40%;
   position: absolute;
   width: 100%;
 }
@@ -59,16 +73,26 @@
 .gen-num {
   font-size: 30px;
 }
+// ON PHONE
 @media only screen and (max-device-width: 480px) {
   .gen-num-small {
     font-size: 30px;
+    top: 36%;
   }
   .gen-text-big {
-    top: 34%;
+    top: 36%;
   }
   div .test {
     width: 100%;
     height: 300px;
+  }
+  .gen-category-big {
+    height: 175px;
+    // height: auto;
+  }
+  .gen-category-small {
+    // height: auto;
+    height: 175px;
   }
 }
 // APPARENTLY YOU CANT USE TRANSITION ON BACKGROUND-IMAGE
@@ -89,3 +113,158 @@ div .test {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.1))), url("genstudent.png");
   background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("genstudent.png");
 }
+.small-line {
+  border-top-width: 1px;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-style: solid;
+  border-color: #C2C2C2;
+}
+
+// BACKGROUND IMAGE EFFECTS
+.effects {
+  padding-left: 15px;
+}
+.effects .img {
+  position: relative;
+  float: left;
+  margin-bottom: 5px;
+  width: 25%;
+  overflow: hidden;
+}
+.effects .img:nth-child(n) {
+  margin-right: 5px;
+}
+.effects .img:first-child {
+  margin-left: -15px;
+}
+.effects .img:last-child {
+  margin-right: 0;
+}
+.effects .img img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  height: auto;
+}
+// THINGS THAT GET DISPLAYED WHEN HOVERED
+.overlay {
+  display: block;
+  position: absolute;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+a.close-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 45px;
+  text-align: center;
+  background-color: #000;
+  cursor: pointer;
+}
+a.close-overlay.hidden {
+  display: none;
+}
+
+a.expand {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
+  line-height: 50px;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+#effect .overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+}
+#effect .overlay a.expand {
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0 auto;
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#effect .img.hover .overlay {
+  opacity: 1;
+}
+#effect .img.hover .overlay a.expand {
+  top: 50%;
+  margin-top: -30px;
+  opacity: 1;
+}
+@media only screen and (max-width: 1100px) {
+  .effects {
+    padding-left: 5px;
+  }
+  .effects .img {
+    width: 50%;
+  }
+  .effects .img:nth-child(n) {
+    margin-right: 5px;
+  }
+  .effects .img:first-child {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n-1) {
+    margin-left: -5px;
+  }
+  .effects .img:nth-child(2n) {
+    margin-right: 0;
+  }
+  .effects .img:last-child {
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .effects .img {
+    width: 100%;
+  }
+  .effects .img:nth-child(n) {
+    margin-right: 0;
+  }
+  .effects .img:first-child {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n-1) {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n) {
+    margin-right: 0;
+  }
+  .effects .img:last-child {
+    margin-right: 0;
+  }
+  .effects .img img {
+    margin: 0 auto;
+  }
+}
+
