@@ -149,7 +149,7 @@ div .test {
   max-width: 100%;
   height: auto;
 }
-
+// THINGS THAT GET DISPLAYED WHEN HOVERED
 .overlay {
   display: block;
   position: absolute;
@@ -188,27 +188,21 @@ a.expand {
   z-index: 100;
   width: 60px;
   height: 60px;
-  border: solid 5px #fff;
   text-align: center;
   color: #fff;
   line-height: 50px;
   font-weight: 700;
   font-size: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-  border-radius: 30px;
 }
 
-#effect-6 .overlay {
+#effect .overlay {
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   opacity: 0;
 }
-#effect-6 .overlay a.expand {
+#effect .overlay a.expand {
   left: 0;
   right: 0;
   top: 0;
@@ -219,10 +213,10 @@ a.expand {
   -o-transition: all 0.5s;
   transition: all 0.5s;
 }
-#effect-6 .img.hover .overlay {
+#effect .img.hover .overlay {
   opacity: 1;
 }
-#effect-6 .img.hover .overlay a.expand {
+#effect .img.hover .overlay a.expand {
   top: 50%;
   margin-top: -30px;
   opacity: 1;
