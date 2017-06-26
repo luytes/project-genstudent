@@ -182,6 +182,7 @@
         $(".gen-img").click(function(e){
             if (!$(this).hasClass("hover")) {
                 $(this).addClass("hover");
+                $(this).find('.dis').hide();
             }
         });
         // handle the closing of the overlay
@@ -191,28 +192,31 @@
             if ($(this).closest(".gen-img").hasClass("hover")) {
                 $(this).closest(".gen-img").removeClass("hover");
             }
+            $(this).closest(".gen-img").find('.dis').show();
         });
     } else {
         // handle the mouseenter functionality
         $(".gen-img").mouseenter(function(){
             $(this).addClass("hover");
+            $(this).find('.dis').hide();
         })
         // handle the mouseleave functionality
         .mouseleave(function(){
             $(this).removeClass("hover");
+            $(this).find('.dis').show();
         });
       }
     });
   </script>
-
+<!--
   <script>
-    var disappear = $(".dis");
     $(".gen-dis").hover(function(){
-        disappear.hide();
+        $(this).find('.dis').hide();
     }, function() {
-        disappear.show();
+        $(this).find('.dis').show();
     });
     // there is some problems with fadein and out if you hover really fast
     // disappears on mobile? why
-  </script>
+  </script> -->
+
 <% end %>
