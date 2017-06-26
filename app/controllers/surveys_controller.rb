@@ -27,7 +27,7 @@ class SurveysController < ApplicationController
 
   def survey_params
     params.require(:survey).permit(:title, :category, :description,
-                                    :subcategory, :budget, :presence,
+                                    :subcategory, :budget,:budget_month, :presence,
                                     :email, :phone)
   end
 end
