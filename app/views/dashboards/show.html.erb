@@ -25,9 +25,9 @@
           <div class="row">
             <div class="dash-body col-md-3 col-xs-12">
               <div class="panel">
-                <div class="panel-image">
+                <div class="bg-picture panel-image">
                   <!-- ADD PICTURE HERE -->
-                  <%= image_tag current_user.profile_picture || "http://placehold.it/30x30", class: "bg-picture gen-user-img" %>
+                  <%= image_tag current_user.profile_picture, class: "bg-picture gen-user-img" %>
                     <!-- <#%= cl_image_tag @user.profile_picture, class: "bg-picture gen-user-img"%> -->
                 </div>
                 <div class="panel-body">
@@ -153,7 +153,14 @@
     </div>
   </div>
 <% else %>
-  <p>No Orders yet</p>
+  <div role="tabpanel" class="tab-pane" id="orders">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 no-margin-top"><h2>Paid Orders</h2></div>
+            <p>no orders yet</p>
+        </div>
+      </div>
+    </div>
 <% end %>
 
 <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
@@ -182,7 +189,14 @@
     </div>
   </div>
 <% else %>
-  <p>No surveys yet</p>
+  <div role="tabpanel" class="tab-pane" id="surveys">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 no-margin-top"><h2>Surveys</h2></div>
+            <p>No surveys yet</p>
+        </div>
+      </div>
+    </div>
 <% end %>
 
 <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->

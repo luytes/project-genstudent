@@ -8,7 +8,7 @@ class SurveysController < ApplicationController
     @survey = Survey.new(survey_params)
     # authorize @survey
     if @survey.save!
-      flash[:thanks] = "Thank you for your submission!"
+      flash[:thanks] = "Thank you for your submission! We will be in touch within 24h."
       redirect_to root_path
     else
       render :new

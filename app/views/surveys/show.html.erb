@@ -4,8 +4,13 @@
       <h3>Category: <%= @survey.category %></h3>
       <h3>Title: <%= @survey.title %></h3>
       <h3>Description: <%= @survey.description %></h3>
+      <% if @survey.budget_month.nil? %>
+        <h3>No Budget / month given</h3>
+      <% else %>
+        <h3>Budget: <%= @survey.budget_month %>£</h3>
+      <% end %>
       <% if @survey.budget.nil? %>
-        <h3>No Budget given</h3>
+        <h3>No Total Budget given</h3>
       <% else %>
         <h3>Budget: <%= @survey.budget %>£</h3>
       <% end %>
