@@ -56,14 +56,14 @@
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #999999;
   text-decoration: none;
+  transition: all .4s ease-in-out;
 }
 
 /* Navbar right button */
 .navbar-button {
   width: 94px;
-  margin-left: 10px;
   padding: 0 20px;
   border-radius: 20em;
   line-height: 40px;
