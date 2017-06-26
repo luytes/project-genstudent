@@ -36,17 +36,14 @@
   text-decoration: none
 }
 .index-category {
+  // background-color: #2B363F;
   background-color: $dark-green;
-  // padding: 5px 30px;
   padding: 25px 35px;
   margin: 20px 0;
   color: $dark-green;
   text-decoration: none;
-  // margin-right: 10px;
   font-weight: 300;
   letter-spacing: 1px;
-  // margin-bottom: 10px;
-  // border: 1px solid white;
 }
 
 
@@ -92,7 +89,7 @@
       font-size: 16px;
       letter-spacing: 1px;
       // margin-bottom: 10px;
-      background-color: $dark-green;
+      background-color: #2B363F;
       &:hover, &:focus {
           background-color: white;
           // border: 1px solid $dark-green;
@@ -116,7 +113,7 @@
   }
 }
 .gen-width {
-  background-color: $dark-green;
+  background-color: #2B363F;
   width: 15.625em;
   margin-right: 0;
   // position: absolute;
