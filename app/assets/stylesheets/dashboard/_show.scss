@@ -1,13 +1,12 @@
-@media (max-width: 700px) {
-  .container-700 {
-    width: 700px;
-  }
-}
 .dash-body {
   padding: 0 12.5px;
   p {
     font-size: 14px;
   }
+}
+.gen-user-img {
+  width: 100%;
+  height: 300px;
 }
 .panel {
   border: 1px solid #dce0e0;
@@ -60,4 +59,9 @@
 }
 #line-more-top {
   margin: 0 0 5px 0;
+}
+@media (max-width: 700px) {
+  .container-700 {
+    width: 700px;
+  }
 }

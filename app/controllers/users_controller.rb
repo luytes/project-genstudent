@@ -28,9 +28,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:profile_picture, :profile_picture_cache, :bio,
-                                 :email, :password, :skills, :portfolio_url, :first_name,
-                                 :last_name, pieces_attributes: [:cloudinary_path])
+    params.require(:user).permit(:profile_picture, :profile_picture_cache,
+                                 :email, :password, :first_name, :last_name)
   end
 
   def destroy

@@ -2,6 +2,9 @@ class DashboardsController < ApplicationController
   # skip_after_action :verify_authorized
   def show
     @user = current_user
+    if @user.profile_picture.nil?
+      @user.profile_picture = "chemie.jpg"
+    end
     @students = Student.all
     @orders = Order.all
     @order = Order.where(state: 'paid') # gives me all the paid orders

@@ -27,8 +27,8 @@
               <div class="panel">
                 <div class="panel-image">
                   <!-- ADD PICTURE HERE -->
-
-                  <%= cl_image_tag @user.profile_picture, class: "bg-picture bg-full-width" %>
+                  <%= image_tag current_user.profile_picture || "http://placehold.it/30x30", class: "bg-picture gen-user-img" %>
+                    <!-- <#%= cl_image_tag @user.profile_picture, class: "bg-picture gen-user-img"%> -->
                 </div>
                 <div class="panel-body">
                   <h2 class="text-center"><%= @user.full_name %></h2>
