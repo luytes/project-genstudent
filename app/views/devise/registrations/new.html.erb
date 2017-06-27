@@ -15,13 +15,20 @@
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "Password", label:false %>
           <%= f.input :password_confirmation, required: true, placeholder: "Password confirmation", label:false %>
         </div>
-
-        <div class="form-actions text-center">
-          <%= f.button :submit, "Create Account" %>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-actions text-center">
+              <%= f.button :submit, "Create Account", class: "gen-create-btn" %>
+            </div>
+          </div>
         </div>
         <% end %>
-        <div class="signin text-center">
-          <%= render "devise/shared/links" %>
+
+        <div class="flex-inline">
+          <p class="pad-left-10">Alread have an account?</p>
+          <%= link_to new_session_path(resource_name) do %>
+            <p class="pad-left-5">Login here.</p>
+          <% end %>
         </div>
       </div>
     </div>

@@ -11,14 +11,21 @@
          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
        </div>
 
-       <div class="form-actions flex-inline">
-         <%= f.button :submit, "Log in" %>
-         <p class="pad-left-10">Don't have an account?</p>
-         <%= link_to new_user_registration_path do %>
-           <p class="pad-left-5">Sign up here</p>
-         <% end %>
+       <div class="row">
+         <div class="col-xs-12">
+           <div class="form-actions text-center">
+              <%= f.button :submit, "Login", class: "gen-create-btn" %>
+           </div>
+         </div>
        </div>
      <% end %>
+
+     <div class="flex-inline">
+       <p class="pad-left-10">Don't have an account?</p>
+       <%= link_to new_user_registration_path do %>
+         <p class="pad-left-5">Sign up here.</p>
+       <% end %>
+     </div>
       </div>
     </div>
   </div>
