@@ -82,22 +82,7 @@
 #navigation ul li.active:hover a{
     opacity: 1;
 }
-// span.checked{
-//     background:transparent url(../images/checked.png) no-repeat top left;
-//     position:absolute;
-//     top:0px;
-//     left:1px;
-//     width:20px;
-//     height:20px;
-// }
-// span.error{
-//     background:transparent url(../images/error.png) no-repeat top left;
-//     position:absolute;
-//     top:0px;
-//     left:1px;
-//     width:20px;
-//     height:20px;
-// }
+
 #steps form fieldset{
     border:none;
     padding-bottom:20px;
@@ -152,13 +137,13 @@ textarea::-webkit-input-placeholder {
 
 #steps form select{
     background: #ffffff;
-    border: 2px solid white;
+    border: 2px solid $light-green;
     -moz-border-radius: 0px !important;
     -webkit-border-radius: 0px !important;
     border-radius: 0px !important;
     padding: 5px;
     width: 400px;
-    // margin: auto;
+    margin: auto;
 }
 #steps form input:focus{
     -moz-box-shadow: none;
@@ -200,14 +185,14 @@ textarea::-webkit-input-placeholder {
 
 .select {
   border-radius: 0 !important;
-  border: solid $light-green 2px;
+  // border: solid $light-green 2px;
   color: $light-green;
   background-color: white;
   box-shadow: none;
 }
 
 #normal {
-  outline: solid $light-green 2px;
+  // outline: solid $light-green 2px;
   border-radius: 0;
   box-shadow: none;
 }

@@ -86,7 +86,8 @@
                     <% if count == 0 %>
                       <%= p.input :title, disabled: false %>
                       <%= p.input :description, disabled: false %>
-                      <%= p.input :category, disabled: false %>
+                      <%= p.input :category, collection: Survey.categories, label: false,
+                      include_blank: "Select a category", :input_html => { id: 'normal', :onchange => "changeSelect(this)" }, disabled: false %>
                       <%= p.input :what_i_will_do_for_you, disabled: false %>
                       <%= p.input :what_i_need_from_you, disabled: false %>
                       <!-- <#%= p.input :picture, label: "Optional Picture", disabled: false%> -->
@@ -94,7 +95,8 @@
                     <% else %>
                       <%= p.input :title, disabled: true %>
                       <%= p.input :description, disabled: true %>
-                      <%= p.input :category, disabled: true %>
+                      <%= p.input :category, collection: Survey.categories, label: false,
+                      include_blank: "Select a category", :input_html => { id: 'normal', :onchange => "changeSelect(this)" }, disabled: true %>
                       <%= p.input :what_i_will_do_for_you, disabled: true %>
                       <%= p.input :what_i_need_from_you, disabled: true %>
                       <!-- <#%= p.input :picture, label: "Optional Picture", disabled: true%> -->
