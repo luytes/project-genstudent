@@ -64,7 +64,8 @@ class StudentsController < ApplicationController
     params.require(:student).permit(:first_name, :last_name, :introduction,
                                     :subject, :student_picture, :year,
                                     :university, :degree, :skills, :email,
-                                    :services_attributes => [:title, :category, :description, :picture])
+                                    :services_attributes => [:title, :category, :description, :picture, :price,
+                                    :price_pennies, :price_currency, :what_i_need_from_you, :what_i_will_do_for_you])
   end
 
 end

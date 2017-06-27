@@ -83,7 +83,8 @@ class ServicesController < ApplicationController
 
   def service_params
     params.require(:service).permit(:title, :category, :description,
-                                    :rating, :student_id, :picture)
+                                    :rating, :student_id, :picture, :price_pennies,
+                                    :price_currency, :what_i_need_from_you, :what_i_will_do_for_you)
   end
 
 end
