@@ -23,3 +23,26 @@
   margin-bottom: 1em;
   text-align: center;
 }
+#session-form {
+  label {
+    font-size: 14px;
+  }
+  .checkbox label {
+    font-size: 16px;
+  }
+  .form-control {
+    background: transparent;
+    padding-left: 0;
+    border: none;
+    border-radius: 0;
+    outline: 0;
+    box-shadow: none;
+    font-size: 1.25em;
+    border-bottom: 1px solid #D3D3D3;
+    color: #2B363F;
+    display: inline-block;
+  }
+  input:focus {
+    border-bottom: 1px solid #469AE0;
+  }
+}
