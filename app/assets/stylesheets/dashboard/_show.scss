@@ -4,10 +4,6 @@
     font-size: 14px;
   }
 }
-.gen-user-img {
-  width: 100%;
-  height: 300px;
-}
 .panel {
   border: 1px solid #dce0e0;
   background-color: $pastel-blue;
@@ -29,7 +25,6 @@
   border-bottom: 1px solid #dce0e0;
 }
 .panel-body {
-  // position: relative;
   padding: 20px;
   li {
     font-size:14px;
@@ -38,9 +33,11 @@
 }
 .panel-image {
   position: relative;
-  // display: flex;
-  // justify-content: center;
   padding-top: 10px;
+}
+.gen-user-img {
+  width: 100px;
+  height: 300px;
 }
 .btn.btn-contrast.btn-block {
   position: absolute;

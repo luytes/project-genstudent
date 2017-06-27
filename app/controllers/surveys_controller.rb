@@ -15,6 +15,19 @@ class SurveysController < ApplicationController
     end
   end
 
+  def destroy
+    @survey = Survey.find(params[:id])
+    @survey.destroy
+    respond_to do |format|
+      format.js do
+        redirect_to dashboard_path, notice: "Successfully Deleted"
+      end
+      format.html do
+        redirect_to dashboard_path
+      end
+    end
+  end
+
   def index
     @surveys = Survey.all
   end

@@ -25,10 +25,8 @@
           <div class="row">
             <div class="dash-body col-md-3 col-xs-12">
               <div class="panel">
-                <div class="bg-picture panel-image">
-                  <!-- ADD PICTURE HERE -->
-                  <%= image_tag current_user.profile_picture, class: "bg-picture gen-user-img" %>
-                    <!-- <#%= cl_image_tag @user.profile_picture, class: "bg-picture gen-user-img"%> -->
+                <div class="panel-image">
+                  <%= cl_image_tag current_user.profile_picture, style: "width:100%; height: 260px;", crop: :fit %>
                 </div>
                 <div class="panel-body">
                   <h2 class="text-center"><%= @user.full_name %></h2>
@@ -180,7 +178,8 @@
                 <p style="opacity: 0.7"><%= cutoff_text(survey.description) %></p>
               </div>
               <hr size="10">
-              <div class="review"><%= link_to "View Survey", survey_path(survey) %></div>
+              <div><%= link_to "View Survey", survey_path(survey) %></div>
+              <div class="pad-top-6"><%= link_to "Delete Survey", survey, data: { confirm: "Are you sure?" }, method: :delete %></div>
             </div>
           </div>
         </div>
@@ -221,13 +220,16 @@
             </div>
 
             <div class="panel-body text-center">
-              <h2 id="title"><%= service.category %></h2>
+              <p id="title"><%= service.title %></p>
+              <p><%= service.category %></p>
               <div>
                 <p><%= service.start_date %> - <%= service.finish_date %></p>
                 <p style="opacity: 0.7"><%= cutoff_text(service.description) %></p>
               </div>
               <hr size="10">
               <div class="review"><%= link_to "View Service", service_path(service) %></div>
+              <div class="pad-top-6"><%= link_to "Edit Service", edit_service_path(service) %></div>
+              <div class="pad-top-6"><%= link_to "Delete Service", service, data: { confirm: "Are you sure?" }, method: :delete %></div>
             </div>
           </div>
         </div>
