@@ -5,9 +5,12 @@ class Service < ApplicationRecord
 
   # alias_attribute :owner, :user
   alias_attribute :owner, :student
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true
   validates :category, presence: true
   validates :description, presence: true
+  validates :price, presence: true
+  validates :what_i_need_from_you, presence: true
+  validates :what_i_will_do_for_you, presence: true
 
   belongs_to :student, optional: true
   validates_associated :student

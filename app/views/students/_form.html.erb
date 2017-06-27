@@ -90,8 +90,7 @@
                       include_blank: "Select a category", :input_html => { id: 'normal', :onchange => "changeSelect(this)" }, disabled: false %>
                       <%= p.input :what_i_will_do_for_you, disabled: false %>
                       <%= p.input :what_i_need_from_you, disabled: false %>
-                      <!-- <#%= p.input :picture, label: "Optional Picture", disabled: false%> -->
-                      <%= p.input :price_pennies, disabled: false %>
+                      <%= p.input :price, disabled: false %>
                     <% else %>
                       <%= p.input :title, disabled: true %>
                       <%= p.input :description, disabled: true %>
@@ -99,8 +98,7 @@
                       include_blank: "Select a category", :input_html => { id: 'normal', :onchange => "changeSelect(this)" }, disabled: true %>
                       <%= p.input :what_i_will_do_for_you, disabled: true %>
                       <%= p.input :what_i_need_from_you, disabled: true %>
-                      <!-- <#%= p.input :picture, label: "Optional Picture", disabled: true%> -->
-                      <%= p.input :price_pennies, disabled: true %>
+                      <%= p.input :price, disabled: true %>
                     <% end %>
                     <% count += 1 %>
                     <button class="btn delete">Delete this service</button>
