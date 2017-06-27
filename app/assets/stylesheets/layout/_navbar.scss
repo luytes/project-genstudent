@@ -76,6 +76,7 @@
 .navbar-button:hover {
   color: black;
   background-color: white;
+  text-decoration: none;
 }
 // DELETE THIS
 .deletethis {
@@ -145,4 +146,8 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+.gen-ic {
+  color: white;
+  margin-top: 10px;
 }

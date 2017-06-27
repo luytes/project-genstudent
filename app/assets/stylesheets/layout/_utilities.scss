@@ -183,6 +183,8 @@ hr {
 }
 #title {
   margin-top: 30px;
+  font-weight: bold;
+  font-size: 20px;
 }
 .up-case {
   text-transform: uppercase;
@@ -201,5 +203,6 @@ hr {
     padding-top: 6px;
     padding-bottom: 6px;
     margin-bottom: 0;
+    letter-spacing: 0.03em;
   }
 }
