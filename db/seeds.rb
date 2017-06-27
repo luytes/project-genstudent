@@ -21,8 +21,9 @@ address = ["Spreekanal, 10179 Berlin", "Alexanderplatz, 10178 Berlin",
            "Kollwitzplatz, Kollwitzstraße 1, 10405 Berlin",
            "Zionskirchplatz, Zionskirchstraße, 10119 Berlin"]
 password = Faker::Internet.password(8)
-SKILLS = ["acting", "directing", "writing", "editing", "sound"]
-SUBJECT = ["math", "chemistry", "engineering", "science"]
+SKILLS = ["Acting", "Directing", "Writing", "Editing", "Sound"]
+SUBJECT = ["Math", "Chemistry", "Engineering", "Science"]
+DEGREE = ["Bachelor", "Master"]
 GENDER = ["men", "women"]
 NUMBER = (0..99)
 
@@ -64,7 +65,7 @@ puts 'Creating Students...'
     year: "#{rand(NUMBER)}",
     university: "Chemi university",
     subject: "#{SUBJECT.sample}",
-    degree: "Master",
+    degree: "#{DEGREE.sample}",
     remote_student_picture_url: "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg",
     email: Faker::Internet.email
     )
