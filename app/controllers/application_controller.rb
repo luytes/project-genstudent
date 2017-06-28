@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def after_sign_in_path_for(resource)
+    dashboard_path
+  end
+
   # admins only
   def authorize_admin
     redirect_to root_path, alert: 'Access Denied' unless current_user.admin?
