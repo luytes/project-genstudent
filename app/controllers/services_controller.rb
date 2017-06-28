@@ -34,8 +34,9 @@ class ServicesController < ApplicationController
 
   def new
     @service = Service.new
-    @student = Student.find(params[:id])
-    @service.student = @student
+    # @student = Student.find(params[:id])
+    # @student = Student.where({id: params[:id]})
+    # @service.student = @student
   end
 
   def create
