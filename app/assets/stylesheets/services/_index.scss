@@ -54,7 +54,7 @@
 }
 
 .index-category:hover a {
-  color: $dark-green;
+  color: #5E5266;
   text-decoration: none;
 }
 
@@ -93,7 +93,7 @@
       &:hover, &:focus {
           background-color: white;
           // border: 1px solid $dark-green;
-          color: $dark-green;
+          color: #5E5266;
       }
       &:active {
           // background-color: $dark-green;
@@ -102,10 +102,10 @@
       }
     }
     &:checked + label {
-      background-color: $light-green;
+      background-color: #252844;
       color:  white;
       &:hover, &:focus, &:active {
-        background-color: $light-green;
+        background-color: #252844;
         // border: 1px solid white;
         color: white;
       }
