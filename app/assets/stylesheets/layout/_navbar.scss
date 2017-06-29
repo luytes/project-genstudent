@@ -50,7 +50,13 @@
   cursor: pointer;
   padding: 0 10px;
 }
-
+.navbar-browse-item {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  cursor: pointer;
+  padding-right: 0;
+}
 /* Navbar standard link */
 .navbar-wagon-link {
   color: #616668;
