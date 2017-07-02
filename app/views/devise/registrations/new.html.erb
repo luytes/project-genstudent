@@ -24,6 +24,13 @@
         </div>
         <% end %>
 
+        <div class="margin-top-5">
+          <div class="flex-inline">
+            <%= check_box_tag("gen-check", "value", false, class: "gen-checkbox") %>
+            <p>By accepting you agree with our terms and conditions</p>
+          </div>
+        </div>
+
         <div class="flex-inline">
           <p class="pad-left-10">Alread have an account?</p>
           <%= link_to new_session_path(resource_name) do %>
