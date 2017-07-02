@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <div class="row space-nav">
   <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
     <div class="profile-form survey-header">
@@ -10,34 +11,34 @@
       </div>
       <div id="survey-steps">
         <%= simple_form_for(@survey) do |f| %>
-          <div class="col-xs-12 margin-top-5">
+          <div class="gen-survey margin-top-5">
             <p>
             <%= f.input :category, collection: Survey.categories, label: false,
             include_blank: "Select a category", :input_html => { id: 'normal', :onchange => "changeSelect(this)" } %>
             </p>
           </div>
-          <div class="col-xs-12 margin-top-5">
+          <div class="gen-survey margin-top-5">
             <p>
             <%= f.text_field :title, placeholder: 'Title: Write an Analysis', label:false%>
             </p>
           </div>
-          <div class="col-xs-12 margin-top-5">
+          <div class="gen-survey">
             <p>
             <%= f.input :description, placeholder: 'Describe your needs, objectives and challenges', label:false,
             :input_html => { id: "no-resize" } %>
             </p>
           </div>
-          <div class="col-xs-12 margin-top-5">
+          <div class="gen-survey margin-top-5">
             <p>
             <%= f.text_field :budget_month, placeholder: 'Budget in GBP / Month (Optional)', label:false %>
             </p>
           </div>
-          <div class="col-xs-12 margin-top-5">
+          <div class="gen-survey margin-top-5">
             <p>
             <%= f.text_field :budget, placeholder: 'Total Budget in GBP (Optional)', label:false %>
             </p>
           </div>
-          <div class="col-xs-12 margin-top-5">
+          <div class="gen-survey margin-top-5">
             <p>Should the Student be present in your office for this project?</p>
             <%= f.label :presence, "Yes", :value => "true", class: "gen-radio"  %>
             <%= f.radio_button :presence, true %>
@@ -45,17 +46,17 @@
             <%= f.label :presence, "No", :value => "false", class: "gen-radio" %>
             <%= f.radio_button :presence, false, :checked => true %>
           </div>
-          <div class="col-xs-12 margin-top-5">
+          <div class="gen-survey margin-top-5">
             <p>
               <%= f.text_field :email, placeholder: 'Your Email', label:false %>
             </p>
           </div>
-           <div class="col-xs-12 margin-top-5">
+           <div class="gen-survey margin-top-5">
             <p>
               <%= f.text_field :phone, placeholder: 'Your Phone Number', label:false %>
             </p>
           </div>
-           <div class="col-xs-12 margin-top-5">
+           <div class="gen-survey margin-top-5">
             <p>
               <%= f.button :submit, "Submit your survey", :input_html => { id: "no-resize" } %>
             </p>
@@ -64,4 +65,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
