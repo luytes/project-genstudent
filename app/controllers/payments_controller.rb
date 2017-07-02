@@ -9,19 +9,40 @@ class PaymentsController < ApplicationController
     @user = current_user
 
     # test plan
-    plan = Stripe::Plan.create(
-      :name => "Test Plan",
-      :id => "test",
-      :interval => "month",
-      :currency => @order.amount.currency,
-      :amount => @order.amount_pennies,
-    )
+    # what if the plan already exist? you are creating a new plan here each time with the same id
+    # solution: if das nicht existiert also, die plaene mit id, erstlle einen plan mit der id
+     # plan = Stripe::Plan.create(
+     #  :name => @order.service.title,
+     #  :id => @order.service.title,
+     #  :interval => "month",
+     #  :currency => @order.amount.currency,
+     #  :amount => @order.amount_pennies,
+     # )
+
 
     customer = Stripe::Customer.create(
       source: params[:stripeToken],
       email:  params[:stripeEmail],
     )
 
+    # Storing the customer.id in the customer_id field of user
+    @user.customer_id = customer.id
+
+    @plan = Stripe::Plan.retrieve(@order.service.title)
+    unless @plan
+      plan = Stripe::Plan.create(
+        :name => @order.service.title,
+        :id => @order.service.title,
+        :interval => "month",
+        :currency => @order.amount.currency,
+        :amount => @order.amount_pennies,
+      )
+    else
+      subscription = Stripe::Subscription.create(
+        :customer => @user.customer_id,
+        :plan => @order.service.title
+      )
+    end
 
 
     # Charge one time bill
@@ -39,18 +60,10 @@ class PaymentsController < ApplicationController
     #   currency:     @order.amount.currency
     # )
 
-    # Storing the customer.id in the customer_id field of user
-    @user.customer_id = customer.id
-    # id: if @user.customer_id.nil?
-    #         customer.id
-    #       else
-    #         @user.customer_id
-    #       end
-
-    Stripe::Subscription.create(
-      :customer => @user.customer_id,
-      :plan => "test",
-    )
+    # Stripe::Subscription.create(
+    #   :customer => @user.customer_id,
+    #   :plan => @order.service.title,
+    # )
 
     @order.update(payment: plan.to_json, state: 'paid')
     redirect_to order_path(@order)
