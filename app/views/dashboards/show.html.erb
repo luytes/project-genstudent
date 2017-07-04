@@ -1,28 +1,29 @@
-<div class="space-nav">
-  <div class="tab-container">
-    <!-- Nav tabs -->
+<!-- if i want mobile, it should display tabs -->
+
+<div class="space-nav-ind">
+<!-- Nav tabs -->
+  <div class="tab-container gen-width sidebar hidden-xs">
     <div class="responsive">
-      <ul class="nav nav-tabs" role="tablist">
+      <ul class="nav nav-tabs-left" role="tablist">
         <li role="presentation" class="active"><a href="#dashboard" aria-controls="home" role="tab" data-toggle="tab">Dashboard</a></li>
         <% if current_user.admin == true %>
           <li role="presentation"><a href="#my-students" aria-controls="profile" role="tab" data-toggle="tab">My Students</a></li>
           <li role="presentation"><a href="#orders" aria-controls="profile" role="tab" data-toggle="tab">Orders</a></li>
           <li role="presentation"><a href="#surveys" aria-controls="profile" role="tab" data-toggle="tab">Surveys</a></li>
         <% end %>
-        <li role="presentation"><a href="#my-services" aria-controls="messages" role="tab" data-toggle="tab">My Services</a></li>
-        <li role="presentation"><a href="#subscriptions" aria-controls="settings" role="tab" data-toggle="tab">Subscriptions</a></li>
+        <li role="presentation"><a href="#my-subscriptions" aria-controls="messages" role="tab" data-toggle="tab">My Subscriptions</a></li>
       </ul>
     </div>
   </div>
 
   <!-- Tab panes -->
-  <div class="tab-content" style="margin-top: 3em">
-
+<div class="container margin-right-10 space-top-10">
+  <div class="tab-content gen-content">
 <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
     <div role="tabpanel" class="tab-pane active" id="dashboard">
       <div class="space-top-25">
-        <div class="container">
-          <div class="row">
+        <!-- <div class="container"> -->
+          <!-- <div class="row"> -->
             <div class="dash-body col-md-3 col-xs-12">
               <div class="panel">
                 <div class="panel-image">
@@ -65,8 +66,8 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          <!-- </div> -->
+        <!-- </div> -->
       </div>
     </div>
 
@@ -75,8 +76,8 @@
 <% if current_user.admin == true %>
   <div role="tabpanel" class="tab-pane" id="my-students">
     <div class="space-top">
-      <div class="container">
-        <div class="row">
+      <!-- <div class="container"> -->
+        <!-- <div class="row"> -->
           <div class="dash-body col-md-2">
             <div class="space-top sidenav-list">
               <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
@@ -118,8 +119,8 @@
             </div>
           </div>
 
-        </div>
-      </div>
+        <!-- </div> -->
+      <!-- </div> -->
     </div>
   </div>
 <% end %>
@@ -127,8 +128,8 @@
 <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
 <% if current_user.admin == true %>
   <div role="tabpanel" class="tab-pane" id="orders">
-    <div class="container">
-      <div class="row">
+    <!-- <div class="container"> -->
+      <!-- <div class="row"> -->
         <div class="col-md-12 no-margin-top"><h2>Paid Orders</h2></div>
         <% @orders.where(state: 'paid') do |order| %>
         <div class="dash-body col-md-4">
@@ -146,8 +147,8 @@
           </div>
         </div>
         <% end %>
-      </div>
-    </div>
+      <!-- </div> -->
+    <!-- </div> -->
   </div>
 <% else %>
   <div role="tabpanel" class="tab-pane" id="orders">
@@ -163,8 +164,8 @@
 <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
 <% if current_user.admin == true %>
   <div role="tabpanel" class="tab-pane" id="surveys">
-    <div class="container">
-      <div class="row">
+    <!-- <div class="container"> -->
+      <!-- <div class="row"> -->
         <div class="col-md-12 no-margin-top"><h2>Surveys</h2></div>
         <% @surveys.each do |survey| %>
         <div class="dash-body col-md-4">
@@ -183,25 +184,21 @@
           </div>
         </div>
         <% end %>
-      </div>
-    </div>
+      <!-- </div> -->
+    <!-- </div> -->
   </div>
 <% else %>
   <div role="tabpanel" class="tab-pane" id="surveys">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 no-margin-top"><h2>Surveys</h2></div>
-            <p>No surveys yet</p>
-        </div>
-      </div>
-    </div>
+    <div class="col-md-12 no-margin-top"><h2>Surveys</h2></div>
+    <p>No surveys yet</p>
+  </div>
 <% end %>
 
 <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
 <% if current_user.admin == true %>
-  <div role="tabpanel" class="tab-pane" id="my-services">
-    <div class="container">
-      <div class="row">
+  <div role="tabpanel" class="tab-pane" id="my-subscriptions">
+    <!-- <div class="container"> -->
+      <!-- <div class="row"> -->
         <div class="col-md-12 no-margin-top"><h2 class="font-25">Your Services</h2></div>
         <% @services.each do |service| %>
         <div class="dash-body col-md-4">
@@ -233,8 +230,8 @@
           </div>
         </div>
         <% end %>
-      </div>
-    </div>
+      <!-- </div> -->
+    <!-- </div> -->
   </div>
 
 <% else %>
@@ -242,10 +239,10 @@
   <% if @services.nil? %>
     <p>No services bought yet</p>
   <% else %>
-    <div role="tabpanel" class="tab-pane" id="my-services">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 no-margin-top"><h2 class="font-25">Your Services</h2></div>
+    <div role="tabpanel" class="tab-pane" id="my-subscriptions">
+      <!-- <div class="container"> -->
+        <!-- <div class="row"> -->
+          <div class="col-md-12 no-margin-top"><h2 class="font-25">Your Subscriptions</h2></div>
           <% @services.each do |service| %>
           <div class="dash-body col-md-4">
             <div class="panel">
@@ -274,26 +271,13 @@
           </div>
           <% end %>
         </div>
-      </div>
-    </div>
+      <!-- </div> -->
+    <!-- </div> -->
   <% end %>
 
 <% end %>
 
-
-
-<!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE!-->
-    <div role="tabpanel" class="tab-pane" id="subscriptions">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1>Die seite ist eigentlich ueberflussig, maybe currently subscribed services?</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+</div>
   </div>
 </div>
 
