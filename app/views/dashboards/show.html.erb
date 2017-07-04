@@ -25,18 +25,16 @@
         <!-- <div class="container"> -->
           <!-- <div class="row"> -->
             <div class="dash-body col-md-3 col-xs-12">
-              <div class="panel">
-                <div class="panel-image">
-                  <%= cl_image_tag current_user.profile_picture, style: "width:100%; height: 260px;", crop: :fit %>
-                </div>
-                <div class="panel-body">
-                  <h2 class="text-center"><%= @user.full_name %></h2>
-                  <ul class="list-unstyled text-center">
-                    <li><%= link_to "Edit Profile", edit_user_path(@user) %></li>
-                  </ul>
-                </div>
+              <div class="panel-image">
+                <%= cl_image_tag current_user.profile_picture, style: "width:100%; height: 260px;", crop: :fit %>
               </div>
-              <div class="panel text-center">
+              <div class="panel-body">
+                <h2 class="text-center"><%= @user.full_name %></h2>
+                <ul class="list-unstyled text-center">
+                  <li><%= link_to "Edit Profile", edit_user_path(@user) %></li>
+                </ul>
+              </div>
+              <div class="text-center">
                 <div class="panel-header">Verified Information</div>
                 <div class="panel-body">
                   <ul class="list-unstyled">
@@ -47,23 +45,19 @@
             </div>
 
             <div class="dash-aside col-md-offset-1 col-md-8 col-xs-12">
-              <div class="panel">
-                <div class="panel-header" id="notification">
-                  Notification
-                </div>
-                <div class="panel-body">
-                  <p>No new company signed up today</p>
-                </div>
+              <div class="panel-header" id="notification">
+                Notification
               </div>
-              <div class="panel">
-                <div class="panel-header" id="notification">
-                  Messages
-                </div>
-                <div class="panel-body">
-                  <p>--Chemi chemi</p>
-                  <p>--Chemi chemi</p>
-                  <p>--Chemi chemi</p>
-                </div>
+              <div class="panel-body">
+                <p>No new company signed up today</p>
+              </div>
+              <div class="panel-header" id="notification">
+                Messages
+              </div>
+              <div class="panel-body">
+                <p>--Chemi chemi</p>
+                <p>--Chemi chemi</p>
+                <p>--Chemi chemi</p>
               </div>
             </div>
           <!-- </div> -->
@@ -202,14 +196,14 @@
         <div class="col-md-12 no-margin-top"><h2 class="font-25">Your Services</h2></div>
         <% @services.each do |service| %>
         <div class="dash-body col-md-4">
-          <div class="panel">
+          <div class="panel gen-card-height">
             <div class="panel-image bg-picture service-picture" style="background-image: linear-gradient(-224deg, #99E1A1 0%, #218D46 100%)">
               <div class="text-center pos-abs avatar-position">
 
               <% if service.student.student_picture.nil? %>
                 <%= image_tag ("https://cms-assets.tutsplus.com/uploads/users/107/posts/25507/image/38-flat-professions-avatars-icons.jpg"), class: "avatar-large-bordered" %>
               <% else %>
-                <%= cl_image_tag service.student.student_picture_url, height: 50, width: 50, crop: :fill, class: "profile-large-bordered" %>
+                <%= cl_image_tag service.student.student_picture_url, height: 90, width: 90, crop: :fill, class: "profile-large-bordered" %>
               <% end %>
 
               </div>
@@ -245,16 +239,14 @@
           <div class="col-md-12 no-margin-top"><h2 class="font-25">Your Subscriptions</h2></div>
           <% @services.each do |service| %>
           <div class="dash-body col-md-4">
-            <div class="panel">
+            <div class="panel gen-card-subscribtion">
               <div class="panel-image bg-picture service-picture" style="background-image: linear-gradient(-224deg, #99E1A1 0%, #218D46 100%)">
                 <div class="text-center pos-abs avatar-position">
-
                 <% if service.student.student_picture.nil? %>
                   <%= image_tag ("https://cms-assets.tutsplus.com/uploads/users/107/posts/25507/image/38-flat-professions-avatars-icons.jpg"), class: "avatar-large-bordered" %>
                 <% else %>
-                  <%= cl_image_tag service.student.student_picture_url, height: 50, width: 50, crop: :fill, class: "profile-large-bordered" %>
+                  <%= cl_image_tag service.student.student_picture_url, height: 90, width: 90, crop: :fill, class: "profile-large-bordered" %>
                 <% end %>
-
                 </div>
               </div>
 

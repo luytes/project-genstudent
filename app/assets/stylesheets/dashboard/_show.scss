@@ -1,64 +1,73 @@
-.dash-body {
-  padding: 0 12.5px;
-  p {
-    font-size: 14px;
-  }
-}
+// .dash-body {
+//   padding: 0 12.5px;
+//   p {
+//     font-size: 14px;
+//   }
+// }
 .panel {
-  border: 1px solid #dce0e0;
-  background-color: $light-green;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-.dash-aside {
-  padding: 0 12.5px;
+.gen-card-height {
+  height: 550px;
 }
-#notification {
-  padding: 10px 0 10px 25px;
-  font-weight: bold;
+.gen-card-subscribtion {
+  height: 460px;
 }
-.panel-header {
-  background-color: $light-green;
-  color: white;
-  font-size: 16px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #dce0e0;
-}
-.panel-body {
-  padding: 20px;
-  li {
-    font-size:14px;
-    margin-bottom: 5px;
-  }
-}
-.panel-image {
-  position: relative;
-  padding-top: 10px;
-}
-.gen-user-img {
-  width: 100px;
-  height: 300px;
-}
-.btn.btn-contrast.btn-block {
-  position: absolute;
-  bottom: 0;
-}
-.icon {
-  margin-right: 5px;
-}
-.list-unstyled {
-  list-style: none;
-}
-.sidenav-list {
-  padding-left: 0;
-  list-style: none;
-  margin-bottom: 0;
-}
-#line-more-top {
-  margin: 0 0 5px 0;
-}
-@media (max-width: 700px) {
-  .container-700 {
-    width: 700px;
-  }
-}
+// .dash-aside {
+//   padding: 0 12.5px;
+// }
+// #notification {
+//   padding: 10px 0 10px 25px;
+//   font-weight: bold;
+// }
+// .panel-header {
+//   background-color: $light-green;
+//   color: white;
+//   font-size: 16px;
+//   padding-top: 12px;
+//   padding-bottom: 12px;
+//   border-bottom: 1px solid #dce0e0;
+// }
+// .panel-body {
+//   padding: 20px;
+//   li {
+//     font-size:14px;
+//     margin-bottom: 5px;
+//   }
+// }
+// .panel-image {
+//   position: relative;
+//   padding-top: 10px;
+// }
+// .gen-user-img {
+//   width: 100px;
+//   height: 300px;
+// }
+// .btn.btn-contrast.btn-block {
+//   position: absolute;
+//   bottom: 0;
+// }
+// .icon {
+//   margin-right: 5px;
+// }
+// .list-unstyled {
+//   list-style: none;
+// }
+// .sidenav-list {
+//   padding-left: 0;
+//   list-style: none;
+//   margin-bottom: 0;
+// }
+// #line-more-top {
+//   margin: 0 0 5px 0;
+// }
+// @media (max-width: 700px) {
+//   .container-700 {
+//     width: 700px;
+//   }
+// }
