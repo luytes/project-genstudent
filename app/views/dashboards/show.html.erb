@@ -5,7 +5,7 @@
   <div class="tab-container gen-width sidebar hidden-xs">
     <div class="responsive">
       <ul class="nav nav-tabs-left" role="tablist">
-        <li role="presentation" class="active"><a href="#dashboard" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-home margin-right-10" aria-hidden="true"></i>Dashboard</a></li>
+        <li role="presentation" class="active"><a href="#dashboard" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-home margin-right-10" aria-hidden="true"></i>Profile</a></li>
         <% if current_user.admin == true %>
           <li role="presentation"><a href="#my-students" aria-controls="profile" role="tab" data-toggle="tab">My Students</a></li>
           <li role="presentation"><a href="#orders" aria-controls="profile" role="tab" data-toggle="tab">Orders</a></li>
@@ -24,9 +24,9 @@
       <div class="space-top-25">
         <!-- <div class="container"> -->
           <!-- <div class="row"> -->
-            <div class="dash-body col-md-3 col-xs-12">
+            <div class="dash-body col-md-4 col-xs-12">
               <div class="panel-user">
-                <div class="panel-image">
+                <div class="panel-pad">
                   <div class="bg-picture dash-avatar" style="background-image: url(<%= current_user.profile_picture %>);">
                   </div>
                 </div>
@@ -36,23 +36,29 @@
                   <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary margin-bot" %>
                 </div>
               </div>
-              <div class="panel-body">
-                <h2 class="text-center"><%= @user.full_name %></h2>
-                <ul class="list-unstyled text-center">
-                  <li><%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %></li>
-                </ul>
-              </div>
-              <div class="text-center">
-                <div class="panel-header">Verified Information</div>
-                <div class="panel-body">
-                  <ul class="list-unstyled">
-                    <li><a href="#"></a></li>
-                  </ul>
+              <div class="panel-left-body">
+                <div class="panel-pad">
+                  <div class="panel-about">
+                    ABOUT ME
+                  </div>
+                  <div>
+                    <div class="panel-about-content">
+                      <div class="margin-right-10 panel-about-subhead">Email: </div><div><%= @user.email %></div>
+                      <div class="margin-right-10 panel-about-subhead">Company : </div><div><%= @user.company_name %></div>
+                      <div class="margin-right-10 panel-about-subhead">Richtung: </div><div><%= @user.company_description %></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <div class="panel-header"></div>
+                    <ul class="list-unstyled">
+                      <li><a href="#"></a></li>
+                    </ul>
                 </div>
               </div>
             </div>
 
-            <div class="dash-aside col-md-offset-1 col-md-8 col-xs-12">
+            <div class="dash-aside col-md-offset-1 col-md-6 col-xs-12">
               <div class="panel-header" id="notification">
                 <p><%= @user.company_name %></p>
               </div>
@@ -60,7 +66,7 @@
                 <p><%= @user.company_description %></p>
               </div>
               <div class="panel-header" id="notification">
-                <p>Active Subscriptions</p>
+                <p>big white space</p>
               </div>
               <div class="panel-body">
                 <p><%=  %></p>
@@ -96,7 +102,7 @@
               <% @students.each do |student| %>
               <div class="row panel">
                 <div class="col-md-3 pad-left-right-25">
-                  <div class="panel-image bg-picture middle" style= "background-image: linear-gradient(-225deg, rgba(0,78,55,0.3) 0%, rgba(0,36,61,0.3) 50%), url('<%= student.student_picture %>')">
+                  <div class="panel-pad bg-picture middle" style= "background-image: linear-gradient(-225deg, rgba(0,78,55,0.3) 0%, rgba(0,36,61,0.3) 50%), url('<%= student.student_picture %>')">
                   </div>
                 </div>
                 <div class="col-md-7 pad-12">
@@ -203,7 +209,7 @@
         <% @services.each do |service| %>
         <div class="dash-body col-md-4">
           <div class="panel gen-card-height">
-            <div class="panel-image bg-picture service-picture" style="background-image: linear-gradient(-224deg, #99E1A1 0%, #218D46 100%)">
+            <div class="panel-pad bg-picture service-picture" style="background-image: linear-gradient(-224deg, #99E1A1 0%, #218D46 100%)">
               <div class="text-center pos-abs avatar-position">
 
               <% if service.student.student_picture.nil? %>

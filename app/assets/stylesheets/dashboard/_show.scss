@@ -48,14 +48,42 @@
   overflow: hidden;
   background-color: white;
 }
-.panel-image {
+.panel-pad {
   padding: 1em;
+}
+.panel-left-body {
+  margin-top: 1em;
+  box-shadow: 0 0 5px lightgrey;
+}
+.panel-about {
+  padding: 0 1em 1em 1em;
+  overflow: inherit;
+  border-bottom: solid 2px #E7ECF0;
+  margin: 0em -1em 1em -1em;
+  color: #1C4059;
+  font-size: 12px;
+  font-weight: 700;
+  -webkit-letter-spacing: inherit;
+  -moz-letter-spacing: inherit;
+  -ms-letter-spacing: inherit;
+  letter-spacing: inherit;
+  line-height: 1.25;
+}
+.panel-about-content {
+  font-size: 0.875em;
+  div {
+    display: inline-block;
+  }
+  .panel-about-subhead {
+    font-weight: 700;
+    margin-top: 7px;
+  }
 }
 .dash-avatar {
   border-radius: 50%;
   margin: auto;
-  width: 55%;
-  height: 100px;
+  width: 9.375em;
+  height: 9.375em;
   position: relative;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
