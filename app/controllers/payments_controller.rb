@@ -41,7 +41,7 @@ class PaymentsController < ApplicationController
     end
 
     unless @plan
-      plan = Stripe::Plan.create(
+      @plan = Stripe::Plan.create(
         :name => @order.service.title,
         :id => @order.service.title,
         :interval => "month",
@@ -76,7 +76,7 @@ class PaymentsController < ApplicationController
     #   :plan => @order.service.title,
     # )
 
-    @order.update(payment: plan.to_json, state: 'paid')
+    @order.update(payment: @plan.to_json, state: 'paid')
     redirect_to order_path(@order)
 
   rescue Stripe::CardError => e
