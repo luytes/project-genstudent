@@ -40,10 +40,39 @@
 //     margin-bottom: 5px;
 //   }
 // }
-// .panel-image {
-//   position: relative;
-//   padding-top: 10px;
-// }
+.dash-background {
+  background-color: #F3F4F5;
+}
+.panel-user {
+  box-shadow: 0 0 5px lightgrey;
+  overflow: hidden;
+  background-color: white;
+}
+.panel-image {
+  padding: 1em;
+}
+.dash-avatar {
+  border-radius: 50%;
+  margin: auto;
+  width: 55%;
+  height: 100px;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.service-picture {
+  height: 11em;
+}
+.dash-name {
+  color: #232d32;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+.dash-joined {
+  color: #a7b2b8;
+  font-size: 0.875em;
+  width: 100%;
+  display: inline-block;
+}
 // .gen-user-img {
 //   width: 100px;
 //   height: 300px;
