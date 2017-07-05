@@ -9,7 +9,7 @@
         <% if current_user.admin == true %>
           <li role="presentation"><a href="#my-students" aria-controls="profile" role="tab" data-toggle="tab">My Students</a></li>
           <li role="presentation"><a href="#orders" aria-controls="profile" role="tab" data-toggle="tab">Orders</a></li>
-          <li role="presentation"><a href="#surveys" aria-controls="profile" role="tab" data-toggle="tab">Surveys</a></li>
+          <li role="presentation"><a href="#surveys" aria-controls="profile" role="tab" data-toggle="tab">Tasks</a></li>
         <% end %>
         <li role="presentation"><a href="#my-subscriptions" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-gbp margin-right-10" aria-hidden="true"></i>My Subscriptions</a></li>
       </ul>
@@ -172,7 +172,7 @@
   <div role="tabpanel" class="tab-pane" id="surveys">
     <!-- <div class="container"> -->
       <div class="row">
-        <div class="col-md-12 no-margin-top"><h2>Surveys</h2></div>
+        <div class="col-md-12 no-margin-top"><h2>Tasks</h2></div>
         <% @surveys.each do |survey| %>
         <div class="dash-body col-md-4">
           <div class="panel">
@@ -195,8 +195,8 @@
   </div>
 <% else %>
   <div role="tabpanel" class="tab-pane" id="surveys">
-    <div class="col-md-12 no-margin-top"><h2>Surveys</h2></div>
-    <p>No surveys yet</p>
+    <div class="col-md-12 no-margin-top"><h2>Tasks</h2></div>
+    <p>No tasks yet</p>
   </div>
 <% end %>
 
