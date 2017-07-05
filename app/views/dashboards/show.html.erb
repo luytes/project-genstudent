@@ -5,13 +5,13 @@
   <div class="tab-container gen-width sidebar hidden-xs">
     <div class="responsive">
       <ul class="nav nav-tabs-left" role="tablist">
-        <li role="presentation" class="active"><a href="#dashboard" aria-controls="home" role="tab" data-toggle="tab">Dashboard</a></li>
+        <li role="presentation" class="active"><a href="#dashboard" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-home margin-right-10" aria-hidden="true"></i>Dashboard</a></li>
         <% if current_user.admin == true %>
           <li role="presentation"><a href="#my-students" aria-controls="profile" role="tab" data-toggle="tab">My Students</a></li>
           <li role="presentation"><a href="#orders" aria-controls="profile" role="tab" data-toggle="tab">Orders</a></li>
           <li role="presentation"><a href="#surveys" aria-controls="profile" role="tab" data-toggle="tab">Surveys</a></li>
         <% end %>
-        <li role="presentation"><a href="#my-subscriptions" aria-controls="messages" role="tab" data-toggle="tab">My Subscriptions</a></li>
+        <li role="presentation"><a href="#my-subscriptions" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-gbp margin-right-10" aria-hidden="true"></i>My Subscriptions</a></li>
       </ul>
     </div>
   </div>
@@ -31,7 +31,7 @@
               <div class="panel-body">
                 <h2 class="text-center"><%= @user.full_name %></h2>
                 <ul class="list-unstyled text-center">
-                  <li><%= link_to "Edit Profile", edit_user_path(@user) %></li>
+                  <li><%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %></li>
                 </ul>
               </div>
               <div class="text-center">
@@ -46,18 +46,16 @@
 
             <div class="dash-aside col-md-offset-1 col-md-8 col-xs-12">
               <div class="panel-header" id="notification">
-                Notification
+                <p><%= @user.company_name %></p>
               </div>
               <div class="panel-body">
-                <p>No new company signed up today</p>
+                <p><%= @user.company_description %></p>
               </div>
               <div class="panel-header" id="notification">
-                Messages
+                <p>Active Subscriptions</p>
               </div>
               <div class="panel-body">
-                <p>--Chemi chemi</p>
-                <p>--Chemi chemi</p>
-                <p>--Chemi chemi</p>
+                <p><%=  %></p>
               </div>
             </div>
           <!-- </div> -->
