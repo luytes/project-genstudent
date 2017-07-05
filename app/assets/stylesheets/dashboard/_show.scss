@@ -40,10 +40,67 @@
 //     margin-bottom: 5px;
 //   }
 // }
-// .panel-image {
-//   position: relative;
-//   padding-top: 10px;
-// }
+.dash-background {
+  background-color: #F3F4F5;
+}
+.panel-user {
+  box-shadow: 0 0 5px lightgrey;
+  overflow: hidden;
+  background-color: white;
+}
+.panel-pad {
+  padding: 1em;
+}
+.panel-left-body {
+  margin-top: 1em;
+  box-shadow: 0 0 5px lightgrey;
+}
+.panel-about {
+  padding: 0 1em 1em 1em;
+  overflow: inherit;
+  border-bottom: solid 2px #E7ECF0;
+  margin: 0em -1em 1em -1em;
+  color: #1C4059;
+  font-size: 12px;
+  font-weight: 700;
+  -webkit-letter-spacing: inherit;
+  -moz-letter-spacing: inherit;
+  -ms-letter-spacing: inherit;
+  letter-spacing: inherit;
+  line-height: 1.25;
+}
+.panel-about-content {
+  font-size: 0.875em;
+  div {
+    display: inline-block;
+  }
+  .panel-about-subhead {
+    font-weight: 700;
+    margin-top: 7px;
+  }
+}
+.dash-avatar {
+  border-radius: 50%;
+  margin: auto;
+  width: 9.375em;
+  height: 9.375em;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.service-picture {
+  height: 11em;
+}
+.dash-name {
+  color: #232d32;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+.dash-joined {
+  color: #a7b2b8;
+  font-size: 0.875em;
+  width: 100%;
+  display: inline-block;
+}
 // .gen-user-img {
 //   width: 100px;
 //   height: 300px;
