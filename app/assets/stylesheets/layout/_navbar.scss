@@ -55,7 +55,10 @@
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   cursor: pointer;
-  padding-right: 0;
+  padding-right: 10px;
+}
+.navbar-login {
+  padding: 0 20px 0 10px;
 }
 /* Navbar standard link */
 .navbar-wagon-link {
