@@ -28,7 +28,18 @@ class PaymentsController < ApplicationController
     # Storing the customer.id in the customer_id field of user
     @user.customer_id = customer.id
 
-    @plan = Stripe::Plan.retrieve(@order.service.title)
+    begin
+      @plan = Stripe::Plan.retrieve(@order.service.title)
+    rescue
+      @plan = Stripe::Plan.create(
+        :name => @order.service.title,
+        :id => @order.service.title,
+        :interval => "month",
+        :currency => @order.amount.currency,
+        :amount => @order.amount_pennies,
+      )
+    end
+
     unless @plan
       plan = Stripe::Plan.create(
         :name => @order.service.title,
