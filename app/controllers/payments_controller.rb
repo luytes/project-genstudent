@@ -76,7 +76,8 @@ class PaymentsController < ApplicationController
     #   :plan => @order.service.title,
     # )
 
-    @order.update(payment: @plan.to_json, state: 'paid')
+    @user.update(customer_id: @user.customer_id)
+    @order.update(payment: @plan.to_json, state: 'paid', customer: @user.customer_id)
     redirect_to order_path(@order)
 
   rescue Stripe::CardError => e
