@@ -19,6 +19,11 @@
   background-color: #2381d0;
   border-color: #1e6eb2;
 }
+.gen-create-btn:focus {
+  background-color: #2381d0;
+  color: white;
+  border-color: #1e6eb2;
+}
 .gen-signup-form h2 {
   margin-bottom: 1em;
   text-align: center;
@@ -32,6 +37,7 @@
   }
   .form-control {
     background: transparent;
+    width: 100%;
     padding-left: 0;
     border: none;
     border-radius: 0;

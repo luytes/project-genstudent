@@ -1,27 +1,34 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <div class="profile-form">
-      <div class="row">
-        <div class="col-lg-12 profile-form-header">
-          <h2>Edit your Company</h2>
+<div class="container space-nav">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+     <div class="signup-form gen-signup-form">
+      <h2>Edit Your Profile</h2>
+
+      <%= simple_form_for @user, html: { id: "user-form"} do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs" id="session-form">
+          <%= f.input :first_name, required: true, autofocus: true, placeholder: "First Name", required: false %>
+          <%= f.input :last_name, required: true, autofocus: true, placeholder: "Last Name", required: false %>
+          <%= f.input :email, required: true, autofocus: true, placeholder: "Your email adress", required: false %>
+          <%= f.input :company_name, required: true, autofocus: true, placeholder: "Company", required: false %>
+          <%= f.input :company_description, required: true, autofocus: true, placeholder: "About your company", required: false, :input_html => { id: "no-resize" } %>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-actions text-center">
+              <%= f.button :submit, "Edit Profile", class: "gen-create-btn" %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+        <div class="flex-inline">
+          <%= link_to dashboard_path do %>
+            <p>Go back</p>
+          <% end %>
         </div>
       </div>
-      <%= simple_form_for @user, html: { id: "user-form"} do |f| %>
-
-        <%= f.input :profile_picture %>
-
-        <%= f.input :profile_picture_cache, as: :hidden %>
-
-        <%= f.text_field :first_name, placeholder: 'first name', label:false%>
-
-        <%= f.text_field :last_name, placecholder: 'last name', label:false %>
-
-        <%= f.text_field :company_name, placeholder: 'Your Company Name', label:false %>
-
-        <%= f.input :company_description, placeholder: 'What is your company about?', label:false %>
-
-        <%= f.button :submit, "update profile", class: "btn" %>
-      <% end %>
     </div>
   </div>
 </div>
