@@ -27,6 +27,8 @@ class PaymentsController < ApplicationController
 
     # Storing the customer.id in the customer_id field of user
     @user.customer_id = customer.id
+    @user.update(customer_id: @user.customer_id)
+    # raise
 
     begin
       @plan = Stripe::Plan.retrieve(@order.service.title)
