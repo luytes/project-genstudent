@@ -61,6 +61,12 @@
     border-bottom: 1px solid #e6ebf1;
   }
 }
+.panel-row:hover {
+  text-decoration: none;
+  .panel-highlight {
+    color: #32325d;
+  }
+}
 .panel-cell:first-child {
   padding-left: 10px;
 }
