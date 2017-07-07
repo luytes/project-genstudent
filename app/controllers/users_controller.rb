@@ -30,7 +30,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:profile_picture, :profile_picture_cache,
                                  :email, :password, :first_name, :last_name,
-                                 :company_name, :company_description, :customer_id, :admin)
+                                 :company_name, :company_description,
+                                 :customer_id, :admin)
   end
 
   def destroy
