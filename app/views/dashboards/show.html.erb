@@ -30,7 +30,7 @@
                   <div class="bg-picture dash-avatar" style="background-image: url(<%= current_user.profile_picture %>);">
                   </div>
                 </div>
-                <div class="text-center text-capitalize dash-name"><%= @user.full_name %></div>
+                <div class="text-center margin-bot-8 text-capitalize dash-name"><%= @user.full_name %></div>
                 <div class="dash-joined text-center pad-bot-10"><span>Joined <%= @user.created_at.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %></span></div>
                 <div class="margin-bot-24 text-center">
                   <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary margin-bot" %>
@@ -58,19 +58,27 @@
               </div>
             </div>
 
-            <div class="dash-aside col-md-offset-1 col-md-6 col-xs-12">
-              <div class="panel-header" id="notification">
-                <p><%= @user.company_name %></p>
+            <div class="dash-aside col-md-8 col-xs-12">
+              <div class="panel-header dash-name text-capitalize">
+                Active Subscriptions
               </div>
-              <div class="panel-body">
-                <p><%= @user.company_description %></p>
+              <!-- Subscription Header -->
+              <div class="panel-rows">
+                <div class="panel-row-header panel-row">
+                  <span class="panel-cell">Title</span>
+                  <span class="panel-cell">Student</span>
+                  <span class="panel-cell panel-cell-right">Created</span>
+                </div>
               </div>
-              <div class="panel-header" id="notification">
-                <p>big white space</p>
-              </div>
-              <div class="panel-body">
-                <p><%=  %></p>
-              </div>
+              <!-- All my active subscription -->
+              <% if @user.customer_id.nil? %>
+                <div>No Subscriptions yet. browse</div>
+              <% else %>
+                <div class="panel-header" id="notification">
+                  <p>big white space</p>
+                </div>
+              <% end %>
+
             </div>
           </div>
         <!-- </div> -->
@@ -249,7 +257,10 @@
       <!-- <div class="container"> -->
         <div class="row">
           <% if @user.customer_id.nil? %>
-            <div class="col-md-12 no-margin-top"><h2 class="font-25">No subscriptions yet</h2></div>
+            <div class="col-md-12 no-margin-top">
+              <h2 class="font-25">No subscriptions yet, place this in the middle</h2>
+              <div>Browse Services, link to Servies</div>
+            </div>
           <% else %>
             <div class="col-md-12 no-margin-top"><h2 class="font-25">Your Subscriptions</h2></div>
             <% @services.each do |service| %>
