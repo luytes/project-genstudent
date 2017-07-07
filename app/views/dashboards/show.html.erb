@@ -15,6 +15,7 @@
       </ul>
     </div>
   </div>
+</div>
 
   <!-- Tab panes -->
 <div class="container margin-right-10 space-top-10">
@@ -22,234 +23,234 @@
 <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
     <div role="tabpanel" class="tab-pane active" id="dashboard">
       <div class="space-top-25">
-        <!-- <div class="container"> -->
-          <div class="row">
-            <div class="dash-body col-md-4 col-xs-12">
-              <div class="panel-user">
-                <div class="panel-pad">
-                  <div class="bg-picture dash-avatar" style="background-image: url(<%= current_user.profile_picture %>);">
-                  </div>
-                </div>
-                <div class="text-center text-capitalize dash-name"><%= @user.full_name %></div>
-                <div class="dash-joined text-center pad-bot-10"><span>Joined <%= @user.created_at.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %></span></div>
-                <div class="margin-bot-24 text-center">
-                  <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary margin-bot" %>
+        <div class="row">
+          <div class="dash-body col-md-4 col-xs-12">
+            <div class="panel-user">
+              <div class="panel-pad">
+                <div class="bg-picture dash-avatar" style="background-image: url(<%= current_user.profile_picture %>);">
                 </div>
               </div>
-              <div class="panel-left-body">
-                <div class="panel-pad">
-                  <div class="panel-about">
-                    ABOUT ME
+              <div class="text-center margin-bot-8 text-capitalize dash-name"><%= @user.full_name %></div>
+              <div class="dash-joined text-center pad-bot-10"><span>Joined <%= @user.created_at.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %></span></div>
+              <div class="margin-bot-24 text-center">
+                <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary margin-bot" %>
+              </div>
+            </div>
+            <div class="panel-left-body">
+              <div class="panel-pad">
+                <div class="panel-about">
+                  ABOUT ME
+                </div>
+                <div>
+                  <div class="panel-about-content">
+                    <div class="margin-right-10 panel-about-subhead">Email: </div><div><%= @user.email %></div><br>
+                    <div class="margin-right-10 panel-about-subhead">Company: </div><div><%= @user.company_name %></div><br>
+                    <div class="margin-right-10 panel-about-subhead">Richtung: </div><div><%= @user.company_description %></div><br>
                   </div>
-                  <div>
-                    <div class="panel-about-content">
-                      <div class="margin-right-10 panel-about-subhead">Email: </div><div><%= @user.email %></div><br>
-                      <div class="margin-right-10 panel-about-subhead">Company: </div><div><%= @user.company_name %></div><br>
-                      <div class="margin-right-10 panel-about-subhead">Richtung: </div><div><%= @user.company_description %></div><br>
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="panel-header"></div>
+                  <ul class="list-unstyled">
+                    <li><a href="#"></a></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-aside col-md-8 col-xs-12">
+            <div class="panel-header dash-name text-capitalize">
+              Active Subscriptions
+            </div>
+            <!-- Subscription Header -->
+            <div class="panel-rows">
+              <div class="panel-row-header panel-row">
+                <span class="panel-cell">Title</span>
+                <span class="panel-cell">Student</span>
+                <span class="panel-cell panel-cell-right">Created</span>
+              </div>
+            <!-- All my active subscription -->
+              <% if @user.customer_id.nil? %>
+                <div class="panel-row">
+                  <span class="panel-cell">No active subscriptions.</span>
+                  <span class="panel-cell-empty"></span><span class="panel-cell-empty"></span>
+                </div>
+              <% else %>
+                <% @services.each do |service| %>
+                  <%= link_to service_path(service), class: "panel-row" do %>
+                    <span class="panel-cell panel-highlight"><%= service.title %></span>
+                    <span class="panel-cell"><%= service.student.full_name %></span>
+                    <span class="panel-cell panel-cell-right"><%= service.created_at.strftime("%B #{service.created_at.day.ordinalize}, %Y") %></span>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
+    <% if current_user.admin == true %>
+      <div role="tabpanel" class="tab-pane" id="my-students">
+        <div class="space-top">
+          <div class="row">
+            <div class="dash-body col-md-2">
+              <div class="space-top sidenav-list">
+                <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
+              </div>
+            </div>
+            <div class="dash-aside col-md-10">
+
+              <% if @students.nil? %>
+                <div class="space-1 h3">
+                  Ah, it seems you have no students yet chemi.
+                </div>
+              <% end %>
+
+                <% @students.each do |student| %>
+                <div class="row panel">
+                  <div class="col-md-3 pad-left-right-25">
+                    <div class="panel-pad bg-picture middle" style= "background-image: linear-gradient(-225deg, rgba(0,78,55,0.3) 0%, rgba(0,36,61,0.3) 50%), url('<%= student.student_picture %>')">
                     </div>
                   </div>
+                  <div class="col-md-7 pad-12">
+                    <div>
+                      <h3 id="title" class="marg-bot-5"><%= student.full_name %> - <%= student.university %></h3>
+                      <hr id="line-more-top">
+                      <p><%= student.degree %> - Subject: <%= student.subject %> - Year: 19<%= student.year %></p>
+                      <p style="opacity: 0.7"><%= student.introduction %></p>
+                    </div>
+                  </div>
+                  <div class="col-md-2 text-center">
+                    <div class="pad-top-6"><%= link_to "Edit", edit_student_path(student), class: "btn btn-genstudent" %>
+                    </div>
+                    <div class="pad-top-6"><%= link_to "Delete", student, class: "btn btn-genstudent", data: { confirm: "Are you sure?" }, method: :delete %></div>
+                  </div>
                 </div>
-                <div class="text-center">
-                  <div class="panel-header"></div>
-                    <ul class="list-unstyled">
-                      <li><a href="#"></a></li>
-                    </ul>
-                </div>
+                <% end %>
+              <div class="space-top">
+                <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
               </div>
             </div>
 
-            <div class="dash-aside col-md-offset-1 col-md-6 col-xs-12">
-              <div class="panel-header" id="notification">
-                <p><%= @user.company_name %></p>
-              </div>
-              <div class="panel-body">
-                <p><%= @user.company_description %></p>
-              </div>
-              <div class="panel-header" id="notification">
-                <p>big white space</p>
-              </div>
-              <div class="panel-body">
-                <p><%=  %></p>
-              </div>
-            </div>
           </div>
-        <!-- </div> -->
+        </div>
       </div>
-    </div>
+    <% end %>
 
-
-<!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
-<% if current_user.admin == true %>
-  <div role="tabpanel" class="tab-pane" id="my-students">
-    <div class="space-top">
-      <!-- <div class="container"> -->
+    <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
+    <% if current_user.admin == true %>
+      <div role="tabpanel" class="tab-pane" id="orders">
         <div class="row">
-          <div class="dash-body col-md-2">
-            <div class="space-top sidenav-list">
-              <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
+          <div class="col-md-12 no-margin-top"><h2>Paid Orders</h2></div>
+          <% @orders.where(state: 'paid') do |order| %>
+          <div class="dash-body col-md-4">
+            <div class="panel">
+              <div class="panel-body text-center">
+                <h2 id="title"><%= order.service.title %></h2>
+                <div>
+                  <p><%= order.service.price %></p>
+                  <p><%= order.created_at %></p>
+                  <p><%= order.state %></p>
+                </div>
+                <hr size="10">
+                <div class="review"><%= link_to "View Order", order_path(order) %></div>
+              </div>
             </div>
           </div>
-          <div class="dash-aside col-md-10">
-
-            <% if @students.nil? %>
-
-              <div class="space-1 h3">
-                Ah, it seems you have no students yet chemi.
-              </div>
-
-            <% end %>
-
-              <% @students.each do |student| %>
-              <div class="row panel">
-                <div class="col-md-3 pad-left-right-25">
-                  <div class="panel-pad bg-picture middle" style= "background-image: linear-gradient(-225deg, rgba(0,78,55,0.3) 0%, rgba(0,36,61,0.3) 50%), url('<%= student.student_picture %>')">
-                  </div>
-                </div>
-                <div class="col-md-7 pad-12">
-                  <div>
-                    <h3 id="title" class="marg-bot-5"><%= student.full_name %> - <%= student.university %></h3>
-                    <hr id="line-more-top">
-                    <p><%= student.degree %> - Subject: <%= student.subject %> - Year: 19<%= student.year %></p>
-                    <p style="opacity: 0.7"><%= student.introduction %></p>
-                  </div>
-                </div>
-                <div class="col-md-2 text-center">
-                  <div class="pad-top-6"><%= link_to "Edit", edit_student_path(student), class: "btn btn-genstudent" %>
-                  </div>
-                  <div class="pad-top-6"><%= link_to "Delete", student, class: "btn btn-genstudent", data: { confirm: "Are you sure?" }, method: :delete %></div>
-                </div>
-              </div>
-              <% end %>
-            <div class="space-top">
-              <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
-            </div>
-          </div>
-
+          <% end %>
         </div>
-      <!-- </div> -->
-    </div>
-  </div>
-<% end %>
-
-<!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
-<% if current_user.admin == true %>
-  <div role="tabpanel" class="tab-pane" id="orders">
-    <!-- <div class="container"> -->
-      <div class="row">
-        <div class="col-md-12 no-margin-top"><h2>Paid Orders</h2></div>
-        <% @orders.where(state: 'paid') do |order| %>
-        <div class="dash-body col-md-4">
-          <div class="panel">
-            <div class="panel-body text-center">
-              <h2 id="title"><%= order.service.title %></h2>
-              <div>
-                <p><%= order.service.price %></p>
-                <p><%= order.created_at %></p>
-                <p><%= order.state %></p>
-              </div>
-              <hr size="10">
-              <div class="review"><%= link_to "View Order", order_path(order) %></div>
-            </div>
-          </div>
-        </div>
-        <% end %>
       </div>
-    <!-- </div> -->
-  </div>
-<% else %>
-  <div role="tabpanel" class="tab-pane" id="orders">
-      <div class="container">
+    <% else %>
+      <div role="tabpanel" class="tab-pane" id="orders">
         <div class="row">
           <div class="col-md-12 no-margin-top"><h2>Paid Orders</h2></div>
             <p>no orders yet</p>
         </div>
       </div>
-    </div>
-<% end %>
+    <% end %>
 
-<!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
-<% if current_user.admin == true %>
-  <div role="tabpanel" class="tab-pane" id="surveys">
-    <!-- <div class="container"> -->
-      <div class="row">
+    <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
+    <% if current_user.admin == true %>
+      <div role="tabpanel" class="tab-pane" id="surveys">
+        <div class="row">
+          <div class="col-md-12 no-margin-top"><h2>Tasks</h2></div>
+          <% @surveys.each do |survey| %>
+          <div class="dash-body col-md-4">
+            <div class="panel">
+              <div class="panel-body text-center">
+                <h2 id="title"><%= survey.category %></h2>
+                <div>
+                  <p><%= survey.email %></p>
+                  <p><%= survey.title %></p>
+                  <p style="opacity: 0.7"><%= cutoff_text(survey.description) %></p>
+                </div>
+                <hr size="10">
+                <div><%= link_to "View Survey", survey_path(survey) %></div>
+                <div class="pad-top-6"><%= link_to "Delete Survey", survey, data: { confirm: "Are you sure?" }, method: :delete %></div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div role="tabpanel" class="tab-pane" id="surveys">
         <div class="col-md-12 no-margin-top"><h2>Tasks</h2></div>
-        <% @surveys.each do |survey| %>
-        <div class="dash-body col-md-4">
-          <div class="panel">
-            <div class="panel-body text-center">
-              <h2 id="title"><%= survey.category %></h2>
-              <div>
-                <p><%= survey.email %></p>
-                <p><%= survey.title %></p>
-                <p style="opacity: 0.7"><%= cutoff_text(survey.description) %></p>
+        <p>No tasks yet</p>
+      </div>
+    <% end %>
+
+    <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
+    <% if current_user.admin == true %>
+      <div role="tabpanel" class="tab-pane" id="my-subscriptions">
+        <div class="row">
+          <div class="col-md-12 no-margin-top"><h2 class="font-25">Your Services</h2></div>
+          <% @services.each do |service| %>
+          <div class="dash-body col-md-4">
+            <div class="panel gen-card-height">
+              <div class="panel-pad bg-picture service-picture" style="background-image: linear-gradient(-224deg, #99E1A1 0%, #218D46 100%)">
+                <div class="text-center pos-abs avatar-position">
+
+                <% if service.student.student_picture.nil? %>
+                  <%= image_tag ("https://cms-assets.tutsplus.com/uploads/users/107/posts/25507/image/38-flat-professions-avatars-icons.jpg"), class: "avatar-large-bordered" %>
+                <% else %>
+                  <%= cl_image_tag service.student.student_picture_url, height: 90, width: 90, crop: :fill, class: "profile-large-bordered" %>
+                <% end %>
+
+                </div>
               </div>
-              <hr size="10">
-              <div><%= link_to "View Survey", survey_path(survey) %></div>
-              <div class="pad-top-6"><%= link_to "Delete Survey", survey, data: { confirm: "Are you sure?" }, method: :delete %></div>
+
+              <div class="panel-body text-center">
+                <p id="title"><%= service.title %></p>
+                <p><%= service.category %></p>
+                <div>
+                  <p><%= service.start_date %> - <%= service.finish_date %></p>
+                  <p style="opacity: 0.7"><%= cutoff_text(service.description) %></p>
+                </div>
+                <hr size="10">
+                <div class="review"><%= link_to "View Service", service_path(service) %></div>
+                <div class="pad-top-6"><%= link_to "Edit Service", edit_service_path(service) %></div>
+                <div class="pad-top-6"><%= link_to "Delete Service", service, data: { confirm: "Are you sure?" }, method: :delete %></div>
+              </div>
             </div>
           </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
-    <!-- </div> -->
-  </div>
-<% else %>
-  <div role="tabpanel" class="tab-pane" id="surveys">
-    <div class="col-md-12 no-margin-top"><h2>Tasks</h2></div>
-    <p>No tasks yet</p>
-  </div>
-<% end %>
 
-<!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
-<% if current_user.admin == true %>
-  <div role="tabpanel" class="tab-pane" id="my-subscriptions">
-    <!-- <div class="container"> -->
-      <div class="row">
-        <div class="col-md-12 no-margin-top"><h2 class="font-25">Your Services</h2></div>
-        <% @services.each do |service| %>
-        <div class="dash-body col-md-4">
-          <div class="panel gen-card-height">
-            <div class="panel-pad bg-picture service-picture" style="background-image: linear-gradient(-224deg, #99E1A1 0%, #218D46 100%)">
-              <div class="text-center pos-abs avatar-position">
+    <% else %>
 
-              <% if service.student.student_picture.nil? %>
-                <%= image_tag ("https://cms-assets.tutsplus.com/uploads/users/107/posts/25507/image/38-flat-professions-avatars-icons.jpg"), class: "avatar-large-bordered" %>
-              <% else %>
-                <%= cl_image_tag service.student.student_picture_url, height: 90, width: 90, crop: :fill, class: "profile-large-bordered" %>
-              <% end %>
-
-              </div>
-            </div>
-
-            <div class="panel-body text-center">
-              <p id="title"><%= service.title %></p>
-              <p><%= service.category %></p>
-              <div>
-                <p><%= service.start_date %> - <%= service.finish_date %></p>
-                <p style="opacity: 0.7"><%= cutoff_text(service.description) %></p>
-              </div>
-              <hr size="10">
-              <div class="review"><%= link_to "View Service", service_path(service) %></div>
-              <div class="pad-top-6"><%= link_to "Edit Service", edit_service_path(service) %></div>
-              <div class="pad-top-6"><%= link_to "Delete Service", service, data: { confirm: "Are you sure?" }, method: :delete %></div>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    <!-- </div> -->
-  </div>
-
-<% else %>
-
-  <% if @services.nil? %>
-    <p>No services bought yet</p>
-  <% else %>
-    <div role="tabpanel" class="tab-pane" id="my-subscriptions">
-      <!-- <div class="container"> -->
+      <div role="tabpanel" class="tab-pane" id="my-subscriptions">
         <div class="row">
           <% if @user.customer_id.nil? %>
-            <div class="col-md-12 no-margin-top"><h2 class="font-25">No subscriptions yet</h2></div>
+            <div class="col-md-12 no-margin-top">
+              <h2 class="font-25">No subscriptions yet, place this in the middle</h2>
+              <div>Browse Services, link to Servies</div>
+            </div>
           <% else %>
             <div class="col-md-12 no-margin-top"><h2 class="font-25">Your Subscriptions</h2></div>
             <% @services.each do |service| %>
@@ -280,13 +281,10 @@
           <% end %>
         </div>
       </div>
-    <!-- </div> -->
-  <% end %>
+    <% end %>
 
-<% end %>
-
-</div>
   </div>
 </div>
+
 
 
