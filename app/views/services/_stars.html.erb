@@ -5,49 +5,49 @@
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
-    <%= @number_of_reviews %> Reviews
+    <span class="review-num"><%= @number_of_reviews %> Reviews</span>
   <% elsif @average.to_f > 4.25%>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star-half-o" aria-hidden="true"></i>
-    <%= @number_of_reviews %> Reviews
+    <span class="review-num"><%= @number_of_reviews %> Reviews</span>
   <% elsif @average.to_f > 3.75%>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star-o" aria-hidden="true"></i>
-    <%= @number_of_reviews %> Reviews
+    <span class="review-num"><%= @number_of_reviews %> Reviews</span>
   <% elsif @average.to_f > 3.25%>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star-half-o" aria-hidden="true"></i>
     <i class="fa fa-star-o" aria-hidden="true"></i>
-    <%= @number_of_reviews %> Reviews
+    <span class="review-num"><%= @number_of_reviews %> Reviews</span>
   <% elsif @average.to_f > 2.75%>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star-o" aria-hidden="true"></i>
     <i class="fa fa-star-o" aria-hidden="true"></i>
-    <%= @number_of_reviews %> Reviews
+    <span class="review-num"><%= @number_of_reviews %> Reviews</span>
   <% elsif @average.to_f > 2.25%>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star-half-o" aria-hidden="true"></i>
     <i class="fa fa-star-o" aria-hidden="true"></i>
     <i class="fa fa-star-o" aria-hidden="true"></i>
-    <%= @number_of_reviews %> Reviews
+    <span class="review-num"><%= @number_of_reviews %> Reviews</span>
   <% elsif @average.to_f > 1.75%>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star-o" aria-hidden="true"></i>
     <i class="fa fa-star-o" aria-hidden="true"></i>
     <i class="fa fa-star-o" aria-hidden="true"></i>
-    <%= @number_of_reviews %> Reviews
+    <span class="review-num"><%= @number_of_reviews %> Reviews</span>
   <% elsif @average.to_f > 1.25%>
     <i class="fa fa-star" aria-hidden="true"></i>
     <i class="fa fa-star-half-o" aria-hidden="true"></i>
@@ -60,7 +60,7 @@
     <i class="fa fa-star-o" aria-hidden="true"></i>
     <i class="fa fa-star-o" aria-hidden="true"></i>
     <i class="fa fa-star-o" aria-hidden="true"></i>
-    <%= @number_of_reviews %> Reviews
+    <span class="review-num"><%= @number_of_reviews %> Reviews</span>
   <% else %>
     <p class="no-rev">No Reviews Yet</p>
   <% end %>

@@ -34,6 +34,7 @@
 
           <hr class="gen-line">
 
+          <!-- Reviews here -->
           <div class="reviews" id="review">
             <h3 class="gen-subheader">Reviews (<%= @service.reviews.count %>)</h3>
             <% if @service.reviews.map(&:content).all?(&:nil?) %>
@@ -64,15 +65,17 @@
               </div>
 
               <!-- <button class="btn btn-expand" id="btn-expand-reviews"> Show more reviews</button> -->
-
             <% end %>
 
             <% if !@order.empty? %>
+                <!-- checks if array of order objects is empty, meaning i if havent bought this service yet or not -->
                 <%= render :partial => 'reviews/form' %>
             <% end %>
-
           </div>
+
           <hr class="gen-line">
+
+          <!-- Student Information here -->
           <div>
             <h3 class="gen-subheader">About Me:</h3>
             <div class="user-information">
@@ -84,6 +87,8 @@
             </div>
           </div>
           <hr class="gen-line">
+
+          <!-- FAQ here -->
           <div>
             <h3 class="gen-subheader">FAQs:</h3>
             <ul class="gen-faq">
@@ -113,10 +118,14 @@
 
         <!-- right side -->
         <div class="col-xs-12 col-sm-4 text-center">
-          <%= form_tag orders_path do %>
-            <%= hidden_field_tag 'service_id', @service.id %>
-            <%= submit_tag 'Subscribe Now / ' + "#{@service.price}" + '£ a month',
-            class: 'btn btn-primary subscribe-btn' %>
+          <% if !@order.empty? %>
+            <div class="btn btn-primary subscribe-btn" id="only-for-review">Write a Review!</div>
+          <% else %>
+            <%= form_tag orders_path do %>
+              <%= hidden_field_tag 'service_id', @service.id %>
+              <%= submit_tag 'Subscribe Now / ' + "#{@service.price}" + '£ a month',
+              class: 'btn btn-primary subscribe-btn' %>
+            <% end %>
           <% end %>
         </div>
 
@@ -127,9 +136,19 @@
   </div>
 </div>
 
-<script>
-  $('#reviews').click(function(e){
-    e.preventDefault();
-  $('#review')[0].scrollIntoView(true);
-  });
-</script>
+<%= content_for(:after_js) do %>
+  <script>
+    $('#reviews').click(function(e){
+      e.preventDefault();
+    $('#review')[0].scrollIntoView(true);
+    });
+    $("#only-for-review").click(function() {
+      $('html, body').animate({
+        scrollTop: $("#review").offset().top - 110
+      }, 800);
+    });
+
+
+
+  </script>
+<% end %>

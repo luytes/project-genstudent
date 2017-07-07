@@ -12,7 +12,9 @@ class ServicesController < ApplicationController
   def show
     @review = Review.new
     @user = current_user
-    # Shows me all orders with the service id of the service I am looking at right now
+    # Shows me all orders with the service id of the service
+    # I am looking at right now which are paid and have my customer id
+    # So this code here basically searches if the service i am looking right now have these conditions
     @order = Order.where(service_id: @service.id, state: 'paid', customer: @user.customer_id)
 
     count = 0
