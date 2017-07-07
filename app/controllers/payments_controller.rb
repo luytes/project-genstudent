@@ -26,7 +26,11 @@ class PaymentsController < ApplicationController
     )
 
     # Storing the customer.id in the customer_id field of user
-    @user.customer_id = customer.id
+    if @user.customer_id.nil?
+      @user.customer_id = customer.id
+    else
+      @user.customer_id
+    end
 
     begin
       @plan = Stripe::Plan.retrieve(@order.service.title)

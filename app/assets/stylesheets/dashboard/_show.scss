@@ -49,9 +49,15 @@
   position: relative;
   display: table-row;
   transition: background-color .15s ease 0s;
+  a {
+    cursor: pointer;
+  }
 }
 .panel-row {
   .panel-cell {
+    border-bottom: 1px solid #e6ebf1;
+  }
+  .panel-cell-empty {
     border-bottom: 1px solid #e6ebf1;
   }
 }
@@ -70,6 +76,10 @@
 }
 .panel-cell-right {
   text-align: right;
+}
+.panel-cell-empty {
+  display: table-cell;
+  empty-cells: show;
 }
 .panel-highlight {
   color: #3297d3;

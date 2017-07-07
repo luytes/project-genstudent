@@ -69,23 +69,22 @@
                 <span class="panel-cell">Student</span>
                 <span class="panel-cell panel-cell-right">Created</span>
               </div>
-            </div>
             <!-- All my active subscription -->
-            <% if @user.customer_id.nil? %>
-              <div>No Subscriptions yet. browse</div>
-            <% else %>
-              <% @services.each do |service| %>
-                <%= link_to service_path(service) do %>
-                  <div class="panel-rows">
-                    <div class="panel-row">
-                      <span class="panel-cell panel-highlight"><%= service.title %></span>
-                      <span class="panel-cell"><%= service.student.full_name %></span>
-                      <span class="panel-cell panel-cell-right"><%= service.created_at.strftime("%B #{service.created_at.day.ordinalize}, %Y") %></span>
-                    </div>
-                  </div>
+              <% if @user.customer_id.nil? %>
+                <div class="panel-row">
+                  <span class="panel-cell">No active subscriptions.</span>
+                  <span class="panel-cell-empty"></span><span class="panel-cell-empty"></span>
+                </div>
+              <% else %>
+                <% @services.each do |service| %>
+                  <%= link_to service_path(service), class: "panel-row" do %>
+                    <span class="panel-cell panel-highlight"><%= service.title %></span>
+                    <span class="panel-cell"><%= service.student.full_name %></span>
+                    <span class="panel-cell panel-cell-right"><%= service.created_at.strftime("%B #{service.created_at.day.ordinalize}, %Y") %></span>
+                  <% end %>
                 <% end %>
               <% end %>
-            <% end %>
+            </div>
 
           </div>
         </div>
