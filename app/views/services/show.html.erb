@@ -42,7 +42,7 @@
             <% else %>
               <% @service.reviews.limit(5).each do |r| %>
                 <div class="row">
-                  <div class="col-xs-12 space-top-2">
+                  <div class="col-xs-12 space-top-2 star-color">
                     <%= r.content %>
                     <%= r.rating.times do %>
                       <i class="fa fa-star"></i>
@@ -54,7 +54,7 @@
               <div class="reviews-expanded-list">
                 <% @service.reviews.offset(5).each do |r| %>
                   <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 star-color">
                       <%= r.content %>
                       <%= r.rating.times do %>
                         <i class="fa fa-star"></i>
@@ -64,7 +64,7 @@
                 <% end %>
               </div>
 
-              <!-- <button class="btn btn-expand" id="btn-expand-reviews"> Show more reviews</button> -->
+              <button class="btn btn-expand btn-primary" id="btn-expand-reviews">Show more reviews</button>
             <% end %>
 
             <% if !@order.empty? %>
@@ -147,8 +147,5 @@
         scrollTop: $("#review").offset().top - 110
       }, 800);
     });
-
-
-
   </script>
 <% end %>
