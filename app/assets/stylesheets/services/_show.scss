@@ -51,6 +51,21 @@
   padding: 0 25px;
   font-size: 20px;
 }
+.reviews-expanded-list{
+  display: none;
+}
+.review-num {
+  padding-left: 10px;
+  font-weight: lighter;
+}
+#only-for-review {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 65px;
+}
+.btn-expand {
+
+}
 @media only screen and (max-device-width: 480px) {
   .subscribe-btn {
     margin-top: 25px;
