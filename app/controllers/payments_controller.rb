@@ -54,20 +54,20 @@ class PaymentsController < ApplicationController
     redirect_to new_order_payment_path(@order)
   end
 
-  def destroy
-    @user = current_user
-    @subscription = @user.subscription.where()
-    subscription = Stripe::Subscription.retrieve("sub_3R3PlB2YlJe84a")
-    subscription.delete
-    if @user.cancel_user_plan(params[:customer_id])
-      @user.update_attributes(customer_id: nil, plan_id: 1)
-      flash[:notice] = "Canceled subscription."
-      redirect_to dashboard_path
-    else
-      flash[:error] = "There was an error canceling your subscription. Please notify us."
-      redirect_to dashboard_path
-    end
-  end
+  # def destroy
+  #   @user = current_user
+  #   @subscription = @user.subscription.where()
+  #   subscription = Stripe::Subscription.retrieve("sub_3R3PlB2YlJe84a")
+  #   subscription.delete
+  #   if @user.cancel_user_plan(params[:customer_id])
+  #     @user.update_attributes(customer_id: nil, plan_id: 1)
+  #     flash[:notice] = "Canceled subscription."
+  #     redirect_to dashboard_path
+  #   else
+  #     flash[:error] = "There was an error canceling your subscription. Please notify us."
+  #     redirect_to dashboard_path
+  #   end
+  # end
 
   private
 
