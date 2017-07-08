@@ -81,7 +81,11 @@ class PaymentsController < ApplicationController
     # )
 
     @user.update(customer_id: @user.customer_id)
+<<<<<<< HEAD
     @order.update(payment: @plan.to_json, state: 'active', customer: @user.customer_id, subscription: subscription.id)
+=======
+    @order.update(payment: @plan.to_json, state: 'active', customer: @user.customer_id)
+>>>>>>> b7c96974259d1457952281ca523978d76fd3713a
     redirect_to order_path(@order)
 
   rescue Stripe::CardError => e

@@ -7,7 +7,7 @@ class DashboardsController < ApplicationController
     end
     @students = Student.all
     @orders = Order.all
-    @order = Order.where(state: 'paid') # gives me all the paid orders
+    @order = Order.where(state: 'active') # gives me all the active orders
     @hash = @order.where(customer: @user.customer_id).map do |hash|
       hash.service #creates an array of service objects
     end

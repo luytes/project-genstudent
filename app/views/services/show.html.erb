@@ -66,8 +66,7 @@
 
               <button class="btn btn-expand btn-primary" id="btn-expand-reviews">Show more reviews</button>
             <% end %>
-
-            <% if !@order.empty? %>
+            <% if user_signed_in? && !@order.empty? %>
                 <!-- checks if array of order objects is empty, meaning i if havent bought this service yet or not -->
                 <%= render :partial => 'reviews/form' %>
             <% end %>
@@ -118,7 +117,8 @@
 
         <!-- right side -->
         <div class="col-xs-12 col-sm-4 text-center">
-          <% if !@order.empty? %>
+
+          <% if user_signed_in? && !@order.empty? %>
             <div class="btn btn-primary subscribe-btn" id="only-for-review">Write a Review!</div>
           <% else %>
             <%= form_tag orders_path do %>
