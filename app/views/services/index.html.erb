@@ -50,7 +50,12 @@
                     <% @number_of_reviews = service.reviews.count %>
                     <% @average = (count.to_f/@number_of_reviews.to_f) %>
                     <%= render 'stars' %>
-                    <h5 class="index-card-description no-margin">By <%= service.student.full_name %></h5>
+                    <div class="index-card-description">
+                      <h5 class="no-margin"><%= cutoff_text_2(service.description) %></h5>
+                      <div class="index-card-student">
+                        <h5 class="no-margin">By <%= service.student.full_name %></h5>
+                      </div>
+                    </div>
                   </div>
                 </div>
               <% end %>

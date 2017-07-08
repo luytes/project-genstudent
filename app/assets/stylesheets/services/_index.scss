@@ -26,7 +26,7 @@
   font-size: 1em;
   font-weight: 600;
 }
-.index-card-description {
+.index-card-description h5 {
   color: #5E5266;
   font-size: .875em;
   max-width: 100%;
@@ -34,6 +34,13 @@
 }
 .index-card-description:hover {
   text-decoration: none
+}
+.index-card-student {
+  position: absolute;
+  bottom: 14px;
+  h5 {
+    font-weight: 600;
+  }
 }
 .index-category {
   // background-color: #2B363F;
