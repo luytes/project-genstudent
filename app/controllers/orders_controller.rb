@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     redirect_to new_order_payment_path(@order)
   end
   def show
-    @order = Order.where(state: 'paid').find(params[:id])
+    @order = Order.where(state: 'active').find(params[:id])
   end
 
   # private

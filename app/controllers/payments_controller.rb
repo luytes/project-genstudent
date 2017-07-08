@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_order, only: [:create, :new]
-
+  before_action :set_active_order, only: [:destroy]
   # IT TAKES 3-4 DAYS TILL WE CAN ASSIGN HIM A STUDENT
   def new
   end
@@ -81,11 +81,7 @@ class PaymentsController < ApplicationController
     # )
 
     @user.update(customer_id: @user.customer_id)
-<<<<<<< HEAD
     @order.update(payment: @plan.to_json, state: 'active', customer: @user.customer_id, subscription: subscription.id)
-=======
-    @order.update(payment: @plan.to_json, state: 'active', customer: @user.customer_id)
->>>>>>> b7c96974259d1457952281ca523978d76fd3713a
     redirect_to order_path(@order)
 
   rescue Stripe::CardError => e
@@ -95,8 +91,9 @@ class PaymentsController < ApplicationController
 
   def destroy
     @user = current_user
-    @subscription = Stripe::Subscription.retrieve(params[:subscription])
+    @subscription = Stripe::Subscription.retrieve(params[:id])
     @subscription.delete
+    @order.destroy
     respond_to do |format|
       format.js do
         redirect_to dashboard_path, notice: "Successfully Deleted"
