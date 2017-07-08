@@ -11,6 +11,9 @@
           <p>Your assigned student is <%= @order.service.student.full_name %></p>
         </div>
         <div class="bg-picture gen-thanks-student space-top-20" style="background-image: url( <%= @order.service.student.student_picture %>);"></div>
+        <div class="marged-2">
+        <%= link_to "Back to home", dashboard_path, class: "gen-create-btn" %>
+        </div>
         <p>maybe add an animation later this page still looks so empty</p>
       </div>
     </div>
