@@ -68,16 +68,13 @@
   <script>
     $(document).ready(function() {
       $('#filters input:checkbox').change(function () {
-
+        $('#filters input:checkbox').not(this).prop('checked', false);
         var selectedCategoryNames = $('#filters input:checkbox:checked').map(function () {
           return $(this).attr('name')
         }).toArray();
-
         cards = $('.selectable-card');
         cards.hide()
-
         cards.each(function() {
-
         //   if (selectedCategoryNames.includes($(this).attr('data-category'))) $(this).show()
         // });
 
@@ -87,9 +84,7 @@
         // });
           if (selectedCategoryNames.includes($(this).attr('data-category'))) $(this).delay(100).fadeIn(300);
         });
-
         if (selectedCategoryNames.length === 0) cards.show();
-
       });
     });
   </script>
