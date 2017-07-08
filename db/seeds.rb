@@ -36,8 +36,8 @@ puts 'Creating Users...'
     password_confirmation: password,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    company_name: Chemi,
-    company_description: Chemi best
+    company_name: "Chemi",
+    company_description: "Chemi best"
     )
   u.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
   u.save!
@@ -50,7 +50,9 @@ l = User.new(
   password_confirmation: '123456',
   first_name: 'Lisa',
   last_name: 'Chemi',
-  admin: true
+  admin: true,
+  company_name: "Genstudent",
+  company_description: "We connect startups with top university students"
   )
 l.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
 l.save!
