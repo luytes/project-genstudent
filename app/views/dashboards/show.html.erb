@@ -95,11 +95,11 @@
     <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
     <% if current_user.admin == true %>
       <div role="tabpanel" class="tab-pane" id="my-students">
-        <div class="space-top">
+        <div class="space-top-20">
           <div class="row">
             <div class="dash-body col-md-2">
               <div class="space-top sidenav-list">
-                <%= link_to "Add New Student", new_student_path, class: "btn btn-genstudent" %>
+                <%= link_to "Add Student", new_student_path, class: "btn btn-genstudent" %>
               </div>
             </div>
             <div class="dash-aside col-md-10">
@@ -146,15 +146,17 @@
       <div role="tabpanel" class="tab-pane" id="orders">
         <div class="row">
           <div class="col-md-12 no-margin-top"><h2>Active Orders</h2></div>
-          <% @orders.where(state: 'active') do |order| %>
+          <% @orders.each do |order| %>
           <div class="dash-body col-md-4">
             <div class="panel">
               <div class="panel-body text-center">
                 <h2 id="title"><%= order.service.title %></h2>
                 <div>
-                  <p><%= order.service.price %></p>
-                  <p><%= order.created_at %></p>
-                  <p><%= order.state %></p>
+                  <p><%= order.service.price %> <%= order.service.price_currency %></p>
+                  <p>Subscribed on <%= order.created_at.strftime("%B #{order.created_at.day.ordinalize}, %Y") %></p>
+                  <% @customer = User.where(customer_id: order.customer) %>
+                  <p>By <span><%= @customer.first.full_name %></span></p>
+                  <p><%= @customer.first.email %></p>
                 </div>
                 <hr size="10">
                 <div class="review"><%= link_to "View Order", order_path(order) %></div>
