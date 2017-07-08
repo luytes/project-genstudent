@@ -35,7 +35,9 @@ puts 'Creating Users...'
     password: password,
     password_confirmation: password,
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
+    last_name: Faker::Name.last_name,
+    company_name: Chemi,
+    company_description: Chemi best
     )
   u.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
   u.save!
