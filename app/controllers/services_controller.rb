@@ -13,10 +13,10 @@ class ServicesController < ApplicationController
     @review = Review.new
     @user = current_user
     # Shows me all orders with the service id of the service
-    # I am looking at right now which are paid and have my customer id
+    # I am looking at right now which are active and have my customer id
     # So this code here basically searches if the service i am looking right now have these conditions
     if user_signed_in?
-      @order = Order.where(service_id: @service.id, state: 'paid', customer: @user.customer_id)
+      @order = Order.where(service_id: @service.id, state: 'active', customer: @user.customer_id)
     end
 
     count = 0

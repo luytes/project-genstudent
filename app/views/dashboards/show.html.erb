@@ -145,8 +145,8 @@
     <% if current_user.admin == true %>
       <div role="tabpanel" class="tab-pane" id="orders">
         <div class="row">
-          <div class="col-md-12 no-margin-top"><h2>Paid Orders</h2></div>
-          <% @orders.where(state: 'paid') do |order| %>
+          <div class="col-md-12 no-margin-top"><h2>Active Orders</h2></div>
+          <% @orders.where(state: 'active') do |order| %>
           <div class="dash-body col-md-4">
             <div class="panel">
               <div class="panel-body text-center">
@@ -167,7 +167,7 @@
     <% else %>
       <div role="tabpanel" class="tab-pane" id="orders">
         <div class="row">
-          <div class="col-md-12 no-margin-top"><h2>Paid Orders</h2></div>
+          <div class="col-md-12 no-margin-top"><h2>Active Orders</h2></div>
             <p>no orders yet</p>
         </div>
       </div>
