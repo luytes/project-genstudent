@@ -1,6 +1,18 @@
-<h1>Order</h1>
-<ul>
-  <li>Status: <%= @order.state %></li>
-  <li>Item: <%= @order.service.title %></li>
-  <li>Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
-<ul>
+<div class="container space-nav">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <div class="gen-after-pay text-center">
+        <div class="gen-thanks-box">
+          <h1>Thank you for your purchase!</h1>
+          <p>We will be in touch with you within 48h.</p>
+        </div>
+        <div class="gen-thanks-information">
+          <p>You subscribed to <span><%= @order.service.title %></span> (<%= humanized_money_with_symbol(@order.amount) %>/month)</p>
+          <p>Your assigned student is <%= @order.service.student.full_name %></p>
+        </div>
+        <div class="bg-picture gen-thanks-student space-top-20" style="background-image: url( <%= @order.service.student.student_picture %>);"></div>
+        <p>maybe add an animation later this page still looks so empty</p>
+      </div>
+    </div>
+  </div>
+</div>
