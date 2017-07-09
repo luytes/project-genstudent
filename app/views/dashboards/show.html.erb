@@ -68,13 +68,15 @@
                 <span class="panel-cell">Title</span>
                 <span class="panel-cell">Student</span>
                 <span class="panel-cell">Created</span>
-                <span class="panel-cell-right panel-cell">test</span>
+                <span class="panel-cell-right panel-cell"></span>
               </div>
             <!-- All my active subscription -->
               <% if @user.customer_id.nil? || @hash.empty? %>
                 <div class="panel-row">
                   <span class="panel-cell">No active subscriptions.</span>
-                  <span class="panel-cell-empty"></span><span class="panel-cell-empty"></span>
+                  <span class="panel-cell-empty"></span>
+                  <span class="panel-cell-empty"></span>
+                  <span class="panel-cell-empty"></span>
                 </div>
               <% else %>
                 <% @services.each do |service| %>
