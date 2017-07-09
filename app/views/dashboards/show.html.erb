@@ -67,22 +67,24 @@
               <div class="panel-row-header panel-row">
                 <span class="panel-cell">Title</span>
                 <span class="panel-cell">Student</span>
-                <span class="panel-cell panel-cell-right">Created</span>
-                <span class="panel-cell">test</span>
+                <span class="panel-cell">Created</span>
+                <span class="panel-cell-right panel-cell"></span>
               </div>
             <!-- All my active subscription -->
-              <% if @user.customer_id.nil? %>
+              <% if @user.customer_id.nil? || @hash.empty? %>
                 <div class="panel-row">
                   <span class="panel-cell">No active subscriptions.</span>
-                  <span class="panel-cell-empty"></span><span class="panel-cell-empty"></span>
+                  <span class="panel-cell-empty"></span>
+                  <span class="panel-cell-empty"></span>
+                  <span class="panel-cell-empty"></span>
                 </div>
               <% else %>
                 <% @services.each do |service| %>
                   <%= link_to service_path(service), class: "panel-row" do %>
                     <span class="panel-cell panel-highlight"><%= service.title %></span>
                     <span class="panel-cell"><%= service.student.full_name %></span>
-                    <span class="panel-cell panel-cell-right"><%= service.created_at.strftime("%B #{service.created_at.day.ordinalize}, %Y") %></span>
-                    <span><%= button_to "Cancel Subscription", order_payment_path(service.orders.last, service.orders.last.subscription), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-danger" %></span>
+                    <span class="panel-cell"><%= service.created_at.strftime("%B #{service.created_at.day.ordinalize}, %Y") %></span>
+                    <span class="panel-cell panel-cell-right"><%= button_to "Cancel", order_payment_path(service.orders.last, service.orders.last.subscription), :data => { :confirm => "Are you sure?" }, :method => :delete%></span>
                   <% end %>
                 <% end %>
               <% end %>
