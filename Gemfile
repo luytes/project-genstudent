@@ -22,6 +22,7 @@ gem 'devise'
 gem 'faker'
 gem "geocoder"
 gem 'stripe'
+gem 'letter_opener', group: :development
 
 gem "coffee-rails"
 gem "coffee-script"
