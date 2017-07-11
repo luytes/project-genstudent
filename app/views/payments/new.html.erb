@@ -5,10 +5,12 @@
       <div class="row">
         <div class="col-lg-12 profile-form-header">
           <h1>Purchase of <span><%= @order.service.title %></span></h1>
+          <p>By <%= @order.service.student.full_name %></p>
+          <div class="bg-picture gen-thanks-student space-top-20" style="background-image: url( <%= @order.service.student.student_picture %>);"></div>
         </div>
       </div>
 
-      <%= form_tag order_payments_path(@order) do %>
+      <%= form_tag order_payments_path(@order), class: "space-top-20" do %>
         <article>
           <label class="amount">
             <span>Amount: <%= humanized_money_with_symbol(@order.amount) %>/month</span>
