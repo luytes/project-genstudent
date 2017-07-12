@@ -51,6 +51,14 @@
   padding: 0 25px;
   font-size: 20px;
 }
+.enquire-btn {
+  width: 95%;
+  margin-bottom: 11px;
+  border-radius: 100px;
+  height: 65px;
+  padding: 0 25px;
+  font-size: 20px;
+}
 .reviews-expanded-list{
   display: none;
 }
@@ -58,7 +66,7 @@
   padding-left: 10px;
   font-weight: lighter;
 }
-#only-for-review {
+.text-middle {
   text-align: center;
   vertical-align: middle;
   line-height: 65px;
@@ -69,6 +77,9 @@
 @media only screen and (max-device-width: 480px) {
   .subscribe-btn {
     margin-top: 25px;
+  }
+  .enquire-btn {
+    width: 100%;
   }
   ul {
     padding-left: 20px;

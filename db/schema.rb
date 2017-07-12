@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170708173207) do
+ActiveRecord::Schema.define(version: 20170712135921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "enquires", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "company"
+    t.string   "phone_number"
+    t.text     "message"
+    t.integer  "service_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["service_id"], name: "index_enquires_on_service_id", using: :btree
+  end
 
   create_table "orders", force: :cascade do |t|
     t.string   "state"
@@ -110,6 +123,7 @@ ActiveRecord::Schema.define(version: 20170708173207) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "enquires", "services"
   add_foreign_key "orders", "services"
   add_foreign_key "reviews", "services"
   add_foreign_key "services", "students"

@@ -2,8 +2,8 @@ class Service < ApplicationRecord
 
   has_many :reviews, :dependent => :destroy
   has_many :orders, :dependent => :destroy
+  has_many :enquires, :dependent => :destroy
 
-  # alias_attribute :owner, :user
   alias_attribute :owner, :student
   validates :title, presence: true
   validates :category, presence: true
