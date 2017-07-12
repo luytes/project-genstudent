@@ -1,0 +1,46 @@
+<div class="container space-nav">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+     <div class="signup-form gen-signup-form">
+      <div class="row">
+        <div class="col-lg-12 text-center space-top-25">
+          <h3 class="no-margin-tb">Ask us anything about this service!</h3>
+        </div>
+      </div>
+
+      <%= simple_form_for(@enquire) do |f| %>
+        <% if user_signed_in? %>
+          <div class="form-inputs" id="session-form">
+            <%= f.hidden_field :service_id, @service %>
+            <%= f.input :first_name, as: "hidden", input_html: { value: @user.first_name } %>
+            <%= f.input :last_name, as: "hidden", input_html: { value: @user.last_name } %>
+            <%= f.input :email, as: "hidden", input_html: { value: @user.email } %>
+            <%= f.input :company, as: "hidden", input_html: { value: @user.company_name } %>
+            <%= f.input :phone_number, autofocus: true, placeholder: "Phone Number", label:false %>
+            <%= f.input :message, autofocus: true, :input_html => { id: "no-resize" }, placeholder: "Message", label:false %>
+          </div>
+        <% else %>
+          <div class="form-inputs" id="session-form">
+            <%= f.input :service_id, as: :hidden, input_html: { value: @service.id } %>
+            <%= f.input :first_name, required: true, autofocus: true, placeholder: "First Name", label:false %>
+            <%= f.input :last_name, required: true, autofocus: true, placeholder: "Last Name", label:false %>
+            <%= f.input :email, required: true, autofocus: true, placeholder: "Email", label:false %>
+            <%= f.input :company, required: true, autofocus: true, placeholder: "Company", label:false %>
+            <%= f.input :phone_number, autofocus: true, placeholder: "Phone Number", label:false %>
+            <%= f.input :message, autofocus: true, :input_html => { id: "no-resize" }, placeholder: "Message", label:false %>
+          </div>
+        <% end %>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-actions text-center">
+              <%= f.button :submit, "Submit Enquiry", class: "gen-create-btn" %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

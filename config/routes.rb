@@ -6,10 +6,12 @@ Rails.application.routes.draw do
 
   resources :services do
     resources :reviews, only: [ :index, :new, :create ]
+    resources :enquires, only: [ :new, :create ]
   end
   resources :reviews, only: [ :show, :edit, :update, :destroy ]
 
   resources :surveys, only: [ :new, :create, :index, :show, :destroy ]
+  resources :enquires, only: [ :new, :create, :index, :show, :destroy ]
 
   resources :users
 

@@ -119,7 +119,7 @@
         <div class="col-xs-12 col-sm-4 text-center">
 
           <% if user_signed_in? && !@order.empty? %>
-            <div class="btn btn-primary subscribe-btn" id="only-for-review">Write a Review!</div>
+            <div class="btn btn-primary subscribe-btn text-middle">Write a Review!</div>
           <% else %>
             <%= form_tag orders_path do %>
               <%= hidden_field_tag 'service_id', @service.id %>
@@ -127,6 +127,7 @@
               class: 'btn btn-primary subscribe-btn' %>
             <% end %>
           <% end %>
+          <%= link_to 'Enquire about this Service', new_service_enquire_path(@service), class: "btn btn-primary enquire-btn text-middle" %>
         </div>
 
       </div>
