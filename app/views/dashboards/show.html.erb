@@ -34,6 +34,7 @@
               <div class="dash-joined text-center pad-bot-10"><span>Joined <%= @user.created_at.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %></span></div>
               <div class="margin-bot-24 text-center">
                 <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary margin-bot" %>
+                <%= link_to "Edit pass", edit_user_registration_path(@user), class: "btn btn-primary margin-bot" %>
               </div>
             </div>
             <div class="panel-left-body">
