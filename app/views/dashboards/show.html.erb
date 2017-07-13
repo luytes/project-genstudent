@@ -231,7 +231,8 @@
                 <h2 id="title"><%= enquire.full_name.titleize %></h2>
                 <div>
                   <p><%= enquire.email %></p>
-                  <p><%= enquire.company %></p>
+                  <p>Company: <%= enquire.company %></p>
+                  <p>Service: <%= enquire.service.title %></p>
                   <p><%= enquire.phone_number %></p>
                   <p style="opacity: 0.7"><%= cutoff_text(enquire.message) %></p>
                 </div>
