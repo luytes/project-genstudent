@@ -11,7 +11,7 @@
       <%= simple_form_for(@enquire) do |f| %>
         <% if user_signed_in? %>
           <div class="form-inputs" id="session-form">
-            <%= f.hidden_field :service_id, @service %>
+            <%= f.input :service_id, as: :hidden, input_html: { value: @service.id } %>
             <%= f.input :first_name, as: "hidden", input_html: { value: @user.first_name } %>
             <%= f.input :last_name, as: "hidden", input_html: { value: @user.last_name } %>
             <%= f.input :email, as: "hidden", input_html: { value: @user.email } %>

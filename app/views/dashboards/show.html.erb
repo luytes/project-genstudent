@@ -10,6 +10,7 @@
           <li role="presentation"><a href="#my-students" aria-controls="profile" role="tab" data-toggle="tab">My Students</a></li>
           <li role="presentation"><a href="#subscriptions" aria-controls="profile" role="tab" data-toggle="tab">Subscriptions</a></li>
           <li role="presentation"><a href="#surveys" aria-controls="profile" role="tab" data-toggle="tab">Tasks</a></li>
+          <li role="presentation"><a href="#enquires" aria-controls="profile" role="tab" data-toggle="tab">Enquiries</a></li>
         <% end %>
         <li role="presentation"><a href="#my-subscriptions" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-gbp margin-right-10" aria-hidden="true"></i><% if current_user.admin %>Services<% else %>My Subscriptions<% end %></a></li>
       </ul>
@@ -29,7 +30,7 @@
                 <div class="bg-picture dash-avatar" style="background-image: url(<%= current_user.profile_picture %>);">
                 </div>
               </div>
-              <div class="text-center margin-bot-8 text-capitalize dash-name"><%= @user.full_name %></div>
+              <div class="text-center margin-bot-8 text-capitalize dash-name"><%= @user.full_name.titleize %></div>
               <div class="dash-joined text-center pad-bot-10"><span>Joined <%= @user.created_at.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %></span></div>
               <div class="margin-bot-24 text-center">
                 <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary margin-bot" %>
@@ -81,7 +82,7 @@
                 <% @services.each do |service| %>
                   <%= link_to service_path(service), class: "panel-row" do %>
                     <span class="panel-cell panel-highlight"><%= service.title %></span>
-                    <span class="panel-cell"><%= service.student.full_name %></span>
+                    <span class="panel-cell"><%= service.student.full_name.titleize %></span>
                     <span class="panel-cell"><%= service.created_at.strftime("%B #{service.created_at.day.ordinalize}, %Y") %></span>
                     <span class="panel-cell panel-cell-right"><%= button_to "Cancel", order_payment_path(service.orders.last, service.orders.last.subscription), :data => { :confirm => "Are you sure?" }, :method => :delete%></span>
                   <% end %>
@@ -121,7 +122,7 @@
                   </div>
                   <div class="col-md-7 pad-12">
                     <div>
-                      <h3 id="title" class="marg-bot-5"><%= student.full_name %> - <%= student.university %></h3>
+                      <h3 id="title" class="marg-bot-5"><%= student.full_name.titleize %> - <%= student.university %></h3>
                       <hr id="line-more-top">
                       <p><%= student.degree %> - Subject: <%= student.subject %> - Year: 19<%= student.year %></p>
                       <p style="opacity: 0.7"><%= student.introduction %></p>
@@ -161,7 +162,7 @@
                   <p><%= order.service.price %> <%= order.service.price_currency %></p>
                   <p>Subscribed on <%= order.created_at.strftime("%B #{order.created_at.day.ordinalize}, %Y") %></p>
                   <% @customer = User.where(customer_id: order.customer) %>
-                  <p>By <span><%= @customer.first.full_name %></span></p>
+                  <p>By <span><%= @customer.first.full_name.titleize %></span></p>
                   <p><%= @customer.first.email %></p>
                 </div>
                 <hr size="10">
@@ -212,6 +213,41 @@
       <div role="tabpanel" class="tab-pane" id="surveys">
         <div class="col-md-12 no-margin-top"><h2>Tasks</h2></div>
         <p>No tasks yet</p>
+      </div>
+    <% end %>
+
+    <!-- EVERYTHING SHOULD BE EDITED IN HERE FOR EACH TAB. ALL HTML CODE GOES IN HERE! -->
+    <% if current_user.admin == true %>
+      <div role="tabpanel" class="tab-pane" id="enquires">
+        <div class="row">
+          <div class="col-md-12 no-margin-top"><h2>Enquiries</h2></div>
+          <% if @enquires.empty? %>
+            <p>Sorry no Enquiries</p>
+          <% end %>
+          <% @enquires.each do |enquire| %>
+          <div class="dash-body col-md-4">
+            <div class="panel">
+              <div class="panel-body text-center">
+                <h2 id="title"><%= enquire.full_name.titleize %></h2>
+                <div>
+                  <p><%= enquire.email %></p>
+                  <p><%= enquire.company %></p>
+                  <p><%= enquire.phone_number %></p>
+                  <p style="opacity: 0.7"><%= cutoff_text(enquire.message) %></p>
+                </div>
+                <hr size="10">
+                <div><%= link_to "View Enquiry", enquire_path(enquire) %></div>
+                <div class="pad-top-6"><%= link_to "Delete Enquiry", enquire, data: { confirm: "Are you sure?" }, method: :delete %></div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div role="tabpanel" class="tab-pane" id="surveys">
+        <div class="col-md-12 no-margin-top"><h2>Enquiries</h2></div>
+        <p>No enquiries yet</p>
       </div>
     <% end %>
 
