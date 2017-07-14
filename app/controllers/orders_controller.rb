@@ -4,11 +4,11 @@ class OrdersController < ApplicationController
       flash[:error] = "Please verify your email in order to continue."
       redirect_back(fallback_location: root_path)
     else
+      @service = Service.find(params[:service_id]) # i.e. 2
+      @order = Order.create!(amount: @service.price, state: 'pending', service_id: @service.id)
+      @order.service = @service
       redirect_to new_order_payment_path(@order)
     end
-    @service = Service.find(params[:service_id]) # i.e. 2
-    @order = Order.create!(amount: @service.price, state: 'pending', service_id: @service.id)
-    @order.service = @service
   end
 
   def show

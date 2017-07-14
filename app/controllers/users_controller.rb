@@ -26,9 +26,9 @@ class UsersController < ApplicationController
   end
 
   def confirm_email
-    user = User.find_by_confirm_token(params[:id])
-    if user
-      user.email_activate
+    @user = User.find_by_confirm_token(params[:id])
+    if @user
+      @user.email_activate
       flash[:success] = "Welcome to GenStudent! Your email has been confirmed."
       redirect_to dashboard_path
     else
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:profile_picture, :profile_picture_cache,
                                  :email, :password, :first_name, :last_name,
                                  :company_name, :company_description,
-                                 :customer_id, :admin)
+                                 :customer_id, :admin, :email_confirmed, :confirm_token)
   end
 
   def destroy
