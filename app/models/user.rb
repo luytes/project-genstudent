@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   after_create :send_welcome_email
+  before_create :confirmation_token
 
   mount_uploader :profile_picture, PhotoUploader
 
@@ -21,10 +22,24 @@ class User < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
 
+  def email_activate
+    self.email_confirmed = true
+    self.confirm_token = nil
+    save!(:validate => false)
+  end
+
   private
 
   def send_welcome_email
-    UserMailer.welcome(self).deliver_now
+    if self.admin == false
+      UserMailer.welcome(self).deliver_now
+    end
+  end
+
+  def confirmation_token
+    if self.confirm_token.blank?
+      self.confirm_token = SecureRandom.urlsafe_base64.to_s
+    end
   end
 
 end

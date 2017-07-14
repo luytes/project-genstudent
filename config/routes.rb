@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users #, :controllers => { :sessions => 'sessions' }, :skip => :registrations
+  devise_for :users, controllers: { registrations: "users/registrations" }
+
+  # devise_for :users #, :controllers => { :sessions => 'sessions' }, :skip => :registrations
   # devise_for :students, :companies, :skip => :sessions
   resources :students
 
@@ -13,7 +15,11 @@ Rails.application.routes.draw do
   resources :surveys, only: [ :new, :create, :index, :show, :destroy ]
   resources :enquires, only: [ :new, :create, :index, :show, :destroy ]
 
-  resources :users
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
 
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create, :destroy]

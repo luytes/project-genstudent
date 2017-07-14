@@ -1,3 +1,9 @@
+<% if flash[:success] %>
+   <div class="alert alert-info"><%= flash[:success] %></div>
+ <% end %>
+ <% if flash[:error] %>
+    <div class="alert alert-info"><%= flash[:error] %></div>
+  <% end %>
 <!-- if i want mobile, it should display tabs -->
 
 <div class="space-nav-ind ">
