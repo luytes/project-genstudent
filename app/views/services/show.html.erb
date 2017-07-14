@@ -1,6 +1,9 @@
 <% if flash[:thanks] %>
    <div class="alert alert-info"><%= flash[:thanks] %></div>
  <% end %>
+ <% if flash[:error] %>
+    <div class="alert alert-info"><%= flash[:error] %></div>
+  <% end %>
 <div class="space-nav">
   <div class="container">
     <div class="row">
