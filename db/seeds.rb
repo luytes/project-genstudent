@@ -14,6 +14,7 @@ Student.destroy_all
 Survey.destroy_all
 User.destroy_all
 Order.destroy_all
+Enquire.destroy_all
 
 category = ["Content", "Social Media", "Design", "Research"]
 
@@ -28,20 +29,20 @@ GENDER = ["men", "women"]
 NUMBER = (0..99)
 
 # SEEDING USERS
-puts 'Creating Users...'
-2.times do
-  u = User.new(
-    email: Faker::Internet.email,
-    password: password,
-    password_confirmation: password,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    company_name: "Chemi",
-    company_description: "Chemi best"
-    )
-  u.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
-  u.save!
-end
+# puts 'Creating Users...'
+# 2.times do
+#   u = User.new(
+#     email: Faker::Internet.email,
+#     password: password,
+#     password_confirmation: password,
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     company_name: "Chemi",
+#     company_description: "Chemi best"
+#     )
+#   u.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
+#   u.save!
+# end
 
 puts 'Creating Admin For Lisa...'
 l = User.new(
