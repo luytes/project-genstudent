@@ -53,7 +53,8 @@ l = User.new(
   last_name: 'Chemi',
   admin: true,
   company_name: "Genstudent",
-  company_description: "We connect startups with top university students"
+  company_description: "We connect startups with top university students",
+  email_confirmed: true
   )
 l.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
 l.save!
