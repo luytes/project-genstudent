@@ -10,4 +10,10 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(to: 'info@genstudent.com', subject: "#{@user.full_name} subscribed to #{@order.service.title}")
   end
+
+  def user_subscription_notice(order, user)
+    @order = order
+    @user = user
+    mail(to: @user.email, subject: "Your subscription for #{@order.service.title}")
+  end
 end
