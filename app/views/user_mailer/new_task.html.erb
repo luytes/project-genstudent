@@ -13,12 +13,12 @@
   <li style="list-style: none">Title: <%= @survey.title %>,</li>
   <li style="list-style: none">Phone: <%= @survey.phone %>,</li>
   <li style="list-style: none">Student Presence: <%= @survey.presence %>,</li>
-  <% if @survey.budget.nil? %>
+  <% if @survey.budget == "" %>
     <li style="list-style: none">No budget entered,</li>
   <% else %>
     <li style="list-style: none">Budget: <%= @survey.budget %>,</li>
   <% end %>
-  <% if @survey.budget_month.nil? %>
+  <% if @survey.budget_month == "" %>
     <li style="list-style: none">No budget per month entered,</li>
   <% else %>
     <li style="list-style: none">Budget per month: <%= @survey.budget_month %>,</li>

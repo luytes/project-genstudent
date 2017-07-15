@@ -1,13 +1,13 @@
 We have a new enquiry!
 
 On <%= @enquire.created_at.strftime("%B #{@enquire.created_at.day.ordinalize}, %Y") %>,
-the customer <%= @user.full_name %> has made an enquiry about
+the customer <%= @enquire.full_name %> has made an enquiry about
 <%= @enquire.service.title %>.
 
 -------------------------------------------------------
 
-User: <%= @user.full_name %>,
-Email: <%= @user.email %>,
+User: <%= @enquire.full_name %>,
+Email: <%= @enquire.email %>,
 Company: <%= @enquire.company %>,
 Phone: <%= @enquire.phone_number %>,
 Message: <%= @enquire.message %>,

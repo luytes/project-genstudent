@@ -17,10 +17,9 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: "Your subscription for #{@order.service.title}")
   end
 
-  def new_enquire(enquire, user)
+  def new_enquire(enquire)
     @enquire = enquire
-    @user = user
-    mail(to: 'info@genstudent.com', subject: "New enquiry from #{@user.full_name} about #{enquire.service.title}")
+    mail(to: 'info@genstudent.com', subject: "New enquiry from #{@enquire.full_name} about #{enquire.service.title}")
   end
 
   def new_task(survey)
