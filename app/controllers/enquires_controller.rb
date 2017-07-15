@@ -14,6 +14,7 @@ class EnquiresController < ApplicationController
       @user = current_user
     end
     if @enquire.save
+      UserMailer.new_enquire(@enquire).deliver_now
       flash[:thanks] = "Thank you for your enquiry! We will be in touch within 24h."
       redirect_to service_path(@service)
     else
