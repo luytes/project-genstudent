@@ -212,6 +212,14 @@
             $(this).removeClass("hover");
             $(this).find('.dis').show();
         });
+      };
+
+      // From navbar_scroll_change.js
+      var scroll_start = 0;
+      var change_color = $('#change_color');
+      if (change_color.length) {
+        $(document).scroll(updateNavStyle);
+        updateNavStyle(); // Note this.
       }
     });
   </script>
