@@ -5,15 +5,9 @@
 .gen-logo:hover {
   text-decoration: none;
 }
-.navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
-  transition: all 0.3s ease;
-  display: flex;
-  height: 70px;
-  padding: 0px 30px;
-  align-items: center;
-  justify-content: space-between;
+.navbar-trans {
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 .navbar-fixed {
   position: fixed;
@@ -26,14 +20,12 @@
   top: 0px;
   z-index: 50;
   width: 100%;
+  background-color: white;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
 }
 .navbar-white {
   background-color: white;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-}
-.navbar-trans {
-  background-color: transparent;
-  box-shadow: none;
 }
 
 /* Navbar logo */
@@ -42,7 +34,7 @@
 }
 
 /* Navbar right section (with form, links, button) */
-.navbar-wagon-right {
+.navbar-right {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -71,7 +63,7 @@
 .navbar-pad-right-2 {
   padding: 0 15px 0 10px;
 }
-/* Navbar standard link */
+/* Navbar standard links */
 .navbar-wagon-link {
   color: #616668;
   font-size: 14px;
@@ -80,6 +72,12 @@
 .navbar-wagon-link:hover {
   color: #999999;
   text-decoration: none;
+}
+.navbar-link-white {
+  color: white !important;
+}
+.navbar-link-white:hover {
+  color: #999999 !important;
 }
 
 /* Navbar right button */

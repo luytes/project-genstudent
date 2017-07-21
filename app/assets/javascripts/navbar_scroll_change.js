@@ -6,11 +6,14 @@ $(document).ready(function(){
     $(document).scroll(function() {
       scroll_start = $(this).scrollTop();
       if(scroll_start > offset.top) {
-        $("#navbar-add").addClass("navbar-white");
+        // the white normal navbar
         $("#navbar-add").removeClass("navbar-trans");
+        $(".navbar-link-text").removeClass("navbar-link-white");
       } else {
+        // what the users sees when he lands on the page
         $("#navbar-add").addClass("navbar-trans");
-        $("#navbar-add").removeClass("navbar-white");
+        $(".navbar-link-text").addClass("navbar-link-white");
+        // $("#navbar-add").removeClass("navbar-white");
       }
     });
   }
