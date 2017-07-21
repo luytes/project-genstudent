@@ -50,6 +50,10 @@
   cursor: pointer;
   padding: 0 10px;
 }
+.navbar-pad-right {
+  padding-right: 15px;
+  padding-left: 5px;
+}
 .navbar-browse-item {
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
@@ -67,33 +71,32 @@
 .navbar-wagon-link {
   color: #616668;
   font-size: 14px;
+  transition: all .4s ease-in-out;
 }
 .navbar-wagon-link:hover {
   color: #999999;
   text-decoration: none;
-  transition: all .4s ease-in-out;
 }
 
 /* Navbar right button */
 .navbar-button {
-  width: 94px;
+  // for signup button do
+  // width: 94px;
+  // for company button do no width at all
   padding: 0 20px;
   border-radius: 20em;
   line-height: 40px;
-  background-color: transparent;
+  background-color: $light-blue;
+  border: 2px solid $light-blue;
   color: white;
   font-size: 14px;
-  border: 2px solid white;
   transition: all .4s ease-in-out;
 }
 .navbar-button:hover {
-  color: black;
-  background-color: white;
-  text-decoration: none;
-}
-// DELETE THIS
-.deletethis {
   color: white;
+  background-color: $blue;
+  border: 2px solid $blue;
+  text-decoration: none;
 }
 
 /* Navbar search form */
