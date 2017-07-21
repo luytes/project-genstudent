@@ -1,7 +1,7 @@
 <% if flash[:thanks] %>
    <div class="alert alert-info"><%= flash[:thanks] %></div>
  <% end %>
-<div class="container-fluid banner bg-picture" id="change_color" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.35) 50%), url('<%= asset_path('banner_logo.jpeg') %>')">
+<div class="container-fluid banner bg-picture" id="change_color" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.35) 50%), url('<%= asset_path('banner_logo.jpg') %>')">
   <div class="row">
     <div class="banner-content">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
@@ -187,30 +187,30 @@
         $(".close-overlay").removeClass("hidden");
         // handle the adding of hover class when clicked
         $(".gen-img").click(function(e){
-            if (!$(this).hasClass("hover")) {
-                $(this).addClass("hover");
-                $(this).find('.dis').hide();
-            }
+          if (!$(this).hasClass("hover")) {
+            $(this).addClass("hover");
+            $(this).find('.dis').hide();
+          }
         });
         // handle the closing of the overlay
         $(".close-overlay").click(function(e){
-            e.preventDefault();
-            e.stopPropagation();
-            if ($(this).closest(".gen-img").hasClass("hover")) {
-                $(this).closest(".gen-img").removeClass("hover");
-            }
-            $(this).closest(".gen-img").find('.dis').show();
+          e.preventDefault();
+          e.stopPropagation();
+          if ($(this).closest(".gen-img").hasClass("hover")) {
+            $(this).closest(".gen-img").removeClass("hover");
+          }
+          $(this).closest(".gen-img").find('.dis').show();
         });
-    } else {
+      } else {
         // handle the mouseenter functionality
         $(".gen-img").mouseenter(function(){
-            $(this).addClass("hover");
-            $(this).find('.dis').hide();
+          $(this).addClass("hover");
+          $(this).find('.dis').hide();
         })
         // handle the mouseleave functionality
         .mouseleave(function(){
-            $(this).removeClass("hover");
-            $(this).find('.dis').show();
+          $(this).removeClass("hover");
+          $(this).find('.dis').show();
         });
       };
 
@@ -223,6 +223,7 @@
       }
     });
   </script>
+
 <!--
   <script>
     $(".gen-dis").hover(function(){
