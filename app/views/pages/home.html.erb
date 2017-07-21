@@ -1,11 +1,11 @@
 <% if flash[:thanks] %>
    <div class="alert alert-info"><%= flash[:thanks] %></div>
  <% end %>
-<div class="container-fluid banner bg-picture" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.35) 50%), url('<%= asset_path('banner_logo.jpeg') %>')">
+<div class="container-fluid banner bg-picture" id="change_color" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.35) 50%), url('<%= asset_path('banner_logo.jpeg') %>')">
   <div class="row">
     <div class="banner-content">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
-        <h1>就妈咪<br> <h2>We connect startups with top university students</h2></h1>
+        <h1>我的大象很大<br> <h2>We connect startups with top university students</h2></h1>
       </div>
 
       <div class="col-xs-12 col-xs-12 col-md-6 col-md-offset-3 text-center space-top-20">
@@ -212,6 +212,14 @@
             $(this).removeClass("hover");
             $(this).find('.dis').show();
         });
+      };
+
+      // From navbar_scroll_change.js
+      var scroll_start = 0;
+      var change_color = $('#change_color');
+      if (change_color.length) {
+        $(document).scroll(updateNavStyle);
+        updateNavStyle(); // Note this.
       }
     });
   </script>
