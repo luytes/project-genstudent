@@ -40,8 +40,14 @@ div {
   }
   h3 {
     font-size: 18px;
+    margin-bottom: 20px;
   }
-  p {font-size: 16px;}
+  p {
+    font-size: 16px;
+    line-height: 1.5em;
+    letter-spacing: 0.045em;
+    font-weight: 300;
+  }
 }
 
 // APPARENTLY YOU CANT USE TRANSITION ON BACKGROUND-IMAGE
