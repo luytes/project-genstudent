@@ -1,0 +1,35 @@
+<div class="container space-nav">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+     <div class="signup-form gen-signup-form">
+
+      <%= simple_form_for(@studentapplication) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs" id="session-form">
+          <%= f.input :first_name, required: true, autofocus: true, placeholder: "First Name", label:false %>
+          <%= f.input :last_name, required: true, autofocus: true, placeholder: "Last Name", label:false %>
+          <%= f.input :email, required: true, autofocus: true, placeholder: "Email", label:false %>
+          <%= f.input :sex, required: true, autofocus: true, placeholder: "Sex", label:false %>
+          <%= f.input :country, required: true, autofocus: true, placeholder: "Counry", label:false %>
+          <%= f.input :city, required: true, autofocus: true, placeholder: "city", label:false %>
+          <%= f.input :university, required: true, autofocus: true, placeholder: "university", label:false %>
+          <%= f.input :major, required: true, autofocus: true, placeholder: "major", label:false %>
+          <%= f.input :skills, required: true, autofocus: true, placeholder: "skills", label:false %>
+          <%= f.input :picture, required: true, autofocus: true, placeholder: "picture", label:false %>
+          <%= f.input :cv, required: true, autofocus: true, placeholder: "cv", label:false %>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-actions text-center">
+              <%= f.button :submit, "Apply", class: "student-bordered" %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
