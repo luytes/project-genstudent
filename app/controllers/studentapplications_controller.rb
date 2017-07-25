@@ -23,7 +23,7 @@ class StudentapplicationsController < ApplicationController
   def studentapplication_params
     params.require(:studentapplication).permit(:first_name, :last_name, :email,
                                     :sex, :country, :city, :university,
-                                    :major, :skills, :picture, :cv)
+                                    :major, :skills, :cv)
   end
 
 end
