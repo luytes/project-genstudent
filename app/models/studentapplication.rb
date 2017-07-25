@@ -1,4 +1,4 @@
-class StudentApplication < ApplicationRecord
+class Studentapplication < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :sex, presence: true
@@ -8,5 +8,4 @@ class StudentApplication < ApplicationRecord
   validates :skills, presence: true
   validates :city, presence: true
   validates :university, presence: true
-
 end

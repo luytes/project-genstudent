@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725083017) do
+ActiveRecord::Schema.define(version: 20170725084515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20170725083017) do
     t.index ["student_id"], name: "index_services_on_student_id", using: :btree
   end
 
-  create_table "student_applications", force: :cascade do |t|
+  create_table "studentapplications", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
