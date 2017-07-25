@@ -1,0 +1,41 @@
+<% if flash[:thanks] %>
+   <div class="alert alert-info"><%= flash[:thanks] %></div>
+ <% end %>
+
+<div class="space-nav-ind">
+  <div class="container-fluid no-padding-side">
+    <div class="col-l-6 col-m-6 col-sm-6 no-padding-side">
+      <div class="student-banner bg-picture" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.35) 50%), url('<%= asset_path('genstudent.png') %>')">
+      </div>
+    </div>
+
+    <div class="col-l-6 col-m-6 col-sm-6">
+      <div class="row">
+        <div class="student-banner-content pos-abs">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+            <h1>JOIN OUR NETWORK</h1>
+            <p>GenStudent connects university students with small to mid-size businesses to help with content, design, and research. We understand the demands of a student – the need for valuable work experience, flexibility, and extra cash!</p>
+            <p>Are you a university student who would like to gain valuable work experience to kickstart your career? Then we would love to hear from you!</p>
+            <p>Apply today by sending your CV and a brief writing or design sample to info@genstudent.com</p>
+          </div>
+          <div class="col-xs-12 col-xs-12 col-md-6 col-md-offset-3 text-center space-top-20">
+            <%= link_to new_survey_path do %>
+              <div class="btn student-bordered">Apply</div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= content_for(:after_js) do %>
+  <script>
+    var scroll_start = 0;
+    var change_color = $('#change_color');
+    if (change_color.length) {
+      $(document).scroll(updateNavStyle);
+      updateNavStyle(); // Note this.
+    }
+  </script>
+<% end %>

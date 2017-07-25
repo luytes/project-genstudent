@@ -1,0 +1,30 @@
+.student-banner {
+  color: white;
+  text-align: center;
+  height: 96.75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.student-banner-content {
+  height: 82.75vh;
+  width: 100%;
+  left: -150px;
+  top: 45px;
+  z-index: 1;
+  background-color: #F6F6F6;
+  font-weight: 300;
+  h1 {
+    font-size: 42px;
+    letter-spacing: 0.075em;
+    margin-top: 45px;
+    margin-bottom: 20px;
+  }
+  p {
+    color: #393F44;
+    margin-bottom: 15px;
+    line-height: 1.5em;
+  }
+}
