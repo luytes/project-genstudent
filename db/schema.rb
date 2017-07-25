@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714145112) do
+ActiveRecord::Schema.define(version: 20170725084515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,22 @@ ActiveRecord::Schema.define(version: 20170714145112) do
     t.string   "price_currency",         default: "GBP", null: false
     t.integer  "student_id"
     t.index ["student_id"], name: "index_services_on_student_id", using: :btree
+  end
+
+  create_table "studentapplications", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "sex"
+    t.string   "country"
+    t.string   "city"
+    t.string   "university"
+    t.string   "major"
+    t.string   "skills"
+    t.string   "picture"
+    t.string   "cv"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|

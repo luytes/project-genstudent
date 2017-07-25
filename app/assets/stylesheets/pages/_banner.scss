@@ -44,3 +44,21 @@
   color: black;
   background-color: white;
 }
+.student-bordered {
+  border-radius: 50px;
+  width: 330px;
+  height: 55px;
+  font-weight: 300;
+  text-transform: uppercase;
+  background: transparent;
+  background-color: $light-blue;
+  border-radius: 3em;
+  font-size: 1.125em;
+  padding: 0.8em;
+  transition: all .4s ease-in-out;
+  color: white;
+}
+.student-bordered:hover {
+  color: white;
+  background-color: $blue;
+}

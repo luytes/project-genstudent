@@ -25,7 +25,10 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create, :destroy]
   end
 
+  resources :studentapplications, only: [ :index, :create, :new ]
+
   get 'dashboard' => 'dashboards#show'
 
   root to: 'pages#home'
+
 end
