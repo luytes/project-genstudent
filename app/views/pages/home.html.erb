@@ -5,7 +5,9 @@
   <div class="row">
     <div class="banner-content">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
-        <h1>fnkfmaf;ajw<br> <h2>We connect startups with top university students</h2></h1>
+        <h1>
+          Hire a <span>Genstudent</span><br><h2>We connect startups with top university students<br></h2>
+        </h1>
       </div>
 
       <div class="col-xs-12 col-xs-12 col-md-6 col-md-offset-3 text-center space-top-20">
@@ -13,11 +15,16 @@
           <div class="btn bordered">browse services</div>
         <% end %>
       </div>
-       <div class="col-xs-12 col-xs-12 col-md-6 col-md-offset-3 text-center space-top-20">
+      <div class="col-xs-12 col-xs-12 col-md-6 col-md-offset-3 text-center space-top-30">
+        <%= link_to studentapplications_path do %>
+          <div class="gen-home-student"><p class="no-margin-bot">I'm a student</p></div>
+        <% end %>
+      </div>
+<!--        <div class="col-xs-12 col-xs-12 col-md-6 col-md-offset-3 text-center space-top-20">
         <%= link_to new_survey_path do %>
           <div class="btn bordered">Submit a Task</div>
         <% end %>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
