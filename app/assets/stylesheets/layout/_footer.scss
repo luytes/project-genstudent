@@ -1,6 +1,6 @@
 // Your footer style
 /* Footer design */
-#footer-white {
+.footer-white {
   // background-color: #2B363F;
   background-color: $dark-blue;
   padding: 30px 0;
@@ -9,19 +9,28 @@
   width: 100%;
   position: absolute;
 }
-#footer-white a {
+.footer-white .fa {
   font-size: 25px;
   padding: 0 15px;
   color: white;
   transition: 1s ease;
 }
-#footer-white ul {
+.footer-white ul {
   margin-bottom: 0;
 }
-#footer-white p {
+.footer-white p {
   margin-top: 10px;
   color: white;
 }
-#footer-white a:hover {
-  color: #CC7578;
+.footer-white .fa:hover {
+  color: $yellow;
+}
+.gen-footer-links {
+  line-height: 1.875em;
+  color: white;
+  transition: all 0.4s ease-in-out;
+}
+.gen-footer-links:hover {
+  color: #E6E6E6;
+  text-decoration: underline;
 }
