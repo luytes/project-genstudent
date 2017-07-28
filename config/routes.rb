@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  match '/privacy_policy' => 'pages#privacy_policy'
+  controller :pages do
+    get :privacy_policy
+  end
 
 end
