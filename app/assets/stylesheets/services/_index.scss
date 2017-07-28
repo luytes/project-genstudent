@@ -44,7 +44,6 @@
 }
 .index-category {
   // background-color: #2B363F;
-  background-color: $dark-green;
   padding: 25px 35px;
   margin: 20px 0;
   color: $dark-green;
@@ -96,7 +95,7 @@
       font-size: 16px;
       letter-spacing: 1px;
       // margin-bottom: 10px;
-      background-color: #2B363F;
+      background-color: $dark-blue;
       &:hover, &:focus {
           background-color: white;
           // border: 1px solid $dark-green;
@@ -109,10 +108,10 @@
       }
     }
     &:checked + label {
-      background-color: #252844;
+      background-color: $light-blue; //#252844;
       color:  white;
       &:hover, &:focus, &:active {
-        background-color: #252844;
+        background-color: $light-blue; //#252844;
         // border: 1px solid white;
         color: white;
       }
@@ -120,7 +119,7 @@
   }
 }
 .gen-width {
-  background-color: #2B363F;
+  background-color: $dark-blue;
   width: 14.625em;
   margin-right: 0;
   // position: absolute;
@@ -177,4 +176,10 @@
   .fa {
     letter-spacing: -4px;
   }
+}
+.gen-service-icon {
+  position: absolute;
+  top: -125px;
+  left: 120px;
+  color: white;
 }
