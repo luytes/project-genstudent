@@ -12,7 +12,7 @@
             <% elsif categ == "Research" %>
               <i class="fa fa-flask margin-right-10" aria-hidden="true"></i>
             <% else %>
-              <i class="fa fa-object-group margin-right-5" aria-hidden="true"></i>
+              <i class="fa fa-paint-brush margin-right-5" aria-hidden="true"></i>
             <% end %>
           <%= categ %>
           </label>
@@ -34,9 +34,23 @@
               <div class="col-xs-12 col-sm-6 col-md-4 space-top-20 selectable-card gen-underline" data-category="<%=service.category%>">
                 <%= link_to service_path(service.id) do%>
                 <div class="index-card text-left">
-                  <div class="bg-picture index-card-img" style="background-image: linear-gradient(-224deg, #2B363F 0%, #29306A 100%)">
+                  <div class="bg-picture index-card-img" style="background-image: linear-gradient(-224deg, #08DBF0 0%, #033D68 100%)"> <!-- #2B363F to #29306A -->
                   </div>
                   <div class="index-card-content no-margin">
+                    <div class="gen-service-icon">
+                      <% if service.category == "Social Media" %>
+                        <i class="fa fa-twitter fa-5x" aria-hidden="true"></i>
+                      <% end %>
+                      <% if service.category == "Content" %>
+                        <i class="fa fa-pencil fa-5x" aria-hidden="true"></i>
+                      <% end %>
+                      <% if service.category == "Research" %>
+                        <i class="fa fa-flask fa-5x" aria-hidden="true"></i>
+                      <% end %>
+                      <% if service.category == "Design" %>
+                        <i class="fa fa-paint-brush fa-5x" aria-hidden="true"></i>
+                      <% end %>
+                    </div>
                     <div class="avatar-bordered bg-picture avatar-height picture-absolute" style="background-image: url( <%= service.student.student_picture %>);">
                     </div>
                     <h4 class="index-card-title no-margin"><%= service.title %></h4>

@@ -44,8 +44,9 @@
   color: white;
 }
 .bordered:hover {
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: $blue;
+  border: 2px solid $blue;
 }
 .student-bordered {
   border-radius: 50px;
