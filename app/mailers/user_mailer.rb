@@ -26,4 +26,9 @@ class UserMailer < ApplicationMailer
     @survey = survey
     mail(to: 'info@genstudent.com', subject: "New Task from #{@survey.email}")
   end
+
+  def new_application(application)
+    @application = application
+    mail(to: 'info@genstudent.com', subject: "New Student Application from #{@survey.full_name}")
+  end
 end

@@ -8,4 +8,9 @@ class Studentapplication < ApplicationRecord
   validates :skills, presence: true
   validates :city, presence: true
   validates :university, presence: true
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
 end
