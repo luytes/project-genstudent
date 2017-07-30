@@ -1,4 +1,7 @@
 class Studentapplication < ApplicationRecord
+
+  SEX = ["Male", "Female", "Other"]
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :sex, presence: true
@@ -13,4 +16,9 @@ class Studentapplication < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
 
+  class << self
+    def sex
+      SEX
+    end
+  end
 end
