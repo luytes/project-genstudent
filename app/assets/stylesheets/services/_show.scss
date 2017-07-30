@@ -73,7 +73,16 @@
   line-height: 65px;
 }
 .btn-expand {
-
+}
+.gen-information-box {
+  border: 1px solid lightgray;
+  width: 100%;
+  padding: 1.25em 2.25em;
+  color: #333333;
+  span {
+    font-size: 1.125em;
+    font-weight: 600;
+  }
 }
 @media only screen and (max-device-width: 480px) {
   .subscribe-btn {
