@@ -31,4 +31,11 @@ class UserMailer < ApplicationMailer
     @application = application
     mail(to: 'info@genstudent.com', subject: "New Student Application from #{@application.full_name}")
   end
+
+  def new_student_application_notice(application)
+    @application = application
+    @student = @application.email
+    mail(to: @student, subject: "Thank you for your application #{@application.first_name}")
+  end
+
 end
