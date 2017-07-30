@@ -58,6 +58,10 @@ SimpleForm.setup do |config|
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :default
 
+  # Makes the country into a string. When you have a field name 'country', the simple_form will try to use the country_select.
+  # config.input_mappings = { /country/ => :string }
+
+
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.
   #   inline: input + label
