@@ -47,6 +47,9 @@
 .pad-top-20 {
   padding-top: 20px;
 }
+.pad-top-25 {
+  padding-top: 25px;
+}
 .pad-bot-10 {
   padding-bottom: 10px;
 }
@@ -107,7 +110,10 @@
   margin-top: 30px;
 }
 .space-top-home {
-  margin-top: 5em;
+  margin-top: 10em;
+}
+.space-top-home-2 {
+  margin-top: 5.625em;
 }
 .space-top-10 {
   margin-top: 10px;
@@ -133,12 +139,10 @@
 .space-nav {
   margin-top: 80px;
   z-index: 0;
-  // position: absolute;
 }
 .space-nav-ind {
   margin-top: 70px;
   z-index: 0;
-  // position: absolute;
 }
 .space {
   margin-bottom: 24px;
@@ -251,4 +255,9 @@ hr {
     margin-bottom: 0;
     letter-spacing: 0.03em;
   }
+}
+
+// Color
+.border-white {
+  border-color: white;
 }

@@ -25,11 +25,42 @@ div {
 .wrapper-grey p {
   font-size: 20px;
 }
+.wrapper-yellow {
+  background-color: $yellow;
+  color: white;
+  .fa {
+    color: white;
+  }
+}
+.gen-wrapper-slash {
+  background-color: $yellow;
+  width: 100%;
+  height: 3.25em;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  -webkit-transform-origin: 100%;
+  transform-origin: 100%;
+}
+.gen-wrapper-slashleft {
+  -webkit-transform: skewY(2.3deg);
+  transform: skewY(2.3deg);
+}
+.gen-wrapper-slashright {
+  -webkit-transform: skewY(2.3deg);
+  transform: skewY(-1.7deg);
+}
 .gen-header {
   letter-spacing: 0.0725em;
+  font-weight: 600;
+}
+.gen-header-why {
   font-size: .675em;
   color: black;
-  font-weight: 600;
+}
+.gen-header-how {
+  font-size: 32px;
+  color: white;
 }
 .subhead {
   h2 {
@@ -39,14 +70,18 @@ div {
     line-height: 1.5em;
   }
   h3 {
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 21px;
+    margin-bottom: 2em;
+    margin-top: 2em;
   }
   p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5em;
     letter-spacing: 0.045em;
     font-weight: 300;
+  }
+  h4 {
+    font-size: 21px;
   }
 }
 
@@ -142,7 +177,6 @@ a.expand {
   display: block;
   position: absolute;
   z-index: 20;
-  width: 300px;
   height: 60px;
   text-align: center;
   color: #fff;
@@ -163,6 +197,7 @@ a.expand {
   opacity: 0;
 }
 #effect .overlay a.expand {
+  font-weight: 300;
   left: 0;
   right: 0;
   top: 0;
@@ -177,7 +212,7 @@ a.expand {
   opacity: 1;
 }
 #effect .gen-img.hover .overlay a.expand {
-  top: 50%;
+  top: 40%;
   margin-top: -30px;
   opacity: 1;
 }
