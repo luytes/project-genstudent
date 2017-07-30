@@ -33,22 +33,25 @@ div {
   }
 }
 .gen-wrapper-slash {
-  background-color: $yellow;
   width: 100%;
   height: 3.25em;
   display: block;
   position: absolute;
   z-index: 1;
-  -webkit-transform-origin: 100%;
-  transform-origin: 100%;
 }
 .gen-wrapper-slashleft {
+  background-color: $yellow;
   -webkit-transform: skewY(2.3deg);
   transform: skewY(2.3deg);
+  -webkit-transform-origin: 100%;
+  transform-origin: 100%;
 }
 .gen-wrapper-slashright {
   -webkit-transform: skewY(2.3deg);
   transform: skewY(-1.7deg);
+  -webkit-transform-origin: 0%;
+  transform-origin: 0%;
+  background-color: #E5F0F1;
 }
 .gen-header {
   letter-spacing: 0.0725em;
