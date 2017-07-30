@@ -12,7 +12,7 @@ class StudentapplicationsController < ApplicationController
     if @studentapplication.save!
       UserMailer.new_application(@studentapplication).deliver_now
       flash[:thanks] = "Thank you for your application! We will be in touch within 24h."
-      redirect_to root_path
+      redirect_to studentapplications_path
     else
       render :new
     end
