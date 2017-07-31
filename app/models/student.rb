@@ -24,7 +24,6 @@ class Student < ApplicationRecord
     def deg
       DEGREE
     end
-
   end
 
 end

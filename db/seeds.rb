@@ -15,6 +15,7 @@ Survey.destroy_all
 User.destroy_all
 Order.destroy_all
 Enquire.destroy_all
+Studentapplication.destroy_all
 
 category = ["Content", "Social Media", "Design", "Research"]
 
