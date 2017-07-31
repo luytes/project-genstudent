@@ -8,8 +8,10 @@
   color: white;
 }
 .alert-info {
-  margin-top: 70px;
-  background: $green;
+  background: #67C569;
+  z-index: 20;
+  width: 100%;
+  position: absolute;
 }
 .alert-warning {
   margin-top: 70px;
