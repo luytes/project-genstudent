@@ -13,16 +13,17 @@
   padding: 15px;
   margin: 1px;
 }
+#no-resize::-webkit-input-placeholder {
+  color: $dark-blue;
+}
 #survey-steps form fieldset{
     border:none;
     padding-bottom:20px;
 }
 #survey-steps form legend{
     text-align:center;
-    // background-color:#f0f0f0;
     color: $dark-green;
     font-size:42px;
-    // text-shadow:1px 1px 1px #fff;
     font-weight:100;
     float:left;
     width:100%;
@@ -36,8 +37,8 @@
 
 #survey-steps form input:not([type=radio]),
 #survey-steps form textarea {
-    background: #ffffff;
-    border: 2px solid $light-green;
+    // background: #ffffff;
+    border: 2px solid $light-blue;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 0px;
@@ -45,37 +46,50 @@
     padding: 5px;
     width: 100%;
     margin: auto;
-    color: $dark-green;
 }
 #survey-steps input[type=submit] {
   width: 300px;
+  background-color: $light-blue;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+#survey-steps input[type=submit]:hover {
+  background-color: $blue;
+  border: 2px solid $blue;
+}
+#survey-steps input[type=submit]:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: $blue;
+  border: 2px solid $blue;
+  color: white;
 }
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: $light-green;
+  color: $dark-blue;
   background-color: white;
   border: none;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    $light-green;
+    color:    $dark-blue;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    $light-green;
+   color:    $dark-blue;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    $light-green;
+   color:    $dark-blue;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    $light-green;
+   color:    $dark-blue;
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
-   color:    $light-green;
+   color:    $dark-blue;
 }
 
 #survey-steps form select{
     background: #ffffff;
-    border: 2px solid $light-green;
+    border: 2px solid $light-blue;
     -moz-border-radius: 0px !important;
     -webkit-border-radius: 0px !important;
     border-radius: 0px !important;
@@ -94,7 +108,7 @@ textarea::-webkit-input-placeholder {
     text-align:right;
     margin-right:25px;
     line-height:26px;
-    color: $light-green;
+    color: $light-blue;
     text-shadow: none;
     font-weight: 300;
     text-transform: uppercase;
